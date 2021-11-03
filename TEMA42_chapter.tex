@@ -1,0 +1,311 @@
+\chapter{$\boldsymbol{\{H,a^*\}}$ y conexión con la teoría cuántica}
+\label{T38}
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+\vspace{2mm}
+En este capítulo calcularemos varios corchetes de Poisson.
+
+\vspace{2mm}
+
+\end{ejemplo}
+\end{adjustwidth}
+
+\vspace{5mm}
+
+Recordemos las formulas de temas anteriores:
+
+	
+\begin{equation}
+\tag{\ref{T40FTcampo}}
+\boldsymbol{ 
+\phi(t,x) \ = \ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)} \  \ \right]
+} 	
+\end{equation}
+
+\begin{equation}
+\tag{\ref{T40FTmomento}}
+\boldsymbol{ 
+ \pi(t,x)\ = \
+\dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \ (-i\omega) \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ - \ a^*(k)\ e^{i(\omega t-kx)} \ 
+\ \right]
+ }		
+\end{equation}
+
+\begin{equation}
+\tag{\ref{T38CP1+1-dim}}
+\boldsymbol{ \{a_k,a^*_q\} \ = \ -i\, 2\pi\, 2\omega\, \delta(k-q) } 	
+\end{equation}
+
+
+
+\begin{equation}
+\tag{\ref{T41a-a*}}
+\begin{split}
+\boldsymbol{
+a_k\, = \,  \int_{-\infty}^{+\infty} \dd x \ (i\, \pi\, + \, \omega\, \phi) \  e^{i(\omega t-kx)}  }
+\\
+\boldsymbol{
+a^*_q\, = \,  \int_{-\infty}^{+\infty} \dd x \ (-i\, \pi\, + \, \Omega\, \phi) \  e^{-i(\Omega t-qx)}  }
+\end{split}
+\end{equation}
+
+
+\section{Cálculo de corchetes de Poisson}
+
+Tenemos $\{a_k,a^*_q\}$, pero nos falta $\{a_k,a_q\} \text{ y } \ \{a^*_k,a^*_q\}$. Vamos a calcularlos, por variar, aplicando la definición de los corchetes de Poisson (en el capítulo anterior lo hicimos aplicando las propiedades de los corchetes de Poisson).
+
+Necesitaremos las derivadas funcionales de los $a_k$ respecto de $\phi(x)$ y de $\pi(x)$:
+
+$\displaystyle \fdv{a_k}{\phi(x)}= \omega\, e^{i(\omega t-kx)}\, ; \qquad \qquad  \fdv{a_k}{\pi(x)}= i\, e^{i(\omega t-kx)} \ \to \ \fdv{a_q}{\pi(x)}= i\, e^{i(\Omega t-qx)}$
+
+Vamos a por el corchete de Poisson:
+
+$\displaystyle  \{a_k,a_q\}=\int_{-\infty}^{+\infty} \dd z \left( \fdv{a_k}{\phi(z)} \fdv{a_q}{\pi(z)} - \fdv{a_k}{\pi(z)} \fdv{a_q}{\phi(z)}  \right) = $
+
+$\displaystyle =
+\int_{-\infty}^{+\infty} \dd z \left(
+\omega \, e^{i(\omega t-kx)} \,i\,  e^{i(\Omega t-qx)}  -  i\, e^{i(\omega t-kx)} \, \Omega \,  e^{i(\Omega t-qx)}
+ \right) = $
+ 
+ $\displaystyle =
+ \int_{-\infty}^{+\infty} \dd z \, 
+\omega\, e^{i(\omega t-kx)} \,i\,  e^{i(\Omega t-qx)}   -
+ \int_{-\infty}^{+\infty} \dd z \, 
+ i\, e^{i(\omega t-kx)} \, \Omega \,  e^{i(\Omega t-qx)}
+= $
+
+ $\displaystyle =
+i\omega \,  e^{i(\Omega t-qx)} 
+ \int_{-\infty}^{+\infty} \dd z \, 
+e^{i(\omega t-kx)}   \, - \, 
+i \Omega \,  e^{i(\Omega t-qx)}
+  \int_{-\infty}^{+\infty} \dd z \, 
+ e^{i(\omega t-kx)} 
+= $
+
+$\displaystyle =
+i \, (\omega-\Omega) \,  e^{i(\omega+\Omega)t} 
+ \int_{-\infty}^{+\infty} \dd z \, e^{-i(k+q)z} =
+i \, (\omega-\Omega) \,  e^{i(\omega+\Omega)t} \, 2\pi\, \delta(k+q) = (\to)$
+
+$\displaystyle 
+\textcolor{gris}{( k=-q; \omega=\omega ) } \ (\to) = i\, 0\, e^{i2\omega t} \, 2\pi = 0 $
+
+Conjugando el resultado anterior, $\ \left( \{a_k,a_q\}=0 \right)^* \ \to \ \{a^*_k,a^*_q\}=0$.
+
+Conclusión:
+
+\begin{equation}
+\label{T42-a,a-y-a,a^*}	
+\boxed{ \ \boldsymbol{
+ \{a_k,a_q\} \ = \  \{a^*_k,a^*_q\} \ = \ 0
+} \ }
+\end{equation}
+
+
+
+\vspace{5mm} \textbf{Corchete de Poisson del hamiltoniano con $\boldsymbol{a_k}$}:
+
+Hay dos formas de calcularlo, a partir de la definición o aplicando las propiedades del corchete de Poisson. Lo haremos de esta segunda forma dejando la primera como \textcolor{orange}{ejercicio}.
+
+
+
+
+
+Partimos de 
+
+\begin{equation}
+\tag{\ref{T40Hdiag}}
+	\boldsymbol{  
+	H \ = \ \dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd k}{2 \pi \omega} \ \omega \ 
+(a_ka^*_{k}+a^*_ka_{k}) 
+	 }
+\end{equation}
+
+de
+
+\begin{equation}
+\tag{\ref{T38CP1+1-dim}}
+\boldsymbol{ \{a_k,a^*_q\} \ = \ -i\, 2\pi\, 2\omega\, \delta(k-q) } 	
+\end{equation}
+
+Y de 
+
+\begin{equation}
+\label{T42-a,a-y-a,a^*}	
+\ \boldsymbol{
+ \{a_k,a_q\} \ = \  \{a^*_k,a^*_q\} \ = \ 0
+} 
+\end{equation}
+
+--- Para el cálculo del corchete de Poisson vamos a simplificar del $H$ los factores $\omega$ que estaban para poner explícitamente de manifiesto la invarianza Lorentz. 
+
+--- Para el hamiltoniano en el corchete de Poisson sustituiremos la variable muda $k$ por $q$.
+
+$\displaystyle \{H,a_k^*\} = \left\{ \, \dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd q}{2 \pi} \  (a_qa^*_{q}+a^*_qa_{q}) \ , \ a_k^* \, \right\} = 
+ \dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd q}{2 \pi} \ \left\{ \, a_qa^*_{q}+a^*_qa_{q} \ , \ a_k^* \, \right\} =  $
+
+
+$\displaystyle =  \dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd q}{2 \pi} \ \left[ \, 
+a_q \cancelto{0}{\{a_q^*,a_k^*\}} \ + \ \{a_q,a_k^*\}a_q^* \ + \ a_q^*\{a_q,a_k^*\} \ + \ \cancelto{0}{\{a_q^*,a_k\}}a_q
+\, \right] = $
+
+$\displaystyle =  \dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd q}{2 \pi} \ \left[ \,  \{a_q,a_k^*\}a_q^* \ + \ a_q^*\{a_q,a_k^*\} \, \right]= $
+
+$\displaystyle =
+\dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd q}{2 \pi} \ \left[ \,  
+-i\, 2\pi\, 2\omega\, \delta(q-k)\, a_q^* \ - \ a_q^*\, -i\, 2\pi\, 2\omega\, \delta(q-k)
+ \, \right]= -i\, \int \dd k \ \delta(q-k) \ a^*_q  = \ \textcolor{gris}{ ( k=q ) } \ $, finalmente, (demostrar la segunda igualdad como \textcolor{orange}{ejercicio})
+ 
+ 
+\vspace{5mm}
+\begin{large} 
+\begin{equation}
+\label{T42CPHya-a^*}
+\boldsymbol{ \{H,a_k^*\} \ = \  -i\, \omega \, a_k^*} \qquad \qquad \qquad  \boldsymbol{  \{H,a_k\} \ = \ - i\, \omega \, a_k }
+\end{equation}
+\end{large}
+
+\vspace{5mm}
+
+\section{Conexión con QFT}
+\vspace{5mm}
+
+\begin{table}[H]
+\center
+\begin{tabular}{lll}
+\multicolumn{1}{c}{Mecánica Clásica} & \multicolumn{1}{c}{$\qquad$} & \multicolumn{1}{c}{QFT (postulado)} \\
+ &  &  \\ \hline
+ &  & \\
+$A^*$  &  & $A^\dag$ \\
+  &  & \\
+ $\{A,B\}=C$  &  &$[A,B]=i\hbar C$ \\
+  &  & \\
+  $\{a_k,a_q^*\}=-i2\pi 2\omega \delta(k-q)$ &  & $[a_k,a_q^\dag]=i\hbar (-i2\pi 2\omega \delta(k-q)=2\pi 2\, \hbar \omega \, \delta(k-q)$ \\
+   &  & \\
+$\{H,a_k^*\}=-i\omega a_k$ &  & $ [H,a_k^\dag] = \hbar \omega a_k^\dag \, ; \ [H,a_k] = -\hbar \omega a_k$  \\
+   &  & \\
+$\{ \phi(x), \pi(y )\}=\delta(x-y)$   &  & $[\phi(x),\pi(y)]=i\hbar \delta(x-y)$\\
+\end{tabular}
+\end{table}
+
+
+
+\vspace{10mm}
+
+\section{Ejercicios propuestos}
+\vspace{10mm}
+\begin{ejercicio}
+
+Demostrar\footnote{Ejercicios resueltos por Rodolfo Guidobono}, usando la definición del corchete de Poisson, que $\ \{H,a^*_k\}\ = \ -i\, \omega \, a^*_k$
+
+
+	
+\end{ejercicio}
+
+\color{MidnightBlue}
+
+Recordemos que $\quad \displaystyle H \ = \  \int_{-\infty}^{+\infty} \dd x \ \left( \dfrac{\pi^2(x)}{2} \ + \ \dfrac{(\phi^2(x))}{2} \ + \ \dfrac{m^2}{2}\phi \right) $
+
+y que $\quad a^*_k \ = \displaystyle \ \int_{-\infty}^{+\infty} \dd x\ \left[\, -i\, \pi(x) \ + \ \omega\, \phi(x) \, \right] \ e^{-i(\omega t-kx)}$
+
+$\displaystyle \{H,a^*_k\} \ = \  \int_{-\infty}^{+\infty} \dd z \left( \, \underbrace{\fdv{H}{\phi(z)}}_{(4)} \ \underbrace{\fdv{a^*_k}{\pi(z)}}_{(1)} \, - \, \underbrace{\fdv {H}{\pi(z)}}_{(2)} \ \underbrace{\fdv{a^*_k}{\phi(z)}}_{(3)} \, \right) $
+
+$\triangleright \ (1) \qquad \displaystyle \fdv{A^*_k}{\pi(x)}=-i\, e^{-i(\omega t - kx)}$
+\hspace{1cm}
+$\triangleright \ (2) \qquad \displaystyle \fdv{A^*_k}{\phi(x)}= \omega\, e^{-i(\omega t - kx)}$
+\hspace{1cm}
+$\triangleright \ (3) \qquad \displaystyle \fdv{H}{\pi(x)}=\pi(x)$
+
+Vamos a por el punto $ \ (4) \ , \ $ recodemos que $\ \displaystyle \fdv{F(\phi)}{\phi(x)} = \pdv{F}{\phi(x)} \, - \, \pdv{x}\, \pdv{F}{\phi'(x)} $
+
+$\displaystyle \fdv{H}{\phi(x)}= \pdv{H}{\phi(x)}-\pdv{x} \pdv{H}{\phi'(x)} = m^2\phi(x)-\pdv{x}(\phi'(x))= +m^2\phi(x)-\phi''(x)=   -\phi''(x)+m^2\phi(x)\ $
+
+ Klein-Gordon: $\ \ddot \phi(x)-\phi''(x)+m^2\phi(x)=0 \ \ \Rightarrow \ \ \displaystyle \fdv{H}{\phi(x)}=-\ddot \phi(x)$
+
+Con $\quad \displaystyle \phi(x)\ = \ \dfrac 1 2\,  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega} \ \left[ \, a_k\, e^{-i(\omega t-kx)}\ + \ a^*_k\, e^{i(\omega t -kx)} \, \right]$
+
+
+$\dot \phi(x) \ = \ \dfrac 1 2\,  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega} \ \left[ \, a_k\, (-i\omega)\, e^{-i(\omega t-kx)}\ + \ a^*_k\, (i\omega)\, e^{i(\omega t -kx)} \, \right]$
+
+$\ddot \phi(x) \ = \ \dfrac 1 2\,  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega} \ \left[ \, a_k\, (-i\omega)^2\, e^{-i(\omega t-kx)}\ + \ a^*_k\, (i\omega)^2\, e^{i(\omega t -kx)} \, \right] \ = \ -\omega^2\, \phi(x) \, . \ $ Luego
+
+$\triangleright \ (4) \qquad \displaystyle \fdv{H}{\phi(x)}\ = \ \omega^2\, \phi(x)$
+
+Incorporando los resultados $\ (1)\, , (2)\, , (3)\ \text{ y } \ (4) \ $ a la definición del corchete de Poisson,
+
+$\displaystyle \{H\, , \, a^*_k\} \ = \ \int_{-\infty}^{+\infty} \dd x\ \left[ \, \omega^2\; \phi(x) \, (-i\, e^{-i(\omega t-kx)} \ - \ \omega\, e^{-i(\omega t-kx)} \, \pi(x) \, \right] = $
+
+$\displaystyle = \ -i\, \omega \, \ \int_{-\infty}^{+\infty} \dd x\ \left[ \, \omega\, \phi(x) \ + \ \dfrac 1 i \, \pi(x) \, \right] \ = \ 
+ \ -i\, \omega \, \ \int_{-\infty}^{+\infty} \dd x\ \left[ \, -i\, \pi(x) \ + \ \omega\, \phi(x)  \, \right] $
+ 
+Luego\footnote{Ejercicio 1 resuelto por Rodolfo Guidobono.}  $\quad \boldsymbol \{H \, , \, a_k^*\}  \ = \ -i\, \omega\, a_k^*$ \hspace{11cm} $\Box$
+
+
+\color{orange}
+
+\vspace{10mm}
+
+\begin{center}\rule{250pt}{0.5pt}\end{center}
+
+\vspace{10mm}
+
+
+\begin{ejercicio}
+
+Demostar que $ \qquad 	 \{H,a_k\} \ = \ i\, \omega \, a_k $
+
+\end{ejercicio}
+
+\color{MidnightBlue}	
+
+Usaremos las propiedades del corchete de Poisson y tenemos que $\ \displaystyle H=\dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi} \ (a_ka_k^*\, + \, a_k^*a_k)$
+
+$\displaystyle \{H,a_k\}= \underbrace{\bcancel{\cancel{ \left\{ \dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi} \ (a_ka_k^*\, + \, a_k^*a_k) \, , \, a_k \right\} }}}_{k\to q, \text{-indice mudo}} = 
+\left\{ \dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi} \ (a_qa_q^*\, + \, a_q^*a_q) \, , \, a_k \right\}$
+
+Recordemos: $\qquad \{a_k,a_q\}=0\, ; \qquad \{a_k,a_q^*\}=-i\, 4\pi \omega\, \delta(k-q) = -\{a_q^*,a_k\}$
+
+$\{\, a_qa_q^*\, + \, a_q^*a_q \, , \, a_k \, \} = a_q\{a^*_q,a_k\} \, + \,       \{a_q,a_k\}a_q^*  + \  a^*_q\{a_q,a_k\}\, + \, \{a_q^*,a_k\}a_q = $
+
+$=a_q	\, i\, 4\pi \omega\, \delta(k-q) \ + \ 0 \ + \ 0 \ + \ i\, 4\pi \omega \delta(k-q)\ a_q$
+
+$\displaystyle \{H,a_k\}=  \dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi} \  \left( \, 
+a_q	\, i\, 4\pi \omega\, \delta(k-q) \ + \ i\, 4\pi \omega \delta(k-q)\ a_q
+\, \right) = \dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi} \, i \ 8\pi \omega\, a_q\, \delta(k-q)$
+
+Como $\ q=k\ $, nos queda finalmente que\footnote{Ejercicio 2 resuelto por Rodolfo Guidobono.} $\quad \{H,a_k\} \ = \ i\, \omega\, a_k$  \hspace{7cm}$\Box$
+
+
+\vspace{10mm}
+
+\begin{center}\rule{250pt}{0.5pt}\end{center}
+
+\vspace{10mm}
+
+
+
+Si $ \ \{ H,a_k^*\} = - i \omega a_k \ $ , conjugando se obtiene $ \ \{H,a_k\}=i\omega a_k \ $ \footnote{Ejercicio resuelto por Roger Balsach.}
+
+\vspace{5mm}$\ \displaystyle H^*=\dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi} \ (a_ka_k^*\, + \, a_k^*a_k)^* =\dfrac 1 4  \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi} \ (a_k^*a_k\, + \, a_ka_k^*)=H$
+
+Por lo que $\quad \{H,a_k\}=\{H^*,a_k^*\}^*=\{H,a^*_k\}=(-i	\omega a_k)^*=i\omega a_k $ \hspace{6.5cm} $\Box$
+
+\color{black} 
+
+
+
+
+
+
+

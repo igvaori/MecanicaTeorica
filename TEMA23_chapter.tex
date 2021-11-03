@@ -1,0 +1,192 @@
+\chapter{Reformulación del oscilador armónico}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+El hamiltoniano del oscilador armónico 1-dim es $\ H=\dfrac{p^2}{2m}+\dfrac{m\omega^2}{2}q^2$ y los corchetes de Poisson cumplen, $\ \{q,p\}=1;\ \ \{q,q\}=\{p,p\}=0$
+
+Vamos a reformular el hamiltoniano en unas variables que serán adimensionales, lo cual facilitará el tránsito a MQ (mecánica cuántica). 
+
+Estos cálculos son previos al siguuiente par de temas que se dedicarán a la transformación de Bogoliubov.
+
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+\section{Reformulación del oscilador armónico}
+
+Como el Hamiltoniano tiene unidades de energía, si lo dividimos por  $\ \hbar \omega\ $ el resultado será adimensional (hacemos esto para facilitar el tránsito a MQ, podríamos haber escogido dividir por $mc^2$ para que fuese adimensional, pero escogemos $\hbar \omega$ por el motivo anterior).
+
+
+$\dfrac{H}{\hbar \omega} = \dfrac{p^2}{2m\hbar \omega} + \dfrac{m\omega}{2\hbar} q^2 \qquad$ Como $[H]=[\hbar \omega]=$energía $\ \to \ \left[ \dfrac{H}{\hbar \omega} \right]=1$, adimensional. Despejando,
+
+$H = \hbar \omega \ \left[ \dfrac {p^2}{2m\hbar \omega } + \dfrac{m\omega}{2\hbar} q^2 \right]\, , \ $ siendo el corchete adimensional.
+
+$H = \hbar \omega \ \left[  \left( \dfrac{p}{\sqrt{2m\hbar \omega}} \right)^2 + \left( \sqrt{\dfrac{m\omega}{2\hbar}} q\right)^2 \right] = \hbar \omega \left[ \widetilde q^2+ \widetilde p^2   \right]\ quad \text{ con } \ [\widetilde q]=[\ \widetilde q]=1\, , \ $ adimensionales.
+
+
+\vspace{5mm}
+\begin{definition}
+	
+	\begin{equation}
+	\label{T23ROAqptildes}
+	\boldsymbol{
+	\widetilde p \ = \  \dfrac{p}{\sqrt{2m\hbar \omega}} \ ; \qquad  
+	\widetilde q \ = \  \sqrt{\dfrac{m\omega}{2\hbar}}\  q  
+	}
+	\qquad \qquad \qquad \qquad [\widetilde q ]=[\widetilde p ]=1
+	\end{equation}
+\end{definition}
+
+\vspace{5mm} Veamos que vale el corchete de Poisson de estas nuevas coordenadas.
+ 
+$\{\widetilde q,\widetilde p \}=\left\{ \sqrt{\dfrac{m\omega}{2\hbar}}\  q  , \dfrac{1}{\sqrt{2m\hbar \omega}}\ p  \right\} = \sqrt{\dfrac{m\omega}{2\hbar}} \dfrac{1}{\sqrt{2m\hbar \omega}} \cancelto{1}{\{q,p\}} =\sqrt{\dfrac{\cancel{m} \bcancel{\omega}}{2\hbar 2 \cancel{m} \bcancel{ \omega}}} = \dfrac 1{2\hbar}$
+
+\vspace{5mm} Nos preguntamos, ?`el cambio $\ \{q,p\} \ \to \ \{\widetilde q, \widetilde p \} \ $ es una transformación canónica? La respuesta es NO. Veámoslo de dos formas distintas:
+
+------ $\{q,p\}= 1 \ \to \ \{\widetilde q,\widetilde p \} \dfrac 1{2\hbar} \neq 1 \ \Rightarrow \ \ $ No se conserva el corchete de Poisson, la transformación no es canónica.
+
+------ Con el determinante de la matriz jacobiana:
+
+$M=\mqty( \displaystyle \pdv{\widetilde q}{q} & \displaystyle \pdv{\widetilde q}{p} \\ \displaystyle \pdv{\widetilde p}{q} & \displaystyle \pdv{\widetilde p}{p} )=\mqty( \sqrt{\dfrac{m\omega}{2\hbar}} & 0 \\ 0 & \dfrac{1}{\sqrt{2m\hbar \omega}}) \ \to \ |M|=\dfrac 1 {2\hbar} \neq 1\, . \ $  La transformación no es canónica.
+
+
+El hecho de que la transformación $\ \{q,p\} \ \to \ \{\widetilde q, \widetilde p \} \ $ no sea una transformación canónica implica que las ecuaciones del movimiento no serán las mismas que en las variables $q,p$ originales, que eran $\dot q=\displaystyle \pdv{H}{p}\ $ y $\ \dot p=-\displaystyle \pdv{H}{q}$
+
+\vspace{5mm} Veamos cuáles son ahora, con $\widetilde q, \widetilde p$, las ecuaciones del movimiento:
+
+
+$\dot{\widetilde q}= \displaystyle \sqrt{\dfrac{m\omega}{2\hbar}} \ \dot q= \sqrt{\dfrac{m\omega}{2\hbar}}\  \pdv{H}{p}= \sqrt{\dfrac{m\omega}{2\hbar}} \ \pdv{H}{\widetilde p} \ \pdv{\widetilde p}{p} = \sqrt{\dfrac{m\omega}{2\hbar}}\  \pdv{H}{\widetilde p} \ \dfrac 1 {\sqrt{2m\hbar \omega}}= \dfrac 1{2\hbar} \ \pdv{H}{\widetilde p}$
+
+
+$\dot{\widetilde p }= \displaystyle \dfrac 1 {\sqrt{2m\hbar \omega}} \ \dot p = -\dfrac 1 {\sqrt{2m\hbar \omega}} \ \pdv{H}{q} =  -\dfrac 1 {\sqrt{2m\hbar \omega}} \ \pdv{H}{\widetilde q}\ \pdv{\widetilde q}{q}=
+ -\dfrac 1 {\sqrt{2m\hbar \omega}} \ \pdv{H}{\widetilde q} \ \sqrt{\dfrac{m\omega }{2\hbar}} = -\dfrac 1{2\hbar} \ \pdv{H}{\widetilde q}$
+ 
+ 
+ \begin{equation}
+ \label{T23ROAecmovqptilde}
+ \subrayado{  \ \boldsymbol{
+ \dot{\widetilde q} \ = \ \dfrac 1{2\hbar} \ \pdv{H}{\widetilde p}\ ;
+ \qquad \
+ \dot{\widetilde p }\ = \ -\dfrac 1{2\hbar} \ \pdv{H}{\widetilde q}
+ } \ }	
+ \end{equation}
+
+
+\vspace{5mm} Veamos ahora como se expresa el corchete de Poisson para estas nuevas variables $\widetilde q, \widetilde p$. Para ello (como lo hicimos en su momento) hay que ver que ocurre con $\dot f$:
+
+$\dot f(\widetilde q, \widetilde p,t)= \displaystyle \pdv{f}{\widetilde q}\pdv{\widetilde q}{t} + \pdv{f}{\widetilde p}\pdv{\widetilde p}{t} + \pdv{f}{t}= 
+	\pdv{f}{\widetilde q}\dot{\widetilde q} + \pdv{f}{\widetilde p}\dot{\widetilde p} + \pdv{f}{t}= 
+	\subrayado{ \dfrac 1 {2\hbar} 
+	 \left[\pdv{f}{\widetilde q}\pdv{H}{p} - \pdv{f}{\widetilde p}\pdv{H}{q} \right] }
+	 + \pdv{f}{t} $
+
+
+Luego, en notación simpléctica \begin{scriptsize} \textcolor{gris}{$\qquad \left[J=\mqty(0&1\\-1&0)\right]$} \end{scriptsize}
+
+\begin{equation}
+\displaystyle \{A,B\}_{\widetilde q, \widetilde p} \ = \  \dfrac 1 {2\hbar} \ \left[\pdv{f}{\widetilde q}\pdv{H}{p} - \pdv{f}{\widetilde p}\pdv{H}{q} \right] \ = \  \dfrac 1 {2\hbar} \ \left( \pdv{A}{z} \right)^T \ J \ \left( \pdv{B}{z} \right)   
+\end{equation}
+
+Al no ser una transformación canónica, aparece el factor  $\dfrac 1 {2\hbar}$.
+
+\vspace{5mm} Vamos a efectuar una nueva transformación (que aparecerá en MQ y TQC).
+
+\begin{definition}
+
+Definimos, $\qquad \qquad \boldsymbol{ a \ = \ \widetilde q \ +\  i \widetilde p}\qquad  $ 	 y su conjugada, $\quad \qquad \boldsymbol{a^* \ = \ \widetilde q \ -\  i \widetilde p} $
+\end{definition}
+ 
+
+Estamos interesados en ver como queda el hamiltoniano en estas nuevas variables $a,a^*$, ver como quedan los corchetes de Poisson y encontrar las ecuaciones del movimiento.
+
+\vspace{5mm} $\triangleright\quad$ Hamiltoniano $\ H(a,a^*)$
+
+$a \in \mathbb C \ \to \ \begin{cases} \ a=\widetilde q + i \widetilde p  \\  \ a^*=\widetilde q - i \widetilde p \end{cases} \ \to \ a \ a^* =(\ \widetilde q + i \widetilde p )(\widetilde q - i \widetilde p )=\widetilde q^2+\widetilde p^2$
+
+Luego, $\ \boldsymbol{H=\hbar w \ (a\ a^*)} \ \in \mathbb R$
+
+\vspace{5mm} $\triangleright\quad$ Corchetes de Poisson, $\ \{\ ,\ \}\ \ a,a^*$
+
+\begin{small}
+$\boldsymbol{\{a,a\}}=\dfrac 1{2\hbar} \mqty( \displaystyle \pdv{a}{\widetilde q} \\\displaystyle \pdv{a}{\widetilde p})^T \mqty(0&1\\-1&0) \mqty( \displaystyle \pdv{a}{\widetilde q} \\\displaystyle \pdv{a}{\widetilde p})= \dfrac 1{2\hbar} \mqty(1&i) \mqty(0&1\\-1&0)\mqty(1 \\ i)=\dfrac 1{2\hbar} \mqty(1&i)\mqty(i\\-1)=\dfrac 1{2\hbar}(i-i)=\boldsymbol{0}$ 
+
+
+$\boldsymbol{\{a^*,a^*\}}=\dfrac 1{2\hbar} \mqty( \displaystyle \pdv{a^*}{\widetilde q} \\\displaystyle \pdv{a^*}{\widetilde p})^T \mqty(0&1\\-1&0) \mqty( \displaystyle \pdv{a^*}{\widetilde q} \\\displaystyle \pdv{a^*}{\widetilde p})= \dfrac 1{2\hbar} \mqty(1&-i) \mqty(0&1\\-1&0)\mqty(1 \\ -i)=\dfrac 1{2\hbar} \mqty(1&-i)\mqty(-i\\-1)=\boldsymbol{0} $
+
+$\boldsymbol{\{a,a^*\}}=\dfrac 1{2\hbar} \mqty( \displaystyle \pdv{a}{\widetilde q} \\\displaystyle \pdv{a}{\widetilde p})^T \mqty(0&1\\-1&0) \mqty( \displaystyle \pdv{a^*}{\widetilde q} \\\displaystyle \pdv{a^*}{\widetilde p})= \dfrac 1{2\hbar} \mqty(1&i) \mqty(0&1\\-1&0)\mqty(1 \\ -i)=\dfrac 1{2\hbar} \mqty(1&i)\mqty(-i\\-1)=\dfrac {-2i}{2\hbar}= \boldsymbol{\dfrac{-i}{\hbar}}$ 
+
+\vspace{5mm} $\triangleright\quad$ Ecuaciones de movimiento, $ \ a,a^*$
+
+$\boldsymbol{ \dot a}=\dot{\widetilde q} + i \dot{\widetilde p} =\displaystyle \dfrac{1}{2\hbar} \pdv{H}{\widetilde p} -i \dfrac{1}{2\hbar} \pdv{H}{\widetilde q}=\dfrac{1}{2\hbar} \hbar \omega (2\widetilde p - i 2 \widetilde q)=\omega (\widetilde p - i\widetilde q)=-i\omega(\widetilde q + i\widetilde p)=\boldsymbol{-i\omega a}$
+\end{small}
+
+Esta es la ecuación de movimiento del oscilador armónico en las variables $a , a^* $ \textcolor{gris}{(conjugando, $\ \dot  a^*=i\omega a^*$)}
+
+\rule{200pt}{0.1pt} 
+
+\vspace{5mm} Resolvamos la ecuación del movimiento y deshagamos cambios de variables ($a,a^* \to \widetilde q, \widetilde p \to q,p$) para ver si llegamos a la ecuación tradicional de un oscilador armónico.
+
+$H=\hbar \omega a\ a^*$, ecuación de movimiento: $\dot a=-i\omega a \to \displaystyle \dv{a}{t}=-i\omega a \to \textcolor{gris}{\int} \dfrac{\dd a}{a}= \textcolor{gris}{\int} (-i\omega \dd t) $
+
+Integrando, $\ \ln a= -i\omega t + C;\quad C=A+iB,\ C\in \mathbb C;\ A,B \in \mathbb R$
+
+$a=e^{-i\omega t + C)}=e^{-i(\omega t-B)} e^A\, ; \qquad e^A=D\in \mathbb R \qquad \to \qquad \boldsymbol { a=De^{-i(\omega t - B)} }$
+
+
+Como $H=\hbar \omega a a^*=E=cte \ = \ h\omega \ =De^{-i(\omega t - B)}\ =De^{o(\omega t - B)} = h\omega \ D \ \to \ D=\sqrt{\dfrac{E}{\hbar \omega}}$
+
+En función de la energía, $\quad  \boldsymbol{ a \ = \ \sqrt{\dfrac{E}{\hbar \omega}} \ e^{-i(\omega t-B)} }$
+
+Nos falta determinar el significado físico de $B$:
+
+Como $a+a^*=(\widetilde q+i\widetilde p)+(\widetilde q-i\widetilde p)=2\widetilde q \ \to \ \widetilde q=\dfrac{a+a^*}{2}$, con lo que
+
+$\boldsymbol{\widetilde q} = \dfrac 1 2 \sqrt{\dfrac{E}{\hbar \omega}} \left( e^{-i(\omega t - B)} +  e^{i(\omega t - B)} \right) = \boldsymbol{ \sqrt{\dfrac{E}{\hbar \omega}}  \cos(\omega t - B) }$
+$\qquad$\textcolor{gris}{Hemos usado que $\quad \cos z=\dfrac{e^z+e^{-z}}{2}$}
+
+Recordado $\widetilde q=\sqrt{\dfrac{m\omega}{2\hbar}}q$, tendremos que $\ \sqrt{\dfrac{m\omega}{2\hbar}}q=\sqrt{\dfrac{E}{\hbar \omega}} \ e^{-i(\omega t-B)}\ $ 
+
+con lo que la posición del oscilador será $\boldsymbol {q(t)=\sqrt{\dfrac{2E}{m\omega^2}}\cos (\omega t-B)}$
+
+Si $t=0 \ \to \ q(0)=\cos (-B),\ \ B$ representa una fase, $B=\phi_0$ y 
+$\boldsymbol {q(t)=\sqrt{\dfrac{2E}{m\omega^2}}\cos (\omega t-\phi_0)}$ 
+
+$E=cte=\dfrac 1 2 m v^2 + \dfrac{m\omega^2}{2} x^2$, cuando $v=0 \ \to x=\mathcal A$, amplitud del oscilador, en esta posición $E=\dfrac{m\omega^2}{2}\mathcal A$ y la posición, en función de la amplitud es:
+
+$$\subrayado{ \  \boldsymbol{
+q(t) \ =
+} \ }
+\ \sqrt{\dfrac 2{m\omega^2} \dfrac{m\omega^2}{2} \mathcal A^2} \cos (\omega t- \phi_0) \ 
+\subrayado{ \ 
+\boldsymbol{ \ = \mathcal A \ \cos(\omega t-\phi_0) }
+\ }$$
+
+que ahora sí reconocemos como la ecuación típica de un oscilador armónico.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,161 @@
+\chapter{Formulación Hamiltoniana del campo \emph{Klein-Gordon}}
+\label{T38}
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+\vspace{2mm}
+En este capítulo veremos la formulación hamiltoniana del campo escalar de Klein-Gordon y los corchetes de Poisson del campo que tendrán una correspondencia directa con los conmutadores de QFT.
+\vspace{2mm}
+
+\end{ejemplo}
+\end{adjustwidth}
+
+\vspace{5mm}
+
+\section{Formulación hamiltoniana del campo escalar de 	\emph{Klein-Gordon}}
+
+Campo de Klein-Gordon: $\quad\displaystyle S[\phi(x)] \ = \ \int \dd t \ \dd x \ \left( \dfrac 1 2 \partial_\mu \phi \, \partial^\mu \phi \, - \, \dfrac{m^2}2 \, \phi^2 \right) $
+
+En mecánica clásica para un número finito de grados de libertad teníamos que,
+
+$\displaystyle S \ = \ \int \dd t \ L \quad \to \quad L=\int \dd x \ \mathcal L \quad  \to \quad \mathcal L\ = \ \dfrac 1 2 \partial_\mu \phi \, \partial^\mu \phi \, - \, \dfrac{m^2}2 \, \phi^2$
+
+Siendo $\mathcal L$ la densidad lagrangiana, que más explícitamente podemos expresar como:
+
+$\displaystyle \mathcal L \ = \ \dfrac 1 2 \, \left( \, \dot \phi^2 \, - \, {\phi'}^2 \, - \, m^2 \phi^2 \, \right) \quad \text{ con } \quad \dot \phi=\pdv{\phi}{t} \ \text{ y } \ {\phi'}=\pdv{\phi}{x}$
+
+También en mecánica clásica para un número finito de grados de libertad definíamos el momento canónico conjugado como $\ \displaystyle p \ = \ \pdv{L}{\dot q}$
+
+Como ahora $L$ es un funcional, $\displaystyle L[\phi]=\int \dd x \, \mathcal L(\phi,\dot \phi, \phi')\, , \ $ tendremos que usar \emph{derivadas funcionales} y nuestro momento canónico conjugado, que ahora se representa por $\boldsymbol \pi$, será: $\ \boldsymbol{ \displaystyle \pi \ = \ \pdv{L[\phi]}{\dot \phi}=\dot \phi}$
+
+Vamos a por nuestro hamiltoniano que en  mecánica clásica para un número finito de grados de libertad expresábamos como $\ \displaystyle H(q,p)=\sum_{i=1}^n \, p\, \dot q - L$ y traducido al caso de funcionales será:
+
+$\displaystyle H[\phi,\pi] = \left( \int \dd x \ \pi \ \dot \phi \right) - L =  \int \dd x \, \pi \, \pi -\int \dd x \, \mathcal L = \int \dd x \left[ \pi^2-\left( \dfrac 1 2 \phi^2-\dfrac 1 2 {\phi'}^2-\dfrac{m^2}2 \phi^2 \right) \right] $
+
+Como $\dot \phi=\pi \ \to \ \displaystyle H(\phi,\pi] = \int \dd x \left[ \pi^2-\left( \dfrac 1 2 \pi^2-\dfrac 1 2 {\phi'}^2-\dfrac{m^2}2 \phi^2 \right) \right]\ $ y tendremos,
+
+\begin{equation}
+\label{T38HCEKG}
+\boldsymbol{ \subrayado{ \ 
+H[\phi,\pi] \ = \ \int \dd x \ \left( \, \dfrac 1 2 \pi^2 + \dfrac 1 2 {\phi'}^2 + \dfrac{m^2}2 \phi^2 \, \right) 
+\ } }	
+\end{equation}
+
+La expresión $\ \dfrac 1 2 \pi^2 + \dfrac 1 2 {\phi'}^2 + \dfrac{m^2}2 \phi^2 \ = \ \mathcal H(\pi,\phi,\phi')=T^{00}\, , \  $ es la densidad de energía.
+
+Busquemos cuales serán las ecuaciones equivalentes a las de Hamilton en mecánica clásica de un número finito de grados de libertas. Allí, las ecuaciones de Hamilton eran $\ \displaystyle \dot q=\pdv{H}{p} \, ; \ \dot p = -\pdv{H}{q}\, . \ $ Ahora tendremos,
+
+\begin{equation}
+\label{T38EHCKG}	
+\boldsymbol{
+\subrayado{ \ \dot \phi \ = \ \fdv{H}{\pi} \ }\ ; \qquad \qquad \qquad  \subrayado{ \ \dot \pi \ = \ -\fdv{H}{\phi} \ }
+}
+\end{equation}
+
+Ecuaciones que deberían ser equivalentes a la ecuación de Kein-Gordon que obtuvimos en el capítulo 33 \emph{`Campo escalar con masa'}, ec. \ref{T33EcK-G}. Comprobémoslo, mirando el hamiltoniano (ec. \ref{T38HCEKG}),
+
+$\displaystyle \triangleright \quad \fdv{H}{\pi}=\pi \ ; \qquad \triangleright \quad \fdv{H}{\phi}=\pdv{H}{\phi}-\pdv{x} \left( \pdv{H}{\phi'} \right) = m^2\phi-\pdv{x}(\phi')=m^2\phi-\phi''$
+
+Llevado a las ecuaciones de Hamilton,
+
+$\displaystyle \triangleright \quad \pi=\phi'\, , \text{ sí } \text{ y }  \quad \triangleright \quad m^2\phi-\phi''=-\dot \pi = - \ddot \phi$
+
+De esta última ecuación, $\ \boldsymbol{ \ddot \phi - \phi'' + m^2 \phi \ = \ 0 }\, , \ $ que es la ecuación de Klein-Gordon (ec. \ref{T38HCEKG}).
+
+\vspace{5mm}
+\section{Corchetes de Poisson}
+
+En el capítulo \ref{T20CP} vimos la definición de corchetes de Poisson en la ec. \ref{T20CPdef}:
+
+$\{A,B\} \ = \ \displaystyle \sum_{i=1}^n \pdv{A}{q_i}\pdv{B}{p_i} \ - \ \pdv{A}{q_i}\pdv{B}{p_i}$
+
+En la generalización a campos, $\ A,B \text{ son funcionales},\ \ \partial \to \delta ,\ \ \sum \to \int$:
+
+\begin{equation}
+\label{T39CPcampos}	
+\boldsymbol{
+\{A,B\} \ = \ \int \dd x \, \left( \, \fdv{A}{\phi(x)} \, \fdv{B}{\pi(x)} \ - \ \fdv{A}{\pi(x)}\, \fdv{B}{\phi(x)} \, \right)
+}
+\end{equation}
+
+
+Como $\ \{q_i,p_i\}\ =  \delta_{ij} \, , \  $ ahora el $\delta$ de Kronecker se convertirá en el $\delta$ de Dirac y deberá ocurrir que $\ \{\phi(x),\pi(x)\} = \delta(x-y)\, , \  $ ?`será esto cierto?
+
+Interpretamos $A$ y $B$ como funcionales del modo que $A[\phi(x)]=\phi(x)$ y $B[\pi(y)]=\pi(y)$. Como $x$ e $y$ han de ser índices libres, tomaremos en la ec. \ref{T39CPcampos} la variable de sumación como $z$ (en lugar de $x$)
+
+$\displaystyle \{\phi(x),\pi(y)\} \ = \ \int \dd z \, \left( \, \fdv{\phi(x)}{\phi(z)} \, \fdv{\pi)y)}{\pi(z)} \ - \ \fdv{\phi(x)}{\pi(z)}\, \fdv{\pi(y)}{\phi(z)} \, \right)$
+
+
+--- En el capítulo anterior vimos que $\ \displaystyle \fdv{\psi(x)}{\psi(y)}=\delta(x-y)\ $
+
+--- Y, $\ \displaystyle \fdv{\phi(x)}{\phi(z)}=\lim_{\varepsilon\to 0} \, \dfrac 1 \varepsilon \, \int (\, \phi(x) - \phi(x) \, ) = 0$
+
+Con esto, $\ \displaystyle  \{\phi(x),\pi(y)\} \ = \ \int \dd z \, (\delta(x-z)\delta(y-z)-0\cdot 0)=\int \dd z \ \delta(x-z)\ \delta(y-z) = \delta (x-y)$
+
+Hemos utilizado que $\ \displaystyle \int \dd x \ f(z)\ \delta(y-z) = f(y)$
+
+Luego:
+
+\vspace{5mm}
+\begin{myblock}{Corchetes de Poison para campos}
+\begin{large}
+\begin{equation}
+\label{T38CPcampo}
+\boldsymbol{
+ \{\phi(x),\pi(y)\} \ = \ \delta(x-y)
+}	
+\end{equation}
+\end{large}
+\end{myblock}
+
+También se cumple para los campos esta importamtísima propiedad de los corchetes de Poisson para variables conjugadas, $\pi$ es el momento conjugado de $\phi$. \textcolor{gris}{Para cuantizar un campo se necesita disponer de variables conjugadas y el corchete de Poisson se traducirá en el conmutador en QFT. }
+
+
+\vspace{5mm}
+\section{Ejercicio propuesto}
+\vspace{5mm}
+\begin{ejercicio}
+\vspace{3mm}
+Demostrar que: $\quad \boldsymbol{ \{\phi(x),\phi(y)\} = \ 0 } \ \ \text{ y que }	\ \  \boldsymbol{ \{\pi(x),\phi(y)\} \ = \ 0 }$
+\vspace{3mm}
+\end{ejercicio}
+\vspace{5mm}
+
+\color{MidnightBlue}
+
+$\displaystyle \{\phi(x),\phi(y) \} \ = \ \int \dd z \, \left( \, \fdv{\phi(x)}{\phi(z)} \, \fdv{(\phi)y)}{\pi(z)} \ - \ \fdv{\phi(x)}{\pi(z)}\, \fdv{\phi(y)}{\phi(z)} \, \right)$
+
+
+Del capítulo anterior: $ \quad \displaystyle \fdv{\phi(x)}{\phi(y)}=\delta(x-y)=\fdv{\pi(x)}{\pi(y)}  \ \ \text{ y } \ \  \fdv{\phi(x)}{\pi/y)}=0=\fdv{\pi(x)}{\phi/y)}\, , \ $ por lo que
+
+$\triangleright \quad  \displaystyle \boldsymbol{ \{\phi(x),\phi(y)\} \ }= \ \int_{-\infty}^{+\infty} \dd z \ \left ( \,  \delta(x-z) \cdot 0 \, - \, 0 \cdot \delta(y-z) \, \right) \ = \ \boldsymbol{0}$ \hspace{6cm} $\Box$
+
+
+
+$\displaystyle \{\pi(x),\pi(y)\} \ = \ \int \dd z \, \left( \, \fdv{\pi(x)}{\phi(z)} \, \fdv{\pi)y)}{\pi(z)} \ - \ \fdv{\pi(x)}{\pi(z)}\, \fdv{\pi(y)}{\phi(z)} \, \right)$
+
+
+$\triangleright \quad  \displaystyle \boldsymbol{ \{\pi(x),\pi(y)\} \ }= \ \int_{-\infty}^{+\infty} \dd z \ \left ( \, 0 \cdot \delta(y-z) \, - \, \delta(x-z) \cdot 0 \, \right) \ = \ \boldsymbol{0}$ \hspace{6cm} $\Box$
+
+\color{black}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

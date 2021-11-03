@@ -1,0 +1,407 @@
+\chapter{Transformación de \emph{Bogoliubov} - 2/2}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+Con el mismo ejemplo del capítulo anterior, vamos a desarrollar un método alternativo de obtener los mismos resultados que tendrá la gran ventaja de que será generalizable.
+
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+
+\section{Método alternativo (generalizable)}
+
+
+Nuestro problema era: 
+$\quad H=\alpha \ a a^* + \beta \ (aa+a^*a^*) \quad \to \quad H=\lambda b b^*$
+
+Para ello efectuamos la transformación de Bogoliubov $\ \ \begin{cases} 
+ \ b=ua+va^* \\ \ b^*=ua^*+va \end{cases}\ $  
+
+Al exigir que la transformación fuera canónica teníamos dos caminos:
+
+\begin{enumerate}
+\item Que los corchetes de Poisson conserven la misma forma con $a,a^*$ que con $b.b^*$
+\item Que la matriz jacobiana $M$ tuviese determinante unidad, $|M|=1$	
+\end{enumerate}
+
+La forma escogida en el capítulo anterior fue la segunda que nos llevó a efectuar una parametrización $\Theta$ que nos llevó al resultado final.
+
+Si hubiésemos escogido el paso 1, que los corchetes de Poisson han de tener la misma forma, deberíamos exigir que:
+
+$$\{b,b\}\ = \ \{b^*,b^*\}\ = \ 0\ ;\ \qquad \qquad \{b.b^*\}\ =\ -\dfrac i \hbar$$
+
+
+$\triangleright \quad \{b,b\} = \{ua+va^*\ , \ ua+va^*\}=0+\{ua,va^*\}+\{va^*,uA\}+0=uv\{a,a^*\}-uv\{a,a^*\}=0$
+
+
+$\triangleright \quad $ Análogamente, $\quad \{b^*,b^*\} =0$ 
+
+Ambas exigencias no aportan ninguna restricción para $u,v$. Veamos la tercera,
+
+$\triangleright \quad \{b,b^*\} =\{ua+va^*\ , \ va+ua^*\}=0+u^2\{a,a^*\}-v^2\{a,a^*\}+0=(u^2-v^2)\ \dfrac{-i}{\hbar} \to u^2-v^2=1$ como ya sabíamos al usar el método 2. ($|M|=1$)
+
+\vspace{5mm}
+Ahora viene el \textbf{Truco-I} \emph{(método alternativo)} $\quad$ \rule{200pt}{0.1pt}
+
+$\mqty(b \\ b^*)=\mqty(u&v\\v&u)\mqty(a\\a^*)$
+
+Para conseguir  $\ \mqty(u&v\\v&u) \mqty(&\\&) = \mqty(1&0\\0&1)\ $ basta con 
+
+$\ \mqty(u&v\\v&u) \mqty(u&-v\\-v&u) =\mqty(u^2-v^2&0\\0&u^2-v^2) =\mqty(1&0\\0&1)\ \to \ \bold{u^2-v^2}=1$
+
+$u^2-v^2=1 \ \ \to \ \  \mqty(u&v\\v&u) \mqty(u&-v\\-v&u) \ = \ I\, , \ $ son matrices inversas.
+
+Hemos obtenido la matriz inversa de la transformación sin necesidad ninguna de parametrización.
+
+Despejando $a,a^*$ en función de $b,b^*:\ \ \ \mqty(a \\ a^*)=\mqty(u&-v\\-v&u)\mqty(b\\b^*) \ \to \ \begin{cases} \ a&=\ ub-vb^*\\ \ a^*&=-vb+ub^* \end{cases}$
+
+\vspace{5mm}
+vamos a por el \textbf{Truco-II} \emph{(método alternativo)} $\quad$ \rule{200pt}{0.1pt}
+
+En la definición del hamiltoniano, calculemos:
+
+$\displaystyle \pdv{H}{b} \ \Rightarrow \quad \alpha \left( \pdv{a}{b} a^*+a\pdv{a^*}{b} \right) + \beta \left[ \left( \pdv{a}{b} a + a \pdv{a}{b} \right) +  \left( \pdv{a^*}{b} a^* + a^* \pdv{a^*}{b} \right) \right] \ \ = \ \ \lambda b^*$
+
+Agrupando y reordenando,
+
+$\displaystyle a^* \ \left( \alpha \pdv{a}{b} + 2\beta \pdv{a^*}{b} \right) \ + \ a \ \left( \alpha \pdv{a^*}{b}+2\beta \pdv{a}{b} \right) \ \ = \ \ \lambda b= \lambda (va+ua^*)=a^*(\lambda u)+a(\lambda v)$
+
+Puesto que esta relación debe cumplirse $\ \forall a\, , \ \forall a^*$,
+
+$\displaystyle \pdv{H}{b} \quad \to \qquad \begin{cases}  \ \displaystyle \alpha \pdv{a}{b} + 2\beta \pdv{a^*}{b} &=\lambda \ u \\ \ \displaystyle \alpha \pdv{a^*}{b}+2\beta \pdv{a}{b}  &=\lambda \ v  \end{cases}$
+
+Si hiciésemos la otra derivada, obtendríamos:
+
+$\displaystyle \pdv{H}{b^*} \quad \to \qquad \begin{cases}  \ \displaystyle \alpha \pdv{a}{b^*} + 2\beta \pdv{a^*}{b^*} &=\lambda \ v \\ \ \displaystyle \alpha \pdv{a^*}{b^*}+2\beta \pdv{a}{b^*}  &=\lambda \ u  \end{cases}$
+
+Mirando como se escriben $a,a^*$ en función de $b.b^*$ y derivando:
+
+$\displaystyle \pdv{H}{b} \quad \to \qquad \begin{cases}  \ \displaystyle \alpha u - 2\beta v &=\lambda \ u \\ \ \displaystyle -\alpha v +2\beta u  &=\lambda \ v \end{cases}
+\qquad \qquad
+\displaystyle \pdv{H}{b^*} \quad \to \qquad \begin{cases}  \ \displaystyle -\alpha v + 2\beta u &=\lambda \ v \\ \ \displaystyle \alpha u -2\beta v  &=\lambda \ u \end{cases}$
+
+Ecuaciones que son iguales y nos quedamos con una de ellas, $ \quad \begin{cases} \ \ \ \alpha u - 2\beta v &=\lambda \ u \\ \ \ 2\beta u -\alpha v  &=\lambda \ v \end{cases}$
+
+Matricialmente, $\quad \boldsymbol{ \mqty(\alpha & -2\beta \\ 2\beta & -\alpha) \mqty(u\\v) = \lambda \mqty(u\\v) } \, , \ $  que es una problema de \textbf{valores propios}, hay que \emph{diagonalizar} la matriz.
+
+Ayudándonos con un sw. cualquiera de cálculo simbólico, obtenemos:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lllll}
+\multicolumn{1}{c}{vector propio} & \multicolumn{1}{c}{valor propio} & \multicolumn{1}{c}{$\qquad$} & \multicolumn{1}{c}{vector propio} & \multicolumn{1}{c}{valor propio} \\
+$\mqty(\alpha+\sqrt{\alpha^2-4\beta^2}\\2\beta)$ & $\leftrightarrow \sqrt{\alpha^2-4\beta^2}$ &  & $\mqty(\alpha-\sqrt{\alpha^2-4\beta^2}\\2\beta)$ & $\leftrightarrow -\sqrt{\alpha^2-4\beta^2}$
+\end{tabular}
+\end{table}
+
+Los valores propios, al multiplicarlos por $\omega_0$ nos proporcionan las frecuencias propias $\Omega$
+
+Para normalizar nuestro vector propio, hacemos lo siguiente:
+
+$\begin{cases} \ u\ = \  A\ \alpha+\sqrt{\alpha^2-4\beta^2} \\ \ v \ = \ A \  2\beta \end{cases} \quad \to \qquad u^2-v^2=1 \ \to \ (A\ \alpha+\sqrt{\alpha^2-4\beta^2})^2-(A 2\beta)^2=1 \ \to \ $
+
+$A=\dfrac{1}{ \sqrt{  \alpha+\sqrt{\alpha^2-4\beta^2} - 4\beta^2} }\ \ $ y el
+ vector normalizado es:
+ 
+ $u= \dfrac{\alpha+\sqrt{\alpha^2-4\beta^2}}{ \sqrt{  \alpha+\sqrt{\alpha^2-4\beta^2} - 4\beta^2} } \qquad \qquad v= 
+ \dfrac{2\beta}{ \sqrt{  \alpha+\sqrt{\alpha^2-4\beta^2} - 4\beta^2} }$
+ 
+ \vspace{5mm} Esto es un método completamente diferente al visto en el capítulo anterior pero que conduce a los mismos resultados. Continuemos ahora con la 
+
+ \vspace{5mm} 
+\section{Transformación de \emph{Bogoliubov}}
+
+
+Continuamos con el problema enunciado al final del capítulo anterior.
+
+\begin{ejercicio}
+\vspace{2mm}
+$$H=a_1a_1^*+a_1a_2^*-\dfrac 1 2 [a_1a_2+a_1a_2^*+a_1^*a_2+a_1^*a_2^*]$$
+ 
+ 
+$\qquad  \begin{cases}
+ \ b_1=u_{11}a_1+u_{12}a_2+v_{11}a_1^*+v_{12}a_2^* \\
+ \ b_2=u_{21}a_1+u_{22}a_2+v_{21}a_1^*+v_{22}a_2^* \\  
+ \ b_1^*=u_{11}a_1^*+u_{12}a_2^*+v_{11}a_1+v_{12}a_2 \\
+ \ b_2^*=u_{21}a_1^*+u_{22}a_2^*+v_{21}a_1+v_{22}a_2  	
+ \end{cases}\qquad \qquad $ Transformación de Bogoliubov.
+
+\vspace{3mm}
+\end{ejercicio}
+
+\textcolor{gris}{Producto de matrices, elemento a elemento: $\   AB=C \ \to \ C_{ij}=\boldsymbol{ \displaystyle \sum_k \ A_{ik} \ B_{kj} \ = \ AB  } $ }
+
+\textcolor{gris}{Si en alguna ocasión aparece: $\ \boldsymbol{  AB=C \ \to \ \displaystyle \sum_k \ A_{ik} \ B_{jk} \ = \ AB^T } $ }
+
+\vspace{5mm} Vamos a exigir que los corchetes de Poisson sean iguales con $b,b^*$ que con $a,a^*$:
+
+Transformación: $\quad \begin{cases} \ b_i\ = \ \displaystyle \sum_\alpha \ (\ u_{i\alpha} \ a_\alpha \ + \ v_{i\alpha} \ a^*_\alpha \ )  \\ \ b_j^* \ = \ \displaystyle \sum_\beta \ (\ u_{j\beta}\ a_\beta \ + \ v_{j\beta} \ a^*_\beta\ ) \end{cases} \qquad u_{ij}, v_{ij} \in \mathbb R$
+
+$\triangleright \quad \{b_i,b_j\}=\displaystyle \sum_\alpha \sum_\beta \ \{ \ u_{i\alpha} \ a_\alpha \ + \ v_{i\alpha} \ a^*_\alpha \ , \ u_{j\beta} \ a_\beta \ + \ v_{j\beta} \ a^*_\beta \ \} =$
+
+$=\displaystyle \sum_\alpha \sum_\beta \ \left[\  0\ + \ \{u_{i\alpha}a_\alpha,v_{j\beta}a_\beta^*\} \ + \ \{v_{i\alpha}a_\alpha^*,u_{j\beta}a_\beta\}\ + \ 0 \ \right] =$
+
+$=\displaystyle \sum_\alpha \sum_\beta \ \left[ \ 
+u_{i\alpha}\ v_{j\beta} \ \{a_\alpha,a_\beta^*\} \ \boldsymbol{-} \ v_{i\alpha}\ u_{j\beta} \  \{a_\beta,a_\alpha^*\} \ \right] = (\to)$
+
+
+\textcolor{gris}{Como: $\ \{a_k,a_k^*\}=-\dfrac i \hbar \ \text{ y }\ \{a_k,a_L^*\}= 0,\ \text{ con } k\neq l  \quad \to \quad \boldsymbol{\{a_k,a_l^*\}=-\dfrac i \hbar \ \delta_{kl} } \quad$ (delta de Dirak) }
+
+$(\to) =\displaystyle 
+\sum_\alpha \sum_\beta \ \left[ \ 
+u_{i\alpha}\ v_{j\beta} \ \left( -\dfrac i \hbar\right) \ \delta_{\alpha \beta }   \ - \ v_{i\alpha}\ u_{j\beta} \  \left(-\dfrac i \hbar\right) \ \delta_{\alpha \beta l}  \ \right] =$
+
+$\displaystyle = \sum_\alpha \ \left[ \ u_{i\alpha} \ v_{j\alpha} \ - \ v_{i\alpha}\ u_{j\alpha} \right]\ \left(-\dfrac i \hbar \right) \ = \ 0 \quad \Rightarrow \quad \sum_\alpha \ \left[ \ u_{i\alpha} \ v_{j\alpha} \ - \ v_{i\alpha}\ u_{j\alpha} \right] \ = \ 0$
+
+Usando notación matricial, hemos obtenido: $\quad \boxed{ \  \boldsymbol{UV^T-VU^T \ = \ 0} \ }$
+ 
+\vspace{5mm} $\triangleright \quad \{b^*_i,b^*_j\}\ \  $ conduce a la misma ecuación anterior.
+
+
+\vspace{5mm} $\triangleright \quad \{b_i,b^*_j\}=\displaystyle \sum_\alpha \sum_\beta \left[ \ u_{i\alpha}\ u_{j\beta} \ \left( -\dfrac i \hbar\right) \ + \  v_{i\alpha} \ v_{j\beta} \ \left( +\dfrac i \hbar\right) \ \right] \quad = \quad  -\dfrac i \hbar \ \delta{ij} \ \to $
+
+$\to \ \displaystyle  \delta{ij}=\sum_\alpha \sum_\beta \ \left( \ u_{i\alpha} \ v_{j\alpha} \ - \ v_{i\alpha} \ v_{j\alpha} \ \right)$
+
+Usando notación matricial, $\quad \boxed{\ \boldsymbol{ I\ = \ UU^T º - \ VV^T}\ }$
+
+\vspace{5mm}Luego, para que la transformación sea canónica:
+
+\begin{large}
+\begin{equation}
+	\label{TBcanonica}
+	\boxed{ \ \ \ 
+	\subrayado{\ \boldsymbol{ UV^T \ - \ VU^T \ = \ 0 }\ } \qquad \qquad \subrayado{\ \boldsymbol{UU^T \ - \ VV^T \ = \ I} \ }	
+	\ \ \ }
+\end{equation}
+\end{large}
+
+Como en ningún momento hemos impuesto que se tratase de dos osciladores, el resultado obtenido es genérico, válido para n-partículas.
+
+\vspace{5mm} Recuperando el \underline{\emph{truco-I}} anterior, \textcolor{gris}{$ \quad \mqty(u&v\\v&u) \mqty(u&-v\\-v&u) = I \quad \leftrightarrow \quad u^2 \ - \ v^2 \ = \ 1 $}
+
+$\mqty(I&0\\ 0&I)=\mqty(UU^T-VV^T & UV^T-VU^T \\ UV^T-VU^T& UV^T-VU^T ) =$ 
+
+para replicar la matriz la escribimos como producto de otras dos, 
+
+$\mqty(I&0\\ 0&I) \ = \mqty(UU^T-VV^T & -VU^T+UV^T\\ -VU^T+UV^T&UU^T-VV^T )  \mqty(U&-V\\-V&U) \ \mqty(U^T&V^T\\V^T&U^T)  $
+
+Trasponiendo toda la ecuación,
+
+$\left[\mqty(I&0\\ 0&I)\right]^T  = \mqty(I&0\\ 0&I) \ \  = \ \ \left[ \mqty(U&-V\\-V&U) \ \mqty(U^T&V^T\\V^T&U^T) \right]^T = \mqty(U^T&V^T \\V^T&U^T) ^T   \mqty(U&-V\\-V&U)^T = $
+
+
+$= \mqty((U^T)^T&(V^T)^T\\(V^T)^T&(U^T)^T) ^T   \mqty(U^T&-V^T\\-V^T&U^T) = \mqty(U&V\\V&U) \mqty(U^T&-V^T\\-V^T&U^T)$
+
+Conclusión: ambas matrices son una inversa de la otra.
+
+\begin{equation}
+\label{T25TBmtzesinv}
+\subrayado{\ \boldsymbol{ \mqty(U&V\\V&U)^{-1} \ = \ \mqty(U^T&-V^T\\´V^T&U^T) } \ }	
+\end{equation}
+
+\vspace{5mm} Matricialmente podemos escribir nuestra transformación inicial como:
+
+\begin{equation}
+\label{T25TBba}
+\boldsymbol{
+\mqty(b_1\\b_2\\ \vdots \\ \cdots \\ b_1^*\\b_2^*\\ \vdots ) \ = \ 
+\mqty(U & \vdots & V \\ \cdots & \cdot & \cdots \\ V & \vdots & U ) \ 
+\mqty(a_1\\a_2\\ \vdots \\ \cdots \\ a_1^*\\a_2^*\\ \vdots )	
+}
+\end{equation}
+
+Con lo que podemos despejas las $a,a^*$ en función de las $b.B^*$:
+
+
+\begin{equation}
+\label{T25TBba}
+\boldsymbol{
+\mqty(a_1\\a_2\\ \vdots \\ \cdots \\ a_1^*\\a_2^*\\ \vdots ) \ = \ 
+\mqty(U^T & \vdots & -V^T \\ \cdots & \cdot & \cdots \\ -V^T & \vdots & U^T ) \ 
+\mqty(b_1\\b_2\\ \vdots \\ \cdots \\ b_1^*\\b_2^*\\ \vdots )	
+}
+\end{equation}
+
+
+Esquemáticamente,
+
+\begin{large}
+\begin{equation}
+\label{T25ecsbaUV}
+\subrayado{
+\begin{matrix} b\, =Ua+Va^* \\ \ b^*=Va+Ua^* \end{matrix} }\qquad \qquad  \subrayado{ \begin{matrix} a\ =\ \ U^Tb\ -V^Tb^*\\ \,  a^*=-V^Tb+U^Tb^* \end{matrix} }	
+\end{equation}
+\end{large}
+
+\vspace{5mm} Consideramos los vectores 
+
+$\quad \displaystyle \pdv{H}{a}=\mqty(\displaystyle \pdv{H}{a_1}\\ \displaystyle \pdv{H}{a_2}\\ \vdots) \ ; \quad 
+\displaystyle \pdv{H}{a^*}=\mqty(\displaystyle \pdv{H}{a^*_1}\\ \displaystyle \pdv{H}{a^*_1}\\ \vdots)\ ; \qquad 
+\displaystyle \pdv{H}{b}=\mqty(\displaystyle \pdv{H}{b_1}\\ \displaystyle \pdv{H}{b_2}\\ \vdots)\; \quad
+\displaystyle \pdv{H}{b^*}=\mqty(\displaystyle \pdv{H}{b^*_1}\\ \displaystyle \pdv{H}{b^*_2}\\ \vdots)$
+
+Queremos que nuestro hamiltoniano responda a dos frecuencias $\lambda_1,\ \lambda_2$:
+
+$\boldsymbol H\ =\ a_1a_1^*+a_1a_2^*-\dfrac 1 2 [a_1a_2+a_1a_2^*+a_1^*a_2+a_1^*a_2^*] \ = \ \boldsymbol {\lambda_1 b_1b_1^* \ + \ \lambda_2 b_2b_2^*}$
+
+Ahora vamos con el \underline{\emph{truco-II}}. Vamos a calcular $\displaystyle \pdv{H}{b}$, derivando en los dos miembros de la ecuación anterior:
+
+$\triangleright \quad$ Derivando el primer miembro (izquierda):
+
+
+
+\rule{200pt}{0.1pt}
+\begin{small}
+\color{gris}
+\vspace{-5mm}
+
+$\displaystyle  \left(\pdv{H}{a}\right)^T \pdv{a}{b} + \cdots \ . \qquad \quad \pdv{a}{b} \  $ es una matriz, $\displaystyle \ \pdv{a}{b} = \mqty(\displaystyle \pdv{a_1}{b_1} &  \displaystyle  \pdv{a_1}{b_1} & \cdots \\ \displaystyle  \pdv{a_2}{b_1}  & \cdots & \cdots \\ \cdots & \cdots & \cdots )$ 
+
+En dos dimensiones,
+
+$\mqty(\displaystyle \pdv{H}{a_1} \\ \displaystyle \pdv{H}{a_2})^T \mqty( \displaystyle \pdv{a_1}{b_1} & \displaystyle \pdv{a_1}{b_2} \\ \displaystyle \pdv{a_2}{b_1} & \displaystyle \pdv{a_2}{b_2})=
+\mqty(\displaystyle \pdv{H}{a_1} & \displaystyle \pdv{H}{a_2}) \mqty( \displaystyle \pdv{a_1}{b_1} & \displaystyle \pdv{a_1}{b_2} \\ \displaystyle \pdv{a_2}{b_1} & \displaystyle \pdv{a_2}{b_2})=
+\mqty( \displaystyle \pdv{H}{a_1}\pdv{a_1}{b_1} + \displaystyle \pdv{H}{a_2}\pdv{a_2}{b_1}  & \displaystyle \pdv{H}{a_1}\pdv{a_1}{b_2} + \displaystyle \pdv{H}{a_2}\pdv{a_2}{b_2} )$
+
+Lo que confirma que con la notación simbólica se simplifican enormemente los cálculos.
+\end{small}
+
+\vspace{-10mm}
+\begin{flushright}
+\rule{200pt}{0.1pt}	
+ \end{flushright}
+
+Continuamos derivando el primer miembro de $H$ respectp de $b$.
+
+$\displaystyle \left( \pdv{H}{a} \right)^T \pdv{a}{b} + \left( \pdv{H}{a^*} \right)^T \pdv{a^*}{b}$
+
+\color{Black}
+$\triangleright \quad$ Derivando el segundo miembro (derecha):
+
+En 2-dim, tenemos $\ \displaystyle \pdv{b_1} \to \lambda_1 b_1^*\, ;\ \ \pdv{b_2} \to \lambda_2 b_2^* \, , \ $ en general dará un vector fila de la forma, $\displaystyle \ ( \lambda_1 b_1^*, \lambda_2 b_2^*, \cdots )$
+
+Mirando la relaciones entre $a,a^*$ y $b,b^*$ dadas por las ecuaciones \ref{T25TBba}, obtenemos algo mágico: 
+
+$\displaystyle \pdv{a}{b}=U^T \ \text{ y } \ \pdv{a^*}{b}=-V^T\, , \ $ con lo que
+
+$\displaystyle \left( \pdv{H}{a} \right)^TU^T-\left( \pdv{H}{a^*} \right)^T V^T= ( \lambda_1 b_1^*, \lambda_2 b_2^*, \cdots )=\lambda ( b_1^*, b_2^*, \cdots )\quad $ con $\lambda$  la matrriz diagonal $\mqty(\dmat{\lambda_1,\lambda_2,\ddots})$
+
+así, $\quad \displaystyle \left( \pdv{H}{a} \right)^TU^T-\left( \pdv{H}{a^*} \right)^T V^T \ = \ (b^*)^T \lambda \ = \ (Va+Ua^*)^T \lambda \qquad \ \ $ \textcolor{gris}{$\leftarrow\ \ $ (ec. \ref{T25TBba})}
+
+Trasponiendo toda la ecuación, $\quad \displaystyle \left[ \left( \pdv{H}{a} \right)^TU^T-\left( \pdv{H}{a^*} \right)^T V^T \right]^T \ =\  \left[ (Va+Ua^*)^T \lambda \right]^T$
+
+$\lambda$ es matriz diagonal $\to \lambda^T=\lambda$
+
+\begin{myblock}{Ecuación para la transformada de Bogoliubov}
+
+\begin{large}
+\begin{equation}
+\label{T25TBEq}
+\boldsymbol{
+	U \ \pdv{H}{a} \ - \ V \ \pdv{H}{a^*} \ = \ \lambda \ (Va\ +\  Ua^*)
+}
+\end{equation}
+\end{large}
+	
+\end{myblock}
+
+\vspace{10mm} En nuestro caso 2-dim, $\ H=a_1a_1^*+a_1a_2^*-\dfrac 1 2 [a_1a_2+a_1a_2^*+a_1^*a_2+a_1^*a_2^*]\, , \ $
+
+$\displaystyle U_{(2\times 2)}  \pdv{H}{a}_{(2\times 1)}   -  V_{(2\times 2)}   \pdv{H}{a^*}_{(2\times 1)}   =  \lambda_{(2\times 2)}   (V_{(2\times 2)} a _{(2\times 1)} +  V_{(2\times 2)} a_{(2\times 1)}^*)\, , \ $ igualdad entre vectores $2\times 1$.
+
+Vamos a fijarnos en los elementos $1\times 1$ de estos vectores.
+
+$\mqty(u_{11}&u_{12}\\u_{21}&u_{22}) \mqty(\displaystyle \pdv{H}{a_1} \\ \displaystyle \pdv{H}{a_2})   \ - \  \mqty(v_{11}&v_{12}\\v_{21}&v_{22}) \mqty(\displaystyle \pdv{H}{a_1^*} \\ \displaystyle \pdv{H}{a_2^*}) \ = \ \mqty(\lambda_1 &0\\0&\lambda_2) \left[ \mqty(v_{11}&v_{12}\\v_{21}&v_{22}) \mqty(a_1\\a_2) \ + \ \mqty(u_{11}&u_{12}\\u_{21}&u_{22}) \mqty(a_1^*\\a_2^*) \right]$
+
+$\displaystyle u_{11}\pdv{H}{a_1}+v_{12}\pdv{H}{a_2}-\left( v_{11}\pdv{H}{a_1^*}+u_{12}\pdv{H}{a_2^*} \right)=\lambda_1(v_{11}a_{11}+v_{12}a_{12}+u_{11}a_1^*+u_{12}a_2^*)\, . \ $ Agrupando,
+
+
+\begin{equation}
+\label{T25TBmomento}	
+\displaystyle u_{11}\pdv{H}{a_1}+v_{12}\pdv{H}{a_2}-\left( v_{11}\pdv{H}{a_1^*}+u_{12}\pdv{H}{a_2^*} \right)=
+a_1^*(\lambda_1 u_{11}) +a_2^*(\lambda_1 u_{12})+a_1(\lambda_1v_{11})+a_2(\lambda_1v_{12})
+\end{equation}
+
+De la expresión de nuestro hamiltoniano: 
+
+$\displaystyle  \pdv{H}{a_1}= \alpha_1 a_1^*+\gamma(a_2+a_2^*) \ , \quad \ \pdv{H}{a_1^*}= \ \textcolor{gris}{ \left[ H\in \mathbb R  = \left( \pdv{H}{a_1} \right)^* \right] } \ = \  \alpha_1 a_1+\gamma(a_2+a_2^*)$
+
+Simetrías subíndices $1\leftrightarrow 2\quad \displaystyle  \pdv{H}{a_2}= \alpha_2 a_1^*+\gamma(a_1+a_1^*)\, , \qquad  \pdv{H}{a_2^*}=\alpha_2 a_2+\gamma(a_2+a_2^*)$
+
+Sustituyendo en el primer miembro de la ecuación \ref{T25TBmomento}, se obtiene
+
+$u_11 \left( \alpha_1 a_1^*+\gamma(a_2+a_2^*) \right) + 
+u_12 \left( \alpha_2 a_2^*+\gamma(a_1+a_1^*) \right) -
+v_11 \left( \alpha_1 a_1^*+\gamma(a_2+a_2^*) \right) -
+v_12 \left( \alpha_2 a_2^*+\gamma(a_1+a_1^*) \right) $
+
+Agrupando.
+
+$a_1^*(u_{11}a_1+u_{12}\gamma-v_{12}\gamma)+a_2^*(a_{11}\gamma+u_{12}\alpha_2-v_{11}\gamma)+ a_1(u_{12}\gamma-v_{11}\alpha_1-v_{12}\gamma)+a_2(u_{11}\gamma-v_{11}\gamma-v_{12}\alpha_2 )=  $
+
+$=a_1^*(\lambda_1 u_{11}) +a_2^*(\lambda_1 u_{12})+a_1(\lambda_1v_{11})+a_2(\lambda_1v_{12}) \qquad \qquad \forall a_i\ , \ \ \forall a_j^* \ , \ \qquad$ luego
+
+$\qquad 
+\begin{cases}
+\ \ u_{11} \alpha_1 \ + \ u_{12}  \gamma \ - \ v_{12}  \gamma \ = \ \lambda_1\ u_{11}  \\
+\ \ u_{11} \gamma \ + \ u_{12}  \alpha_2 \ - \ v_{11}  \gamma \ = \ \lambda_1\ u_{12}  \\	
+\ \ u_{12} \gamma \ - \ v_{11}  \alpha_1 \ - \ v_{12}  \gamma \ = \ \lambda_1\ v_{11}  \\
+\ \ u_{11} \gamma \ - \ v_{11}  \gamma \ - \ v_{12}  \alpha_2 \ = \ \lambda_1\ v_{12}  
+\end{cases}$
+
+Espresión que no es más que un problema de valores propios con incógnitas $u_{ij},\ v_{ij}$, escrito matricialmente, la matriz de valores propios es:
+
+
+
+$\qquad \mqty(\alpha_1&\gamma&0&-\gamma \\ \gamma&\alpha_2&-\gamma&0\\ 0&\gamma&-\alpha_1&-\gamma\\ \gamma&0&-\gamma&-\alpha_2) \ \mqty(u_{11}\\ u_{12} \\ v_{11} \\ v_{12}) \ = \ \lambda \ \mqty(u_{11}\\ u_{12} \\ v_{11} \\ v_{12})$
+
+
+De la famosa ecuación de Bogoliubov (ec. \ref{T25TBEq}) lo que realmente nos interesa es esta matriz (para el hamiltoniano 2-dim que estamos considerando).
+
+Usando un sw. da cálculo simbólico cualquiera, diagonalizamos la matriz y obtenemos, usando las ecuaciones \ref{T25ecsbaUV}, los valores propios (tienen que ver con frecuencias de vibración):
+
+$\lambda_1=\sqrt{2} \sqrt{\dfrac{\alpha_1^2+\alpha_2^2}{4} + \sqrt{ \left( \dfrac{\alpha_1^2-\alpha_2^2}{4} \right)^2 +\gamma^2 \alpha_1 \alpha_2 } }
+\qquad
+\lambda_2=\sqrt{2} \sqrt{\dfrac{\alpha_1^2+\alpha_2^2}{4} - \sqrt{ \left( \dfrac{\alpha_1^2-\alpha_2^2}{4} \right)^2 +\gamma^2 \alpha_1 \alpha_2 } }
+$
+
+Para el caso particular $\ \alpha_1=\alpha_2=1 \ \text{ y } \ \gamma=-1/2\  \to $
+
+$\to \ \ \boldsymbol{ \lambda_1}=\sqrt{2} \sqrt{\dfrac 1 2 + \sqrt{\dfrac 1 4 }}=\sqrt{2}\sqrt{\dfrac 1 2 + \dfrac 1 2 }= \boldsymbol {\sqrt{2}} \quad y \quad \lambda_2=0\ $ que coincide con lo obtenido en el capítulo anterior.
+
+\vspace{1cm}
+\section{Ejercicio propuesto}
+
+\begin{ejercicio}
+
+\begin{adjustwidth}{20pt}{20pt}
+
+\vspace{2mm}	
+Dado $\ H=\alpha_1 a_1a_1^*+\beta_1(a_1a_1+a_1^*a_1^*)+
+\alpha_2 a_2a_2^*+\beta_2(a_2a_2+a_2^*a_2^*)+
+\gamma(a_1a_1+a_1a_2^*+a_1^*a_2+a_1^*a_2^*)$
+
+\begin{enumerate}[a) ]
+\item Escribe la matriz de los valores propios.
+\item Encuentra las frecuencias propias.
+\item Para el caso $\alpha_1=\alpha_2=1;\ \beta_1=\beta=2=0	 \ \text{ y } \ \gamma=-1/2\, , \ $ determina cuales son las matrices $\ U \ \text{ y } \ V$
+\end{enumerate}
+\vspace{2mm}
+
+\end{adjustwidth}
+ \end{ejercicio}
+ 
+ 
+ \newpage
+ 
+ \includepdf[pages=-]{imagenes/DionicioPerez-SolEjercicioCap25.pdf}
+ 

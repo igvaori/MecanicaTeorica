@@ -1,0 +1,374 @@
+\chapter{Diagonalización del hamiltoniano de \emph{Klein-Gordon}}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+
+En el capítulo anterior:
+
+
+\begin{equation}
+\tag{\ref{T39SolK-Gctna-redef-R-a}}
+\boldsymbol{ \boxed{ \ \subrayado{
+\phi(t,x) \ = \ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \left[ \ 
+\ a(k)\ e^{i(\omega t-kx)} \  + \ a^*(k)\ e^{-i(\omega t-kx)}
+\ \right]
+} \ } }	\qquad \quad \ 
+\end{equation}
+
+\begin{equation}
+\tag{\ref{T39Pi}}
+\boldsymbol{ \boxed{ \ \subrayado{
+ \pi(t,x)\ = \
+\dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \ (i\omega) \ \left[ \ 
+\ a(k)\ e^{i(\omega t-kx)} \ -  \ a^*(k)\ e^{-i(\omega t-kx)}
+\ \right]
+} \ } }		
+\end{equation}
+
+\vspace{5mm}
+
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+\vspace{2mm}
+Las ecuaciones anteriores son las transformadas de Fourrier del campo $\phi$ y su momento conjugago $\pi$.
+
+A la hora de cuantizar el campo, tanto $a$ como $a^*$ pasan a ser operadores que crean y destruyen partículas y resulta asombroso que esta idea funcione con altísima precisión el comportamiento de la naturaleza.
+
+Vamos a hacer un proceso similar al que se sigue en QFT pero seguimos, en todo momento, en teoría `clásica' de campos y el resultado que obtengamos será completamente válido y fácilmente traducible a la mecánica cuántica. Veremos como diagonalizar un campo, en concreto el de Klein-Gordon.
+
+\vspace{2mm}
+\end{ejemplo}
+\end{adjustwidth}
+
+\vspace{5mm}
+
+\section{Diagonalización del hamiltoniano de \emph{Klein-Gordon}}
+
+
+Necesitamos hacer un pequeño cambio de notación para coincidir con la mayoría de textos: $\ a(k) \ \longrightarrow \ a^*(k) \ $ y $\ a^*(k) \ \longrightarrow \ a(k)\ $ con lo que la transformada de Fourrier del campo y del momento quedarán como (cambiamos también el orden de los términos):
+
+\begin{equation}
+\label{T40FTcampo}
+\boldsymbol{ \boxed{ \ \subrayado{
+\phi(t,x) \ = \ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)} \  \ \right]
+} \ } }	\qquad \quad \ \ 
+\end{equation}
+
+\begin{equation}
+\label{T40FTmomento}
+\boldsymbol{ \boxed{ \ \subrayado{
+ \pi(t,x)\ = \
+\dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \ (-i\omega) \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ - \ a^*(k)\ e^{i(\omega t-kx)} \ 
+\ \right]
+} \ } }		
+\end{equation}
+
+\vspace{5mm}
+En el hamiltoniano de Klein-Gordon, $\ \boldsymbol{ H=\displaystyle \int_{-\infty}^{+\infty} \dd x \, \left[ \, \dfrac 1 2 \pi^2 \, + \ \dfrac 1 2 (\phi')^2 \, + \, \dfrac {m^2}2 \phi^2  \, \right] \ } $ \textcolor{gris}{$(\dot \phi=\pi)\, , \ $} ?`qué significa diagonalizar el hamiltoniano? Es expresar $\pi\, , \ \phi\, , \ \phi$ en función de $a(k)$ u de $a^*(k)$ y veremos que podemos expresar $H$ como una suma (integral) de productos  $a\cdot a^*$
+
+Aparecen 3 integrales que calcular, vamos por pasos:
+
+\vspace{5mm}
+$\boldsymbol \triangleright\ \ $ \textbf{\underline{Primer paso}}: $\quad \displaystyle \boldsymbol{ \int_{-\infty}^{+\infty} \dd x \ \dfrac 1 2 \, \pi^2 }$
+
+Vamos a usar el siguiente truco: $\ \displaystyle \left[\int_a^b x\, \dd x \right]^2=\int_a^b x\, \dd x  \, \cdot \, \int_a^b y\, \dd y  = \int_a^b \int_a^b \dd x \, \dd y \ x\cdot y\, . \ $  Nosotros usaremos las variables $\ k\, , \ \omega \ \to \ q\, , \ \Omega\, , \ $ acudiendo a la ecuación \ref{T40FTmomento},
+
+$\displaystyle \pi^2 \ = \
+\dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \ (-i\omega) \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ - \ a^*(k)\ e^{i(\omega t-kx)} \ 
+\ \right]
+\cdot \textcolor{gris}{(\to)}$
+
+$\displaystyle  \textcolor{gris}{(\to)}\cdot
+\dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd q}{2\pi \Omega} \ \ (-i\Omega) \ \left[ \ 
+\  a(q)\ e^{-i(\Omega t-qx)} \ - \ a^*(q)\ e^{i(\Omega t-qx)} \ 
+\ \right] =  \quad \textcolor{gris} {\left( -i = \dfrac 1 i \right) } \quad $
+
+$\displaystyle = \dfrac 1 4    \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi i}  \int_{-\infty}^{+\infty} 
+\dfrac{\dd q}{2\pi i} \ 
+\left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ - \ a^*(k)\ e^{i(\omega t-kx)} \ 
+\ \right] \ \left[ \ 
+\  a(q)\ e^{-i(\Omega t-qx)} \ - \ a^*(q)\ e^{i(\Omega t-qx)} \ 
+\ \right] $
+
+\vspace{5mm}
+Para el hamiltoniano necesitamos $\displaystyle \int_{-\infty}^{+\infty} \dd x \, \pi^2 \ = \textcolor{gris}{(\to)}$
+
+\begin{footnotesize}
+$\displaystyle \textcolor{gris}{(\to)}\, = \, 
+ \dfrac 1 4    \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi i}  \int_{-\infty}^{+\infty} 
+\dfrac{\dd q}{2\pi i} \  \int_{-\infty}^{+\infty} \dd x  \ 
+\left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ - \ a^*(k)\ e^{i(\omega t-kx)} \ 
+\ \right] \ \left[ \ 
+\  a(q)\ e^{-i(\Omega t-qx)} \ - \ a^*(q)\ e^{i(\Omega t-qx)} \ 
+\ \right] =$ 
+\end{footnotesize}
+
+\vspace{5mm}
+Va a aparecer términos como $\ \displaystyle \int \dd x \, a \, a^* \ e^{i[(\omega+\Omega)t-(k+q)x]}=a\, a^*\, e^{-i(\omega+\Omega)t}\, \cancelto{2\pi \delta(k+q)} {\int_{-\infty}^{+\infty} \dd x\  e^{i(k+q)x}}$ y esto hará que podamos prescindir de una de las dos integrales $\int \dd k$ o $\int \dd q$.
+
+Notemos que al ser soluciones de Klein-Gordon tanto $\omega=\sqrt{k^2+m^2}$ como $\Omega=\sqrt{q^2+m^2}$. Por comodidad llamamos $a_k=a(k)$. Además, $\delta(k+q)$ solo es distinto de cero si $q=-k$ y $\delta(k-q)$ solo es distinto de cero si $q=k$. Recordar también que el delta de Dirac es par, $\delta(-x)=\delta(x)$.
+
+\vspace{5mm}
+El producto de los factores de la integral, la integral respecto de $x$ y, luego, respecto de $q$, dan:
+
+\vspace{5mm}
+\begin{table}[H]
+\small
+\center
+\begin{tabular}{lllll}
+\multicolumn{1}{c}{$[\ ]\cdot[\ ]$} &  & \multicolumn{1}{c}{$\int \dd x$} &  & \multicolumn{1}{c}{$\int \dd q/2\pi i$} \\
+ & $\quad$ &  & $\quad$ &  \\
+$\ \ a_ka_q exp \, \{ \, -i [(\omega+\Omega)t-(k+q)x]\}$ &  & $\ \ a_ka_q\, 2\pi \delta(k+q) \, exp \{-i(\omega+\Omega)t\} $&  & $\ \  2\pi \, \dfrac{1}{2\pi i} \, a_k a_{-k} \, e^{-2i\omega t}  $ \\
+$-a_ka^*_q exp \, \{ \, -i [(\omega-\Omega)t-(k-q)x]\}$ &  & $-a^*_ka_q\, 2\pi \delta(k-q) \, exp \{-i(\omega+\Omega)t\} $&  & $ - 2\pi \, \dfrac{1}{2\pi i} \, a^*_k a_{k} \, 1 $ \\
+$-a_ka^*_q exp \, \{ \, +i [(\omega-\Omega)t-(k-q)x]\}$ &  & $-a_ka^*_q\, 2\pi \delta(k-q) \, exp \{i(\omega-\Omega)t\} $&  & $ - 2\pi \, \dfrac{1}{2\pi i} \, a_k a^*_{k} \, 1 $ \\
+$\ \ a^*_ka^*_q exp \, \{ \, +i [(\omega+\Omega)t-(k+q)x]\}$ &  & $\ \ a^*_ka^*_q\, 2\pi \delta(k+q) \, exp \{i(\omega+\Omega)t\} $&  & $ \ \ 2\pi \, \dfrac{1}{2\pi i} \, a^*_k a^*_{-k} \, e^{2i\omega t}  $ \\
+\end{tabular}
+\end{table}
+
+\vspace{5mm}
+Nuestra integral para el $H$ quedará como:
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \dfrac 1 2 \ \pi^2 \ = \ 
+\dfrac 1 8 \ \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi} \, (-1)\, 
+\left[\, a_k a_{-k} \, e^{-2i\omega t} \ - \  a^*_k a_{-k} \ - \  a_k a^*_{-k} \ + \  a^*_k a^*_{-k} \, e^{2i\omega t}\, \right] $
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \dfrac 1 2 \ \pi^2 \ = \ 
+\dfrac 1 8 \ \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi} \,  
+\left[\,  a^*_k a_{k} \ + \  a_k a^*_{k} \ - \ 
+ a_k a_{-k} \, e^{-2i\omega t} \ - \  a^*_k a^*_{-k} \, e^{2i\omega t}\, \right] $
+
+Con esto, ya tenemos el primer cálculo para el $H$, el resto se calculan de igual modo. 
+
+\vspace{10mm}
+\textcolor{gris}{Faltan $\ \left( \, \displaystyle \int_{-\infty}^{+\infty} \dd x \dfrac 1 2 \ (\phi')^2 \, , \ \int_{-\infty}^{+\infty} \dd x \dfrac {m^2} 2 \ \phi^2  \, \right)\ $ para el $H$.}
+
+\vspace{5mm}
+$\boldsymbol \triangleright\ \ $ \textbf{\underline{Segundo paso}}: $\quad \displaystyle \boldsymbol{ \int_{-\infty}^{+\infty} \dd x \ \dfrac 1 2 \, (\phi')^2 }$
+
+Acudiendo a la ecuación \ref{T40FTcampo},
+
+$\displaystyle \phi'(x)=\dv{x} \phi(x)=	\dfrac 1 2 \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega}\, (ik)\, \left[ \, a_k \, e^{-i(\omega t-kx)} -a^*_k \, e^{i(\omega t-kx)} \,  \right]$
+
+$\displaystyle (\phi'(x))^2 \, = \, \dfrac 1 2 \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega}\, (ik)\, \left[ \, a_k \, e^{-i(\omega t-kx)} -a^*_k \, e^{i(\omega t-kx)} \,  \right] \cdot  \dfrac 1 2 \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi \Omega}\, (iq)\, \left[ \, a_k \, e^{-i(\Omega t-qx)} -a^*_k \, e^{i(\Omega t-qx)} \,  \right] =$
+
+$\displaystyle = \, \dfrac 1 4 \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega}\, (ik)\, \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi \Omega}\, (iq)\
+\left[ \, a_k \, e^{-i(\omega t-kx)} -a^*_k \, e^{i(\omega t-kx)} \,  \right] \cdot \left[ \, a_k \, e^{-i(\Omega t-qx)} -a^*_k \, e^{i(\Omega t-qx)} \,  \right] $
+
+\vspace{5mm} En dos pasos en lugar de los tres anteriores, tenemos,
+
+\vspace{5mm}
+\begin{table}[H]
+\center
+\begin{tabular}{lll}
+\multicolumn{1}{c}{$[\ ] \cdot [\ ] $} & \multicolumn{1}{c}{$\qquad$} & \multicolumn{1}{c}{$\displaystyle \int_{-\infty}^{+\infty} \dd x \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi \Omega} \, (iq)$} \\ 
+ &  &  \\ \hline \\
+ $a_k a_q \, exp \{ -i [(\omega+\Omega)t-(k+q)x] \} $&  &  $\ \ 2\pi a_ka_{-k} e^{-i2\omega t} \, \dfrac {1}{2\pi \omega} \, (-ik)$ \\ \\ 
+ $a_k a^*_q \, exp \{ -i [(\omega-\Omega)t-(k-q)x] \} $&  &  $-2\pi a_ka^*_{k}\   \dfrac {1}{2\pi \omega} \, (+ik)$ \\ \\ 
+ $a^*_k a_q \, exp \{ +i [(\omega-\Omega)t-(k-q)x] \} $&  &  $-2\pi a^*_ka_{k}\  \dfrac {1}{2\pi \omega} \, (+ik)$ \\ \\
+ $a^*_k a^*_q \, exp \{ +i [(\omega+\Omega)t-(k+q)x] \} $&  &  $\ \ 2\pi a^*_ka^*_{-k} e^{+i2\omega t} \, \dfrac {1}{2\pi \omega} \, (-ik)$ 
+\end{tabular}
+\end{table}
+
+\vspace{5mm}
+
+Finalmente,
+
+$\displaystyle  \int_{-\infty}^{+\infty} \dd x \, \dfrac 1 2\, (\phi')^2 \ = \ 
+\dfrac 1 8 	\, \int_{-\infty}^{+\infty} \, 
+\dfrac{\dd k}{2\pi \omega^2} \, k^2 \,
+\left[\,
+a_ka^*_k \, + \, a^*_k a_k \, + \, a_ka_{-k}\, e^{-i2\omega t}\, + \, a^*_ka^*_{-k}\, e^{i2\omega t}
+\, \right]$
+
+\vspace{5mm}{ \textcolor{gris}{Solo falta el tercer término del hamiltoniano, $\ \displaystyle  \int_{-\infty}^{+\infty} \dd x \, \dfrac {m^2} 2\, (\phi)^2  $}
+
+
+ 
+\vspace{10mm} $\boldsymbol \triangleright\ \ $ \textbf{\underline{Tercer paso}}: $\quad \displaystyle \boldsymbol{ \int_{-\infty}^{+\infty} \dd x \ \dfrac {m^2} 2 \, \phi^2 }$
+
+Se deja como \textbf{\textcolor{orange}{`ejercicio'}} el comprobar que el resultado de esta cálculo da:
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \ \dfrac {m^2} 2 \, \phi^2 \, = \,
+\dfrac 1 8 \, \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega^2}\ m^2 \, 
+\left[\,
+a_ka^*_k \, + \, a^*_k a_k \, + \, a_ka_{-k}\, e^{-i2\omega t}\, + \, a^*_ka^*_{-k}\, e^{i2\omega t}
+\, \right]$
+
+\vspace{10mm}
+$\boldsymbol \triangleright\ \triangleright\ \triangleright\ \ $ \textbf{Juntando} los cálculos efectuados en los \textbf{tres pasos},
+\vspace{5mm}
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \, \dfrac{m^2}{2}\, \phi^2 \ \, = \ 
+\int_{-\infty}^{+\infty} \dfrac 1{16}\, \dfrac{\dd k}{\pi \omega} \, \dfrac{m^2}{\omega} \, 
+\left[\,
+a_ka^*_k \, + \, a^*_k a_k \, + \, a_ka_{-k}\, e^{-i2\omega t}\, + \, a^*_ka^*_{-k}\, e^{i2\omega t}
+\, \right]
+$
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \ \dfrac{1}{2}\ \ \pi^2 \ \, = \ 
+\int_{-\infty}^{+\infty} \dfrac 1{16}\, \dfrac{\dd k}{\pi \omega} \ \, \omega \ 
+\left[\,
+a_ka^*_k \, + \, a^*_k a_k \, - \, a_ka_{-k}\, e^{-i2\omega t}\, - \, a^*_ka^*_{-k}\, e^{i2\omega t}
+\, \right]
+$
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \, \dfrac{1}{2}\, (\phi')^2 \ = \ 
+\int_{-\infty}^{+\infty} \dfrac 1{16}\, \dfrac{\dd k}{\pi \omega} \, \dfrac{k^2}{\omega} \, 
+\left[\,
+a_ka^*_k \, + \, a^*_k a_k \, + \, a_ka_{-k}\, e^{-i2\omega t}\, + \, a^*_ka^*_{-k}\, e^{i2\omega t}
+\, \right]
+$
+
+\vspace{5mm}
+
+$\displaystyle H \ = \  
+\dfrac 1{16}\, \int_{-\infty}^{+\infty} \dfrac{\dd k}{\pi \omega} \, 
+\left\{ \
+\left( \, \dfrac {m^2}{\omega} + \omega + \dfrac{k^2}{\omega} \, \right) \, (a_ka^*_k+a^*_ka_k) \ + \ 
+\left( \, \dfrac {m^2}{\omega} - \omega + \dfrac{k^2}{\omega} \, \right) \, (a_ka_{-k}+a_ka_{-k})
+\ \right\} $
+
+Como $\quad \omega^2=k^2+m^2 \ \ \to \ \ 
+\begin{cases}
+\ \dfrac{m^2}{\omega} - \omega + \dfrac{k^2}{\omega} = \dfrac 1 \omega\, (m^2-\omega^2+k^2)=0 \\ \\
+\ \dfrac{m^2}{\omega} - \omega + \dfrac{k^2}{\omega} = \dfrac 1 \omega\, (m^2-\omega^2+k^2)=\dfrac{2\omega^2}{\omega}=2\omega \end{cases}$
+
+Finalmente, $\quad \displaystyle H \ = \ 
+\dfrac 1{16}\, \int_{-\infty}^{+\infty} \dfrac{\dd k}{\pi \omega} \ 2\omega \ 
+(a_ka^*_{k}+a^*_ka_{k}) $
+
+\vspace{5mm}
+\begin{large}
+\begin{myblock}{Hamiltoniano diagonalizado de Klein-Gordon}
+\vspace{2mm}
+\begin{equation}
+	\label{T40Hdiag}
+	\boldsymbol{ \boxed{ \ 
+	H \ = \ \dfrac 1{4}\, \int_{-\infty}^{+\infty} \dfrac{\dd k}{2 \pi \omega} \ \omega \ 
+(a_ka^*_{k}+a^*_ka_{k}) 
+	\ } }
+\end{equation}
+\vspace{2mm}
+\end{myblock}
+\end{large}
+
+\vspace{5mm}\textcolor{gris}{En todos los cálculos hemos tenido en cuenta, de manera intencionada, que el producto de los factores $a_k$ no sea necesariamente conmutativo. El motivo es porque en el mundo clásico si son conmutativos, pero no en el mundo cuántico y para diagonalizar el hamiltoniano en el mundo cuántico lo hubiésemos hecho así}
+
+
+\vspace{10mm}
+
+\section{Ejercicio propuesto}
+\vspace{5mm}
+\begin{ejercicio}
+\begin{adjustwidth}{30pt}{20pt}
+\vspace{2mm}
+Demostrar que 
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \ \dfrac {m^2} 2 \, \phi^2 \, = \,
+\dfrac 1 8 \, \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega^2}\ m^2 \, 
+\left[\,
+a_ka^*_k \, + \, a^*_k a_k \, + \, a_ka_{-k}\, e^{-i2\omega t}\, + \, a^*_ka^*_{-k}\, e^{i2\omega t}
+\, \right]$
+
+siendo,
+
+$\displaystyle \phi(t,x) \ = \ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)} \  \ \right] $
+\vspace{2mm}
+\end{adjustwidth}
+\end{ejercicio}
+
+\vspace{5mm}
+\color{MidnightBlue}
+
+Usaremos, como en los anteriores cálculos la notación $k \to q$ y $\omega \to \Omega$ para calcular $\phi^2$, se cumplirá que $\omega^2=k^2+m^2$ y, también, que  $\Omega^2=q^2+m^2$. 
+
+De la función delta de Dirac usaremos que es par, $\delta(-z)=\delta(z)$ y que $\displaystyle \int e^{iAz}\dd z=\int e^{-iAz}\dd z=\delta(A)$
+
+\begin{footnotesize}
+$\displaystyle \phi^2 \ = \ \ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)} \  \ \right] \ \cdot \ 
+\ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd q}{2\pi \Omega} \ \left[ \ 
+\  a(q)\ e^{-i(\Omega t-qx)} \ + \ a^*(q)\ e^{i(\Omega t-qx)} \  \ \right]$
+
+$\displaystyle  \phi^2 \ = \ \dfrac 1 4\, 
+\int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega} \,  \int_{-\infty}^{+\infty}  \dfrac{\dd q}{2\pi \Omega} \, 
+\left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)} \  \ \right] \ \cdot \  \left[ \ 
+\  a(q)\ e^{-i(\Omega t-qx)} \ + \ a^*(q)\ e^{i(\Omega t-qx)} \  \ \right]$
+\end{footnotesize}
+ 
+\vspace{5mm}
+Haremos el cálculo en tres pasos: $1)\ \ [\ ]\cdot [\ ]\,;\qquad 2)\ \ \int \dd x\, ; \quad 3)\ \ \int \dd k/2\pi \Omega $
+
+\vspace{5mm}
+\begin{table}[H]
+\center
+\color{MidnightBlue}
+\begin{tabular}{lll}
+\multicolumn{1}{c}{$[ \ ] \cdot [\ ]$} & \multicolumn{1}{c}{$\displaystyle \int_{-\infty}^{+\infty} \dd x$} & \multicolumn{1}{c}{$\displaystyle  \int_{-\infty}^{+\infty} \dfrac{\dd q}{2\pi \Omega} $} \\
+ &  &  \\ \hline
+\multicolumn{3}{l}{} \\ \\
+$a_k a_q \, exp \{ -i [(\omega+\Omega)t-(k+q)x] \} $ &$\quad a_ka_q \, e^{-i(\omega+\omega)t}\, 2\pi\, \delta(k+q) \quad $  & $\dfrac 1 \omega\, a_ka_{-k}\, e^{-i2\omega t} $ \\ \\
+$a_k a^*_q \, exp \{ -i [(\omega-\Omega)t-(k-q)x] \} $ &$\quad a_ka^*_q \, e^{-i(\omega+\omega)t}\, 2\pi\, \delta(k-q) \quad $  & $\dfrac 1 \omega\, a_ka^*_{k} $ \\ \\
+$a^*_k a_q \, exp \{ +i [(\omega-\Omega)t-(k-q)x] \} $ &$\quad a^*_ka_q \, e^{+i(\omega+\omega)t}\, 2\pi\, \delta(k-q) \quad $  & $\dfrac 1 \omega\, a^*_ka_{k} $ \\ \\
+$a^*_k a^*_q \, exp \{ +i [(\omega+\Omega)t-(k+q)x] \} $ &$\quad a^*_ka^*_q \, e^{+i(\omega+\omega)t}\, 2\pi\, \delta(k+q) \quad $  & $\dfrac 1 \omega\, a^*_ka^*_{-k}\, e^{+i2\omega t}$ 
+\end{tabular}
+\end{table}
+
+
+De todo ello,
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \phi^2 \ = \ \dfrac 1 4\, \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega} \, \left[ \, \dfrac 1 \omega\, a_ka_{-k}\, e^{-i2\omega t} \ + \ \dfrac 1 \omega\, a_ka^*_{k} \ + \ \dfrac 1 \omega\, a^*_ka_{k} \ + \ \dfrac 1 \omega\, a^*_ka^*_{-k}\, e^{+i2\omega t} \, \right]$
+
+\vspace{5mm}
+Multiplicando por $m^2/2$, finalmente encontramos:
+
+\vspace{5mm}
+$\displaystyle \boldsymbol{ \int_{-\infty}^{+\infty} \dd x \, \dfrac{m^2}2 \, \phi^2 \ =
+\dfrac 1 8 \, \int_{-\infty}^{+\infty} \dfrac{\dd k}{2\pi \omega} \, \dfrac{m^2}{\omega} \, \left[\ 
+ a_ka^*_{k} \ + \  a^*_ka_{k}
+ \ + \ 
+ a_ka_{-k}\, e^{-i2\omega t} \ +  \ a^*_ka^*_{-k}\, e^{+i2\omega t} \ \right] } $ \hspace{1cm}$\Box$
+
+
+
+\color{Black}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

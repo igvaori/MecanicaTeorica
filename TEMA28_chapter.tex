@@ -1,0 +1,141 @@
+\chapter{Teoría clásica de campos}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+Empezamos \emph{la teoría clásica de campos} (TCC) que es muy necesaria para estudiar la \emph{teoría cuántica de campos} (TQC). Cuantizar es discretizar el número de partículas pero si el número es suficientemente grande, las descripciones cuántica y clásica coinciden.
+
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+
+\section{Teoría clásica de campos. Introducción}
+
+\textbf{?`Por qué usar \emph{campos} en una teoría física?}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/img28-01.png}
+\end{figure}
+
+La respuesta es sencilla. Supongamos que el Sr. A desea transmitir una información al sr. B, separados por una determinada distancia,  en el tiempo $t=0$. Si B recibe la información en $t=0$ se violan los principios de la relatividad especial en que la información ha de transmitirse a velocidades finitas y aquí se habría transmitido a velocidad infinita. Se trata del ejemplo de la gravitación universal de Newton, la formula $F=GMm/r^2$, que describe la interacción Tierra-Sol, por ejemplo, si el sol desapareciese en un instante la tierra lo notaría en ese mismo instante según esta formulación lo cual es imposible por la teoría de la relatividad especial, nada puede transmitirse a velocidades infinitas.
+
+El ejemplo más sencillo para resolver el problema de nuestros dos señores que desean compartir información (suponemos que aún no se han inventado las ecuaciones de Maxwell ni las ondas) es a través del siguiente prototipo primitivo de transmisión de la información: usar una cuerda de modo que cada vibración producida por A se traslada hacia B e interpreta un $1$, si no hay oscilación interpreta un $0$. Obviamente, la vibración lo hace, desde A hasta B, a una velocidad $v$ finita, tarda un determinado tiempo $t$ en recorrer una distancia $x$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/img28-02.png}
+\end{figure}
+
+El mejor objeto que describe esta forma de transmisión de información es un \textbf{\emph{campo}} $\ \phi(x,t) \ $ que mida la altura de la cuerda en el tiempo $t$ y a la distancia $x$ de A. \textcolor{gris}{(Si conociésemos las ecuaciones de Maxwell, la forma más moderna de transmisión de información es a través de las ondas electromagnéticas (em) que se propagan a la velocidad de la luz, c)}.
+
+
+En mecánica teórica decimos que hay una velocidad finita de transmisión de datos, que es lo mismo que decir que las \emph{interacciones son locales} (hablaremos de esto a lo largo del capítulo).
+
+Vamos con nuestro primer prototipo de TCC y lo haremos con un soporte mecánico material que será el medio por donde se propague el campo, la cuerda. Esto es ahora al principio, las ondas em no necesitan de ningún medio para transmitirse).
+
+En mecánica teórica sabemos trabajar muy bien con objetos puntuales pero, ?`cómo podemos trabajar con un \emph{medio continuo}? Construiremos un ``modelo de juguete'' en el que tendremos una serie de partículas de masa $m$ separadas una distancia $a$ y conectadas por muelles de constante elástica $k$ que simularán el medio continuo.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/img28-03.png}
+\end{figure}
+
+
+Este modelo responde a la ``\emph{localidad}'' de las interacciones, cada partícula interacciona directamente solo con sus inmediatas vecinas (izquierda y derecha).
+
+Si nos separamos de la posición de equilibrio, lo harán todas las partículas y adoptarán otra posición. llamando $q_i$ a la posición de la partícula $i$ respecto de su posición de equilibrio ($q_i>0$ la partícula va hacia la derecha de la posición de equilibrio, $q_i<0$ si va hacia la izquierda), así, el lagrangiano será:
+
+$\boldsymbol{ L=\dfrac m 2 \displaystyle \sum_i \dot q_i^2 - \dfrac k 2 \sum_i (q_{i+1}-q_i)^2 }$
+
+Definimos la `densidad lineal de masa' (estamos en 1-dim) como $\ \boldsymbol{\rho=\dfrac m a}$ En ocasiones, y pensando en órdenes de magnitud, una partícula al desplazarse de su posición de equilibrio notará fuerzas de los muelles a los que está unida, en unas ocasiones las fuerzas tendrán la misma dirección y la partícula notará $F=2ka$, en otras ocasiones los muelles ejercerán fuerzas en sentidos contrarios y $F=0$, en promedio podemos considerar que la fuerza que nota cada partícula es $F=Ka$. 
+
+En una cuerda, en lugar de fuerzas hablaríamos de `tensiones', $\tau$, así, la tensión media que notaría cada partícula, pensando en ordenes de magnitud, sería $\tau=ka \ \to \ \boldsymbol{ k=\dfrac \tau a}$
+
+
+\vspace{5mm}
+
+Inciso-1: recordatorio $\quad$ \rule{200pt}{0.1pt}
+
+La integral de Riemman dice que $\ \displaystyle \int_a^b f(x)\ \dd x=\lim_{N\to \infty} \dfrac{b-a}{N} \sum_i f(x_i)$
+
+Podríamos decir que, si llamamos $\ \Delta x=\dfrac{b-a}N\, , $ entonces, 
+$\quad \displaystyle \Delta x \sum_i f(x_i) \ \begin{matrix} \\=\\ N\to \infty  \\ \end{matrix} \ \int_a^b f(x) \ \dd x$
+
+\vspace{-5mm}\begin{flushright}\rule{200pt}{0.1pt}\end{flushright}
+
+Si hacemos que la separación entre partículas sea infinitesimal, $a\to 0$ (lo que es equivalente a $N\to \infty$), tendremos que usando $\rho$ y $\tau$ podemos escribir el lagrangiano como
+
+$L=\displaystyle a \sum_i \dfrac \rho 2 \dot q_i^2 - \sum_i \dfrac 1 2 \dfrac \tau a \left( \dfrac{q_{i+1}-q_i}{a} \right)^2 a^2 = a \sum_i \dfrac \rho 2 \dot q_i^2 - a \sum_i \tau \left( \dfrac{q_{i+1}-q_i}{a} \right)^2$
+
+y como la derivada es $\displaystyle f'(x)=\lim_{h \to 0} \dfrac{f(x+h)-f(x)}{h}\, , \ $ podemos interpretar $\dfrac{q_{i+1}-q_i}{a}=\dfrac{\Delta x}{a} \ \  \begin{matrix}  N\to \infty  \\ = \\ a\to 0 \\  \end{matrix} \ \  \displaystyle \dv{q_i}{x}$
+
+En el límite al continuo, cuando todos los puntos están infinitamente próximos, $q_i$ pasa a ser una función de $x$ y $t$, $º \phi(x,t)$, así, podemos escribir el lagrangiano para una cuerda 1-dim al pasar del prototipo discreto de partículas y muelles al continuo de la cuerda como:
+
+\begin{equation}
+\label{T28Lcuerda1-dim}
+\boldsymbol{
+L \ = \ \int \ \dd x \ \left[ \ \dfrac \rho 2  \left( \pdv{\phi}{t} \right)^2  \ - \ \dfrac \tau 2 \left( \pdv{\phi}{x} \right)^2 \right]
+}	
+\end{equation}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/img28-04.png}
+\end{figure}
+
+Podemos interpretar el lagrangiano en 1-dim espacial que acabamos de obtener suponiendo que las partículas realizan desplazamientos horizontales o verticales.
+
+Dimensionalmente observamos que $[\rho]=M L^{-1} \, ; \quad [\tau]=MLT^{-2}  \quad \to \ \left[ \dfrac \tau \rho \right]= \left( \dfrac L T \right)^2\, , \  \ \dfrac \tau \rho \ \ $ define una cierta velocidad al cuadrado que debe ser la velocidad de propagación de la onda.\footnote{ Se demostrará cuando hagamos las ecuaciones de Euler-Lagrange.} 
+
+\begin{equation}
+\label{T28Lcuerda1-dim-v}
+\boldsymbol{
+\dfrac \tau \rho \ = \ \dfrac 1{v2} \quad \to \qquad 
+\subrayado{ \  
+L \ = \ \int \ \dd x \ \tau \  \dfrac 1 2 \  \left[ \ \dfrac 1 {v^2}  \left( \pdv{\phi}{t} \right)^2  \ - \ \left( \pdv{\phi}{x} \right)^2 \right]
+\ }
+}	
+\end{equation}
+
+\vspace{5mm}
+
+\begin{ejemplo}
+\begin{small}	
+	Si quisiéramos inventarnos un prototipo de TCC que fuese \emph{invariante Lorentz}\footnote{Grupos de Lie. Javier García.  \textcolor{blue}{https://www.youtube.com/c/JavierGarcia110}, capítulos. 15, 16 y 17}, lo que deberíamos hacer es lo mismo que ahora pero sustituyendo $c$ por $v$:
+	$\quad \displaystyle L=\int \dd x \left[ \dfrac 1 2 \dfrac 1 {c^2} \left( \pdv{\phi}{t} \right)^2 - \dfrac 1 2 \left( \pdv{\phi}{x} \right)^2 \right] $
+	
+	En notación relativista\footnote{Ver video curso de `Relatividad general' de 	\emph{Javier García},  \textcolor{blue}{https://www.youtube.com/c/JavierGarcia110/playlists}}, haciendo $ct=x_0$, tenemos 
+	
+$\displaystyle L=\int \dd x \dfrac 1 2 \left[ (\partial_0\phi)^2-(\partial_1 \phi)^2 \right]= 
+\int \dd x \dfrac 1 2 \left[ (\partial_0\phi)(\partial_0\phi)-(\partial_1 \phi)(\partial_1 \phi) \right]$
+
+Como la métrica\footnote{Métrica usada en TCC} es  $\ g_{\alpha \beta} = $\tiny{$\mqty(\dmat{1,-1,-1,-1})$}\normalsize{,} al subir índices tenemos $+\partial^0 \phi$ y $-\partial^1 \phi$, luego
+
+$L=\displaystyle \int \dd x \dfrac 1 2 [(\partial_0\phi)(\partial^0\phi)+(\partial_1\phi)(\partial^1\phi)]$, de forma más compacta, $\quad \boldsymbol{ L=\displaystyle \int \dd x \ \dfrac 1 2 \ \partial_\mu\phi \ \partial^\mu\phi }$
+\end{small}
+\end{ejemplo}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

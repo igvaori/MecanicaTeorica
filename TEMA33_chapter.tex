@@ -1,0 +1,378 @@
+\chapter{Campo escalar con masa}
+\label{campo-escalar-con-masa}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+$$\boldsymbol{ S[\phi] \ = \ \displaystyle \int \ \dd^4 x \ \left( \ \dfrac 1 2 \ \partial_\mu \ \partial^{\, \mu} \ \phi \ - \ \dfrac{m^2}{2} \ \phi^2 \ \right) }$$ 
+
+La fórmula anterior representa la acción de un campo escalar con un término de potencial cuadrático en el campo, $ \ \dfrac{m^2}{2}\phi^2 \, , \  $ con una constante $m$ que recuerda a la \emph{masa} y que efectivamente, cuando se \emph{cuantiza} el campo las partículas tienen masa $m$. Esta fórmula describe el \emph{bosón de Higgs}, solo tiene masa y carace de carga, spin y color.
+
+Como solución a esta acción aparece un paquete de ondas cuya evolución temporal se representa en la siguiente gráfica ($\phi,t,x$), viajando a velocidad que no supera a la velocidad de la luz.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/img33-01.png}
+\end{figure}
+
+\vspace{3mm}
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+
+\section{Acción de un campo escalar}
+
+Vamos a demostrar que la acción de un campo escalar, $\ S[\phi]= \displaystyle \int \dd^4 x \dfrac 1 2 \partial_\mu \phi \partial^\mu  \phi\, , \ $ es un inavariante de Poincaré ante transformaciones (de Poincaré) $\ x^{\mu'}=\Lambda^{\mu'}_{\ \ \alpha} x^\alpha + a^{\mu'}$
+
+Veamos como van a cambiar las $\partial_\mu \phi$:
+$\qquad \displaystyle \pdv{\phi}{x^\alpha}=\pdv{x^\mu}{x^\alpha}\pdv{\phi}{x^\mu}=\Lambda^\mu_{\ \ \alpha} \pdv{\phi}{x^\mu}= \pdv{\phi}{x^\mu} \Lambda^\mu_{\ \ \alpha} $
+
+En el capítulo anterior vimos que los vectores duales se transforman como $\ v_\alpha=v_{\alpha'}\Lambda^{\mu}_{\ \ \alpha'}\, , \ $ luego $\displaystyle \pdv{\phi}{x^\alpha}=\partial_\alpha \phi$ se compartan como tal, como vectores covariantes Lorentz (índices abajo).
+
+------ Como $\ \partial_\mu \phi \partial^\mu \phi \ $ es el producto escalar de un vector consigo mismo y el producto escalar es un invariante Lorentz, $\ \partial_\mu \phi \partial^\mu \phi \ $ será un invariante Lorentz y también la acción del campo escalar.$\quad \ \ \Box$
+
+
+------ De otro modo, subamos los índices: $\quad \partial^\mu \phi=g^{\mu \alpha} \partial_\alpha \phi=g^{\mu \nu} \partial_{\beta'} \phi \Lambda^{\beta'}_{\ \ \alpha}$
+
+\hspace{1cm} Efectuando el producto, $\quad \partial_\mu \phi \partial^\mu \phi=\partial_{\sigma'} \phi \Lambda^{\sigma'}_{\ \ \mu} g^{\mu \alpha} \partial_{\beta'} \phi \Lambda^{\beta'}_{\ \ \alpha}= \Lambda^{\sigma'}_{\ \ \mu} g^{\mu \alpha} \partial_{\beta'} \phi \Lambda^{\beta'}_{\ \ \alpha}  \partial_{\beta'} \phi  \partial_{\sigma'} \phi = $
+ 
+\hspace{1cm}  $=g^{\sigma? \beta'} \partial_{\beta'} \phi \partial_{\sigma'} \phi = \partial_{\beta'} \phi \partial^{\beta'} \phi \, , \  $ invariante Lorentz \hspace{7.5cm} $ \Box$
+
+\vspace{10mm}
+
+\begin{multicols}{2}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.4\textwidth]{imagenes/img33-02.png}
+\end{figure}	
+Ambos observadores han de medir el mismo campo: $\phi'(t',x')=\phi(t,x)$
+
+En general $\phi'(x^{\mu'})=\phi(x^\mu)$, que abreviadamente se puede poner como $\phi'(x')=\phi(x)$.
+
+Como también puede haber traslación espacio-temporal, $x'=\Lambda x+a \to x=\Lambda^{-1}(x'-a)$, en muchos textos aparecerá $\phi'(x')=\phi(\Lambda^{-1} x - \Lambda^{-1} a) $ 
+\end{multicols}
+
+Es costumbre, por comodidad, tomar $a^\mu=0$ y, entonces, $\phi(x')=\phi(x)$ con lo que lo que resulta más usual ver en los libros de texto es        $\ \boxed{\ \boldsymbol{ \phi'(x')= \phi ( \Lambda^{-1} x) } \ } \ $ que es la \emph{transformación del campo bajo transformaciones Lorentz}.
+
+
+\color{gris}
+
+\rule{200pt}{0.1pt}
+
+\underline{Ejemplo}:  Sea $f(x)=x^2$ y consideremos la transformación $x' \to 3x$, como $f'(x')=f(x)$, ha de ocurrir que:
+
+$f'(x')=f'(3x)=f(x)=x^2 \, , \ $ llamando $\  (3x)^2=y \to f'(y)=\left(\dfrac 1 3 y \right)^2$
+
+Volviendo a las $x\, : \qquad f'(x)=\left( \dfrac 1 3 x \right)^2=\dfrac{x^2}{9}$
+
+Luego, la transformación de $f$ será: $\quad f:\ x \to x^2 \quad \Rightarrow f':\ x \to \dfrac{x^2}9$
+
+En nuestro caso: $\ x'=3x \ \to \ \Lambda=3 y \Lambda^{-1}=\dfrac 1 3 \, , \ $ por lo que
+
+$\boldsymbol{ \phi'(x')= \phi ( \Lambda^{-1} x) } = f \left( \dfrac 1 3 x \right) = \dfrac {x^2}9$
+
+\vspace{-7mm} \begin{flushright}\rule{200pt}{0.1pt}\end{flushright}
+
+\color{black}
+
+Hasta aquí la acción del campo, vamos ahora a por
+
+\section{Acción de una partícula}
+
+
+Vamos con la acción de una partícula de masa $m$, $S[x(t)]$. En nuestro espacio-tiempo van a coexistir un campo $\phi$ y una masa puntual $m$.
+
+Se sabe que la acción de una partícula es proporcional a la ``longitud'' de la trayectoria espacio-temporal. De todas las trayectorias posibles, la partícula describirá aquella que minimice la acción, la ``longitud''.
+
+\begin{multicols}{2}
+$\dd \underline s = \mqty(c\dd t \\ x)$
+
+La ``longitud'', llamada \textbf{intervalo} o \textbf{elemento de línea} ha de estar medida con la métrica del espacio-tiempo:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.3\textwidth]{imagenes/img33-03.png}
+\end{figure}	
+\end{multicols}
+
+INTERVALO $=\sqrt{\dd \underline s \cdot \dd \underline s}=\sqrt{\mqty(c \dd t&x)\mqty(1&0\\0&-1)\mqty(c\dd t\\ x)}=\sqrt{c^2\\d t^2-\dd x^2}=\sqrt{\dd s^2}=\dd s$
+
+Para una ``longitud'' entera: $\ \displaystyle s[x(t)]=\alpha \int_A^B\dd s=\alpha \int_A^B \sqrt{c^2 \dd t^2 - \dd x^2}$
+
+
+$\alpha$ es para que al volver a Newton obtengamos $\displaystyle S[x(t)]=\int \dfrac m 2 v^2 \dd t$
+
+Para ello usaremos un Taylor $\ \sqrt{1-z}\approx 1-\dfrac 1 2 z \quad z<<1$
+
+$ \displaystyle s[x(t)]=\alpha \int_A^B \sqrt{c^2 \dd t^2 - \dd x^2} = \alpha \int_A^B 
+\sqrt{1-\dfrac{v^2}{c^2} }\ c \dd t \approx 
+\alpha \int_A^B \left( 1-\dfrac 1 2 \dfrac{v^2}{c^2} \right) c\dd t=\int_A^B \left( \cancelto{cte}{\alpha c} - \dfrac \alpha 2 v \right) \dd t \Leftrightarrow$
+
+$\Leftrightarrow \int_A^B \dfrac m 2 v^2 \dd t \quad -\dfrac {\alpha}{c}=m \quad \boldsymbol{ \alpha=-mc }$
+
+$c\alpha \sqrt{1-\dfrac{v^2}{c^2}} \approx \cancelto{cte}{-mc^2}+m \dfrac{v^2}2\, . \ \ $ Las constantes no importarán para la $\delta S$
+
+
+Finalmente: $\qquad \boldsymbol{ \boxed{ \ S[x(t)] \ = \ -mc^2 \displaystyle \int_A^B \sqrt{1-v^2/c^2} \ \dd t \ } }$
+
+De donde se deduce que $\quad \displaystyle \boldsymbol{L \ = \ -mc^2  \sqrt{1-v^2/c^2}} $
+
+Calculemos el \emph{momento canónico conjugado}: 
+
+$\ \boldsymbol p \ =\displaystyle \pdv{L}{v}=-mc^2\dfrac{-2vc^2}{\sqrt{1-v^2/c^2}}= \ \boldsymbol{ \dfrac {mv}{\sqrt{1-v^2/c^2}}}$
+
+Como $L\neq L(x) \ \to \ \displaystyle \cancelto{0}{\pdv{L}{x}}-\dv{t}\left( \pdv{L}{v}\right)=0 \ \to \ \dv{t}\left( \pdv{L}{v}\right)=0 \ \to \ \pdv{L}{v} = \ \boldsymbol{ p\ = \ cte} $
+
+Vamos con el hamiltoniano: 
+
+$\ H=pv-L=\dfrac{mv^2}{\sqrt{1-v^2/c^2}}+mc^2\sqrt{1-v^2/c^2}=\dfrac{,v^2+mc^2(1-v^2/c^2)}{\sqrt{1-v^2/c^2}}=\ \boldsymbol{ \dfrac{mc^2}{\sqrt{1-v^2/c^2}} \ = \ E}$
+
+Veamos la relación entre $E$ y $p$:
+
+Despejando $v$ de $p$: $\quad p^2=\dfrac{m^2v^2}{1-v^2/c^2} \ \to \ p^2-v^2\left(\dfrac{p^2}{c^2}+m^2\right)=0 \ \to \ v^2=\dfrac{p^2}{p^2/c^2 + m^2} \ \dfrac{c^4}{c^4} \ \to $
+
+$\to \ \boldsymbol{v=\dfrac{pc^2}{\sqrt{p^2c^2+m^2c^4}}}$
+
+Despejando el factor $\ \sqrt{1-v^2/c^2}\ $ de las expresiones de $E$ y $p$,
+
+$\sqrt{1-v^2/c^2}=\dfrac{mv}{p} \qquad \sqrt{1-v^2/c^2}=\dfrac{mc^2}{E} \qquad \Rightarrow \quad \boldsymbol{\subrayado{ \ \boxed{\ v = \ \dfrac{pc^2}{E}\ } \ }}$
+
+Relación que expresa la velocidad $v$ de una partícula en función de su momento $p$ y su energía $E$
+
+Al comparar las dos expresiones obtenidas para $v$: $\qquad \boldsymbol{ \subrayado{\ \boxed{\ E \ = \  \sqrt{\ p^2c^2 \ + \ m^2c^4 \ } \ } \ } }$
+
+\section{Campo escalar con masa}
+
+Resumimos las fórmulas que ha de seguir un campo escalar $\phi$ y una partícula de masa $m$ a velocidad $v$ en un espacio-tiempo relativista:
+
+\begin{footnotesize} $\displaystyle \boxed{ \ \pdv{\phi}{x^\alpha}\ \text{v. covar.}\, ,  \quad \phi'(x)=\phi(\Lambda^{-1}x)\, ;  \qquad 
+p=\dfrac{mv}{\sqrt{1-v^2/c^2}}\, , \quad E=\dfrac{mc^2}{\sqrt{1-v^2/c^2}}\, , \quad E=\sqrt{p^2c^2+m^2c^4}\, , \quad v=\dfrac{p^2c^2}{E} \ }$ \end{footnotesize}
+
+Ahora tenemos que asociar a la partícula de masa $m$ un campo que tenga forma de onda, siguiendo los pasos de De Broglie.
+
+Ocurre un hecho curioso:
+
+$\triangleright \quad$ En Newton: $\quad E=\dfrac{mv^2}{2}=\dfrac{p^2}{2m}\, , \ \ p=mv \ \ \to \ \ \displaystyle \boldsymbol{ \dv{E}{p} \ = }\ \dfrac p m \ = \ \boldsymbol v$
+
+$\triangleright \quad$ En Einstein: $\quad E=\sqrt{p^2c^2+m^2c^4} \ \ \to \ \ \displaystyle \boldsymbol{\dv{E}{p} \ = } \ \dfrac{\cancel{2}pc2}{\cancel{2}\sqrt{p^2c^2+m^2c^4}}=\dfrac{pc^2}{E} \ = \ \boldsymbol v$
+
+La relación $\ \boxed{ \ \boldsymbol{ v \ = \ \displaystyle \dv{E}{p} \ } \ }\ $ nos servirá para conectar con el tema de las ondas.
+
+Supongamos que deseamos que nuestro campo $\phi(x,t)$ fuese una onda cuya \emph{velocidad de grupo} fuese la misma que la de la partícula, $v$.
+
+\begin{multicols}{2}
+\textcolor{gris}{En las ondas, la velocidad de fase es el cociente entre la frecuencia angular y el número de ondas, $v_f=\omega/k$ y la \emph{velocidad de grupo} es $vel.grupo=\displaystyle \dv{\omega}{k}$}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.20\textwidth]{imagenes/img33-04.png}
+\end{figure}	
+\end{multicols}
+
+Cualquier onda se puede considerar como la suma de varias ondas planas (Fourrier), cada una de ellas de la forma $\phi=e^{i(\omega t-kx)}$, de modo que $\phi=\displaystyle \sum a_n e^{i(\boldsymbol \omega t- \boldsymbol kx)}$
+
+?`Qué relación habrán de cumplir $\omega$ y $k$ para que satisfagan nuestro deseo de que la velocidad de grupo de la onda coincida con la de nuestra partícula? $\quad \to \ \ \displaystyle \dv{\omega}{k} \ = \ v \ = \ \dv{E}{p} $
+
+Como queremos que estos sea valido en el régimen cuántico establecemos como postulados:
+
+$$\textbf{De Broglie:} \qquad \boxed{\ \boldsymbol{p \ = \ \hbar \ k} \ }
+\qquad \qquad \qquad 
+\textbf{Plank:} \qquad \boxed{\ \boldsymbol{ E \ = \ \hbar \ \omega \ } }$$
+
+
+De modo que $\quad \displaystyle \dv{E}{p}=\dfrac{\mathrm{d}(\hbar \omega)}{\mathrm{d}(\hbar k)}=\dfrac{\cancel{\hbar} \mathrm{d}( \omega)}{\cancel{\hbar} \mathrm{d}( k)}=\dv{\omega}{k} \quad \to \quad \phi \sim e^{i(\omega t - kx)} \sim e^{i\left( \frac E \hbar t - \frac p \hbar x \right)}   $
+
+Esta onda tendrá velocidad de grupo idéntica a la velocidad de nuestra partícula de masa $m$.
+
+Vamos a obtener la ecuación de la onda. De la ecuación $E^2=p^2c^2+m^2c^4$ vamos a obtener $E$ y $p$ en función del campo $\phi$ mediante el siguiente truco:
+
+$\triangleright \qquad  \displaystyle \pdv[2]{\phi}{t}=\phi \left(\dfrac{iE}{\hbar}\right)^2=-\dfrac{E^2\Phi}{\hbar^2} \ \to \ E^2=-\dfrac{\hbar^2}{\phi} \pdv[2]{\phi}{t}$
+
+
+$\triangleright \qquad  \displaystyle \pdv[2]{\phi}{x}=\phi \left(\dfrac{-ip}{\hbar}\right)^2=-\dfrac{p^2\Phi}{\hbar^2} \ \to \ p^2=-\dfrac{\hbar^2}{\phi} \pdv[2]{\phi}{x}$
+
+Sustituyendo en $\ E^2=p^2c^2+m^2c^4$,
+
+$-\dfrac{\hbar^2}{\phi} \pdv[2]{\phi}{t} \ = \ -\dfrac{\hbar^2}{\phi} \pdv[2]{\phi}{x} º + \ m^2c^4$
+
+Llevándolo todo a la derecha y multiplicando toda la ecuación por $\ \dfrac{\phi}{\hbar^2c^2}\, , \ $ se obtiene:
+
+\begin{equation}
+\label{T33EcK-G}
+\boldsymbol{ \boxed{\ \  
+\dfrac 1 {c^2} \pdv[2]{\phi}{t} \ - \ \pdv[2]{\phi}{x} + \dfrac{m^2c^2}{\hbar^2}\ \phi \ = \ 0
+ \ \ } }	\qquad \text{Ecuación de Klein-Gordon}
+\end{equation}
+
+Que es la ecuación de onda que tiene por solución $\ e^{i\left( \frac E \hbar t - \frac p \hbar x \right)}\ $ y cumple que $\ E^2=p^2c^2+m^2c^4$
+
+En notación relativista, $(ct=x^0)$,
+$\qquad \displaystyle \pdv[2]{\phi}{(x^0)} - \pdv[2]{\phi}{(x^1)} + \left(\dfrac{mc}{\hbar} \right)^2 \phi=0$
+
+Como $\displaystyle \pdv[2]{\phi}{(x^0)} - \pdv[2]{\phi}{(x^1)}=\partial_\mu \phi \partial^\mu \phi\, , \ $ podemos escribir la ecuación de Klein-Gordon en forma compacta relativista como:
+
+\begin{equation}
+\label{T33EcK-G}
+\boldsymbol{ \boxed{\ \  
+\left[ \ \partial_\mu \ \partial^\mu \ + \ \left(\dfrac{mc}{\hbar} \right)^2 \ \right] \ \phi \ = \ 0
+ \ \ } }	
+ \end{equation}
+ 
+\begin{flushright} \begin{scriptsize} \textcolor{gris}{$(\ \partial_\mu \partial^\mu=\partial_0\partial^0+\partial_1\partial^1=\partial_0\partial_0 - \partial_1\partial_1=\partial_0^2-\partial_1^2 \ )$  } \end{scriptsize} \end{flushright}
+
+\vspace{1cm}
+\begin{tarongeta}
+	La ecuación de Klein-Gordon se obtiene al aplicar las ecuaciones de Euler-Lagrange a la acción de un campo escalar con masa.
+	
+	$s[\phi(x)] \ = \ \displaystyle \int \dd^4 x \ \left( \ \dfrac 1 2 \partial_\mu \ \partial^\mu \ \phi \ - \ \dfrac{m^2}{2} \ \phi^2 \ \right) \quad \to \quad \mathcal L \ = \ \dfrac 1 2 \partial_\mu \ \partial^\mu \ \phi \ - \ \dfrac{m^2}{2} \ \phi^2 $
+	
+	Ecuaciones de Euler-Lagrange:  $\quad \displaystyle \pdv{\mathcal L}{\phi} \ - \ \partial_\mu \pdv{L}{(\partial_\mu \phi)} \ = \ 0$
+	
+	$\triangleright \quad \displaystyle \pdv{\mathcal L}{\phi} = -m^2 \phi$
+	
+$\triangleright \quad \displaystyle \partial_\mu \pdv{L}{(\partial_\mu \phi)} = \partial_0 \pdv{L}{(\partial_0 \phi)} + \partial_1 \pdv{L}{(\partial_1 \phi)}= \partial_0(\dfrac 1 2 2 \partial_0 \phi) - 
+\partial_1(-\dfrac 1 2 2 \partial_1 \phi)=\partial_0^2 \phi-\partial_1^2 \phi= (\partial_0 \partial^0 + \partial_1 \partial^1 )\phi=(\partial_\mu \partial^\mu)\phi$
+
+Llevándolo a las ecuaciones de Euler-Lagrange: $\quad -m^2\phi - \ \partial_\mu \partial^\mu \phi =0$, multiplicando por $(-1)$,
+
+$$\boldsymbol{ [\ \partial_\mu \partial^\mu \ + \ m^2\ ] \ \phi \ = \ 0 }$$
+\end{tarongeta}
+
+\vspace{1cm}
+La relación $E^2=p^2c^2+m^2c^4$, expresada com $\omega$ y $k$ se llama \emph{relación de dispersión}:
+
+$E^2=p^2c^2+m^2c^4 \, ; \quad E=\hbar \omega\, , \ \ p=\hbar k \qquad \to \qquad \cancel{\hbar^2}\omega^2=\cancel{\hbar^2}k^2 c^2 + m^2 c^4 \ \ \to \ \ \boldsymbol{ \omega=\sqrt{k^2c^2+\dfrac{m^2c^4}{\hbar^2}}}\, , \ $ que es la relación de dispersión de Klein-Gordon.
+
+Si calculamos la velocidad de fase, $\quad v_f=\omega/k=\sqrt{c^2+\left( \dfrac{mc^2}{\hbar k} \right)^2 } = c \sqrt{1+\left( \dfrac{mc}{\hbar k} \right)^2} \geq   \ \ c$ \begin{scriptsize} \textcolor{gris}{pues $ \left( \dfrac{mc}{\hbar k} \right)^2 \geq 0 $} \end{scriptsize}
+
+Vamos con la velocidad de grupo que es lo que realmente tiene sentido en la transmisión de datos:
+
+$v_g=\displaystyle \dv{\omega}{k}=
+\dfrac{kc^2}
+{
+\sqrt{
+k^2c^2+\left( \dfrac{mc^2}{\hbar k} \right)^2
+}
+}	
+\dfrac{k c^{\cancel{2}}}
+{\cancel{c} \sqrt{k^2 + \left( \dfrac{mc}{\hbar k} \right)^2} }=c \dfrac{1}{\sqrt{1 + \left( \dfrac{mc}{\hbar k} \right)^2}} \leq c \quad $ 
+\begin{scriptsize} \textcolor{gris}{pues $ \left( \dfrac{mc}{\hbar k} \right)^2 \geq 0 $} \end{scriptsize}
+
+
+\vspace{5mm} Vamos a construir un paquete de ondas y verlo evolucionar en el tiempo \textcolor{gris}{ (sw: matlab) Lo que sigue es temario de ondas.} 
+
+
+$\phi=e^{i(\omega t-kx)} \in \mathbb C\, , \ $, tomando la parte real  $\ \phi=\cos(\omega t-kx)\ $ que es una onda plana con $\omega$ y $k$
+
+
+
+\begin{multicols}{2}
+Deseamos construir una perturbación que se mueva con velocidad $K_m\ $ ($k$ promedio), para construir este paquete de ondas lo que hay que hacer es $\ \phi=\displaystyle \sum_k g_k \cos(\omega t-kx)\, . \  g_k $ ha de representar un ``bulto gaussiano'' con máximo en $k_m$
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.30\textwidth]{imagenes/img33-07.png}
+\end{figure}	
+\end{multicols}	
+
+Podríamos definir nuestro campo como: $\ \phi=e^{-(k-k_m)^2} \ \cos(\omega  t - k x)$
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.75\textwidth]{imagenes/img33-08.png}
+\end{figure}
+
+La representación estática del campo es:
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{imagenes/img33-05.png}
+\end{figure}
+
+La evolución del paquete se realiza de modo que el máximo, al que apunta la flecha roja, se desplaza despacio hacia la derecha. La línea verde representa la velocidad de fase y la roja a la velocidad de grupo. La línea verde se desplaza a mayor velocidad que la roja. \textcolor{gris}{(Resultado de la simulación con el sw. matlab.)}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.95\textwidth]{imagenes/img33-06.png}
+\end{figure}
+
+Extensión al espacio-tiempo.
+
+\vspace{5mm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.95\textwidth]{imagenes/img33-09.png}
+\end{figure}
+
+
+
+
+
+%\begin{comment}
+
+\section{Ejercicio propuesto}
+\vspace{5mm}
+\begin{ejercicio}
+	Supongamos un campo $\ \phi(x,t) \ = \ e^{i(\omega t - kx)}\, , \ $ com $\omega=E/\hbar$ y $k=p/\hbar$
+	
+	El observador canónico $\mathcal O$ que ve este campo observa una velocidad de grupo $v_g=\dfrac {pc^2}{E}=\dfrac{kc^2}{\omega}$
+	
+	Con una transformación de Lorentz $\Lambda$, un observador inercial $\mathcal O'$ que se mueva a $v_g$ observará el campo $\phi'=e^{i(\omega' t' - k'x')}$.
+	
+	Calcular el valor de $\omega'$ y $k'$ y comentar el resultado obtenido para la velocidad de grupo de $\phi'$ que observa $\mathcal O'$.
+\end{ejercicio}
+
+\vspace{5mm}
+\color{NavyBlue}
+
+$\phi'=e^{i(\omega' t' - k'x')}\quad $ calculemos $\omega'$ y $k'$:
+
+Lorentz: $\quad x'=\Lambda(x-a)\, , \ $ asumiendo $a=0 \ \to \ x'=\Lambda x \ \leftrightarrow \ x=\Lambda^{-1} x'$
+
+$\Lambda=\mqty(\gamma&-\gamma \beta\\-\gamma \beta& \gamma)\, ; \quad \Lambda^{-1}=\mqty(\gamma&\gamma \beta\\ \gamma \beta& \gamma) \qquad \qquad \gamma=\dfrac 1 {\sqrt{1-\beta^2}}\, ; \quad \beta=v/c$
+
+$\mqty(ct\\x) = \mqty(\gamma&\gamma \beta\\ \gamma \beta& \gamma) \mqty(ct'\\x') \ \to \ \begin{cases} \ ct&=\gamma(ct')+\gamma \beta x' \\ \ x&=\gamma \beta (ct') + \gamma x' \end{cases}$
+
+$\omega t - kx = \dfrac \omega c (\gamma ct'+\gamma \beta x') - k (\gamma \beta c t' + \gamma x') = (\omega \gamma - k \gamma \beta c) t' - \left(k\gamma -\dfrac \omega c \gamma \beta \right) x'=\omega' t' - k' x'$
+
+Luego $\qquad \begin{cases} \ \ \boxed{\ \omega'\  } \ = \ \omega \gamma - k \gamma \beta c \ = \boxed{ \ \gamma (\omega -k\beta c) \ } \\ \\
+  \ \ \boxed{\ k' \  } \ =  \ k\gamma - \dfrac \omega c \gamma \beta \ = \ \boxed{ \ \gamma \left( k -\dfrac \omega c \beta \right) \ } \end{cases}$ 	
+
+\vspace{5mm}
+
+$\beta=\dfrac v c \quad \text{y} \quad v=v_g=\dfrac{kc^2}{\omega} \quad \to \qquad \boldsymbol{ \beta = \dfrac{kc}{\omega}}$
+
+Para un observador inercial $\mathcal O'$ moviéndose a velocidad constante $v=v_g$,
+
+$\boxed{\boldsymbol{\ \omega' \ }}\ = \ \gamma (\omega-k\beta c)=\gamma \left(\omega - k \dfrac{kc}{\omega} c \right) = \gamma \left( \omega - \dfrac{k^2c^2}{\omega}\right) = \gamma \omega \left[ 1- \left( \dfrac{kc}{\omega} \right)^2 \right] = \omega \gamma (1-\beta^2) \ \ \ \mqty{ ^* \\ = } \ \boxed{ \boldsymbol{ \  \omega/\gamma \ }}$ 
+
+
+\color{blue!50}
+$(^*)\ :  \qquad  \boldsymbol{ \gamma (1-\beta^2) }\  = \dfrac {1-\beta^2}{\sqrt{1-\beta^2}}= 
+\dfrac{\sqrt{1-\beta^2} \sqrt{1-\beta^2}}{\sqrt{1-\beta^2}}=\sqrt{1-\beta^2}= \dfrac 1{1/\sqrt{1-\beta^2}}=\ \boldsymbol{ 1/\gamma}$
+
+\color{NavyBlue}
+$\boldsymbol{ \boxed{ \ k'\ }} \ = \gamma \left(  k - \dfrac \omega c \beta \right) = \gamma \left(k-\dfrac \omega c \dfrac {kc}{\omega} \right) = \gamma (k-k) \ = \ \boldsymbol{ \boxed{ \ 0 \ }}$
+
+
+La velocidad de grupo que mide el observador es  $\quad \boldsymbol{ \boxed{ \ v'_g \ }} \ = \dfrac{k'c^2}{\omega'} \ = \boldsymbol{ \boxed{ \ 0 \ }}$
+
+\color{black}
+
+
+	
+%\end{comment}
+
+
+
+
+	
+
+
+

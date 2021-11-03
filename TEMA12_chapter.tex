@@ -1,0 +1,289 @@
+\chapter{Hamiltoniano vs Energía}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{1cm}
+
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+	Hay una relación entre el hamiltoniano $H$ y la energía $E$. Al principio suele haber confusión entre qué es una cosa y otra, en este capítulo se intentará aclarar estos conceptos antes de entrar de lleno en el formalismo hamiltoniano.
+\end{ejemplo}
+\end{adjustwidth}
+	
+\vspace{1cm}
+
+\section{Recordatorios}
+
+\begin{large}
+\begin{myalertblock}
+\text{Transformada de Legendre}
+$$\quad g(\textcolor{red}{\blacktriangle}) \ = \ \widehat A  \ f (\textcolor{blue}{\blacksquare)} \ = \ \left[ \textcolor{blue}{\blacksquare} \ \pdv{\ \textcolor{blue}{\blacksquare}} - 1 \right] \ f (\textcolor{blue}{\blacksquare)} \, ; \qquad \textcolor{red}{\blacktriangle} \ = \ \pdv{f}{\ \textcolor{blue}{\blacksquare}}	$$
+\end{myalertblock}
+\end{large}
+\vspace{5mm}
+
+\begin{definition}
+
+\textbf{Función homogénea de grado cero}: $\qquad \qquad \boldsymbol {\boxed{ \ f(\lambda x) \ = \ \lambda^n\ f(x) \ } }$	
+\end{definition}
+
+\underline{Ejemplo}: $\quad f(x)=x^2 \ $ es función homogénea de grado 2:
+
+$f(x)=x^2 \to \ f(\lambda x)=(\lambda x)^2=\lambda^2 x^2 = \lambda^{\boldsymbol{2}} f(x)$
+
+\underline{Extensión a varias variables}: $\quad f(x,y,z)=x^2+y^2+3xz\ $  es función homogénea de grado 2:
+
+$f(\lambda x,\lambda y, \lambda z)=(\lambda x)^2+(\lambda y)^2 +3(\lambda x)(\lambda y)=\lambda^2 (x^2+y^2+3xy)=\lambda^{\boldsymbol{2}} f(x)$
+
+\underline{Otro ejemplo}: $\quad f(x,y)=\dfrac{xy}{x^2+y^2}\ $ es función homogénea de grado 0:
+
+$f(\lambda x,\lambda y)=\dfrac{\lambda x \ \lambda y}{(\lambda x)^2+(\lambda y)^2}= \dfrac{\cancel{\lambda ^2} \ xy}{\cancel{\lambda^2} (x^2+y^2)}=\dfrac{xy}{x^2+y^2}=\lambda^{\boldsymbol{0}} f(x)$
+
+\vspace{5mm}
+\textbf{?`Cuál es la aplicación de las funciones homogéneas?}
+
+\begin{theorem}
+
+\textbf{Teorema de Euler}
+
+\begin{equation}
+\label{T12ThEuler}
+\boldsymbol{
+f(x_1,\cdots ,x_p) \text{ homogénea grado } n \ \ \longrightarrow \ \ 
+x_1\dv{f}{x_1} + \cdots + x_p\pdv{f}{x_p} \ = \ n \ f
+}	
+\end{equation}	
+\end{theorem}
+
+\begin{proof} (en una dimensión)
+
+$f(\lambda x)=\lambda^n f(x)\, ; \qquad y=\lambda x \ \to f(y)=\lambda ^n f(x)\ $. Derivando ambas expresiones respecto de lambda,
+
+\hspace{2cm} $\displaystyle \pdv{\lambda} [f(y)] = \pdv{\lambda} [\lambda^n f(x) ] $
+
+\hspace{2cm} $\displaystyle \pdv{f(y)}{y} \ \  \cancelto{x}{\pdv{y}{\lambda}} = n \lambda^{n-1} f(x)\, , \qquad \forall \lambda$
+
+\hspace{2cm} $\displaystyle x \ \pdv{f(y)}{y} = n \lambda^{n-1} f(x) \, , \qquad \forall \lambda$
+
+\hspace{2cm} Para $\lambda=1 \ \to \ \displaystyle x \ \pdv{f(y)}{y} = n \ f(x)$
+
+\hspace{2cm} Cuando $\ y=1.x \ \to \ \ \displaystyle x \ \pdv{f(x)}{x} = n f(x)$
+\end{proof}
+
+
+
+\vspace{5mm}
+\section{Energía cinética}
+\label{T12Tesfericas}
+
+$$\boldsymbol {T \ = \ \dfrac m 2 \ v^2 \ = \ \dfrac m 2 \ \vec v \cdot \vec v }$$
+
+
+$\triangleright \ $ En coordenadas cartesianas:
+
+$v^2=\vec v \cdot \vec v= \mqty(v_1&v_2&v_3) \mqty(v_1\\v_2\\v_3)=\mqty(v_1&v_2&v_3) \mqty(\imat{3}) \mqty(v_1\\v_2\\v_3)=
+v_1^2+v_2^2+v_3^2$
+
+\begin{scriptsize} \textcolor{gris}{$I=\mqty(\imat{3}) \ $ es la métrica en el espacio plano $\mathbb R^3$} \end{scriptsize}
+
+
+$T$ en cartesianas, $\quad  \boxed{ \ T \ = \ \dfrac m 2 \ ( \ \dot x^2 + \dot y^2 + \dot z^2 \ ) \ }$
+
+$\triangleright \ $ En coordenadas esféricas:
+
+\begin{multicols}{2}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=.3\textwidth]{imagenes/img12-01.png}
+\end{figure}
+$\quad$
+
+$\quad \begin{cases}
+\ x \ = \ r\ \sin \theta \ \cos \phi \\
+\ y \ = \ r\ \sin \theta \ \sin \phi \\
+\ z \ = \ r\ \cos \theta  	
+\end{cases}$
+
+\end{multicols}
+
+Para expresar la energía cinética en esféricas necesitamos:
+
+$\begin{cases}
+\ \dot x \ = \	\dot r \sin \theta \cos \phi \ + \ r \cos \theta \ \dot \theta \cos \phi \ - \  r \sin \theta \sin \phi \ \dot \phi \\
+\ \dot y \ = \	\dot r \sin \theta \sin \phi \ + \ r \cos \theta \ \dot \theta \sin \phi \ + \  r \sin \theta \cos \phi \ \dot \phi \\
+\ \dot z \ = \ \dot r \cos \theta \ - \ r \sin \theta \ \dot \theta
+\end{cases} \ \to \ \ \dot x^2; \ \dot y^2;\ \dot y^2 \ \to \ \sum \ \ \cdots$
+
+Tras largos cálculos (que se recomiendan hacer, al menos una vez), se obtiene
+
+$$\boldsymbol{\dot x^2 + \dot y^2 + \dot z^2 \ = \ \dot r^2 \ + \ r^2 \ \dot \theta^2 \ + \ r^2 \ \sin^2 \theta \ \dot \phi^2}$$ 
+
+\vspace{3mm}
+\ul{Inciso-1} $\quad$ \rule{50pt}{0.1pt} $\quad$ \begin{small} \textbf{Usando geometría diferencial} \end{small} \begin{footnotesize} (Cap 11 ``Relatividad General'' de Javier García).\end{footnotesize} 
+
+$g_{ij} \ = \ \mqty( 1&0&0 \\ 0&r^2&0 \\ 0&0&r^2 \sin^2 \theta) $
+
+$\vec v \cdot \vec v= g_{ij}\ v^i \ v^j= 1 \ v^r v^r \ + \ r^2 \ v^\theta v^\theta \ + \ r^2 \sin^2 \theta \ v^\phi v^\phi \, ; \qquad v^r=\dot r;\ v^\theta=\dot \theta;\  v^\phi=\dot \phi$
+
+$v^2 \ = \ \dot r^2 \ + \ r^2 \ \dot \theta^2 \ + \ r^2 \ \sin^2 \theta \ \dot \phi^2 \qquad $ llegamos, más rápidamente, al mismo resultado. 
+
+\vspace{-5mm}
+\begin{flushright} \rule{200pt}{0.1pt} \end{flushright}
+
+$T$, en esféricas, es pues: $\quad \boxed{ \ T \ = \ \dfrac m 2 \ (\ \ \dot r^2 \ + \ r^2 \ \dot \theta^2 \ + \ r^2 \ \sin^2 \theta \ \dot \phi^2 \ ) \ } $
+
+
+\vspace{5mm} \textbf{$T$ homogénea de grado}, tanto en cartesianas como en esféricas, por lo que podemos aplicar el \emph{teorema de Euler}:
+
+$T(v_1,v_2,v_3) \ = \ \dfrac m 2 (v_1^2+v_2^2+v_3^2) \ \ \underrightarrow{\ \  \text{Th. Euler} \ \ }  \ \  
+\displaystyle v_1\ \pdv{v_1}+v_2\ \pdv{v_2}+v_2\ \pdv{v_3} \ = \ 2\ T$
+
+$T(v_r,v_\theta,v_\phi) \ = \ \dfrac m 2 (v_r^2+v_\theta^2+v_\phi^2) \ \ \underrightarrow{\ \  \text{Th. Euler} \ \ }  \ \  
+\displaystyle v_r\ \pdv{v_r}+v_\theta\ \pdv{v_\theta}+v_\phi \ \pdv{v_\phi} = \ \dot r\ \pdv{v_r}+\dot \theta \ \pdv{v_\theta}+ \dot \phi \ \pdv{v_\phi}  = \ 2\ T$
+
+\vspace{5mm} \textbf{--- No todas las $\boldsymbol T$ son funciones homogéneas de grado dos.}
+
+\begin{multicols}{2}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=.3\textwidth]{imagenes/img12-02.png}
+\end{figure}
+$\quad$
+
+El palo $r$ está obligado (motor externo) a oscilar. La masa $m$ se puede mover libremente por $r$, sin fricción. 
+
+?`Cuál será el movimiento de $m$ sometida a esta restricción?
+
+\end{multicols}
+
+$T$ en esféricas, con $\theta=\dfrac {\pi}{2}$ y con $\dot \theta = 0$,
+
+$T=\ \dfrac m 2 \ (\ \dot r^2  +  r^2 \ \cancelto{0}{\dot \theta^2}  +  r^2 \ \cancelto{1}{\sin^2 \theta }\ \dot \phi^2  ) \ = \ \dfrac m2 \ (\dot r^2 + r^2\ \dot \phi^2)$
+
+Introducimos la ligadura $\ \phi=\sin t \ \to T=\dfrac m 2 (\dot r^2 + r^2 \cos^2 t)=T(\dot r)$, no homogénea:
+
+$T(\lambda \dot r)=\dfrac m 2 \left( (\lambda^2 \dot  r)^2 + r^2 \cos^2 t \right) \neq \lambda^n T(r) \, , \ $ no homogénea.
+
+$\vec r=(r\cos \phi, r \sin \phi)=r\left( \cos(\sin t),\ r\sin(\sin t) \right) \ \to \ $ T no homogénea por aparecer $t$ explícitamente en el cambio de coordenadas cartesianas a generalizadas y no se puede aplicar el teorema. de Euler.
+
+
+\vspace{5mm}
+Conclusión:
+\vspace{3mm}
+\begin{adjustwidth}{20pt}{0pt}
+\begin{destacado}
+\emph{Si al hacer el cambio de coordenadas cartesianas a generalizadas $\ (x,y,x \to q_i, q_2, \dots)\ $ si no aparece el tiempo $t$ de manera explícita, $T$ será homogénea de grado 2 y se podrá aplicar el teorema de Euler.}	
+\end{destacado}
+\end{adjustwidth}
+
+
+
+
+
+\vspace{5mm}
+\section{?`Es el lagrangiano constante en el tiempo?}
+
+
+$L(q_j, \dot q_j, t) \ \to \ \displaystyle \dv{L}{t}=\sum_{j=1}^n  \pdv{L}{q_j} \ \pdv{q_j}{t} + \sum_{j=1}^n  \pdv{L}{\dot q_j} \ \pdv{\dot q_j}{t} + \pdv{L}{t} = \sum_{j=1}^n  \pdv{L}{q_j} \ \dot q_j + \sum_{j=1}^n  \pdv{L}{\dot q_j} \ \ddot q_j + \pdv{L}{t}$
+
+Ecuaciones Euler-Lagrange: $\ \displaystyle \dv{t} \left( \pdv{L}{\dot q_j} \right) = \pdv{L}{q_j}$,
+
+$\displaystyle \dv{L}{t} \ = \ \sum_{j=1}^n  \dv{t} \left( \pdv{L}{\dot q_j} \right) \ \dot q_j + \sum_{j=1}^n  \pdv{L}{\dot q_j} \ \ddot q_j + \pdv{L}{t} = \sum_{j=1}^n \dv{t} \left[ \pdv{L}{\dot q_j} \ \dot q_j \right] + \pdv{L}{t} =  \dv{t} \left[ \sum_{j=1}^n  \pdv{L}{\dot q_j} \ \dot q_j \right] + \pdv{L}{t}$
+
+Invirtiendo dos términos, $\quad \displaystyle - \pdv{L}{t} =
+ \dv{t} \left[  \sum_{j=1}^n \pdv{L}{\dot q_j} \ \dot q_j \right] - \dv{L}{t}=
+ \dv{t} \left[  \sum_{j=1}^n \pdv{L}{\dot q_j} \ \dot q_j  - L\right] $
+  
+$\displaystyle - \pdv{L}{t} \ = \ 
+ \dv{t} \left[  \sum_{j=1}^n  \left( \dot q_j \ \pdv{L}{\dot q_j} - 1 \right) \ L \right] \, , \ $ 
+ 
+ suma de transformadas de Legendre para las $\dot q_j$, a esto se le llama \textbf{hamiltoniano}.
+
+
+\begin{equation}
+\label{T12hamiltoniano}
+\boxed{ \ \boldsymbol{
+H(q_1, \cdots , q_n, p_1, \cdots, p_n) \ = \ 
+ \sum_{j=1}^n  \left( \dot q_j \ \pdv{L}{\dot q_j} - 1 \right) \ L
+} \ }	\ \, ; 
+\qquad 
+\text{ con } \quad 
+\boxed{ \ \boldsymbol{
+p_j \ = \ \pdv{\dot q_j}
+} \ }
+\end{equation}
+
+Al preguntarnos si el lagrangiano es constante en el tiempo hemos llegado a
+
+\begin{equation}
+\label{T9Hdet}
+\boxed{ \ \boldsymbol{	-\pdv{L}{t} \ = \ \dv{H}{t} } \ }
+\end{equation}
+
+pero el lagrangiano no tiene significado físico, en cambio, el hamiltoniano sí lo tiene pues tiene dimensiones de energía.
+
+Cambiamos la pregunta: \textbf{?`Es el hamiltoniano una constante del movimiento?} (independiente del tiempo).
+
+La respuesta es que si $\ \subrayado{L=L(t) \ \to \ H=H(t)} \, , \ $ pero si $\ \boldsymbol{\subrayado{L\neq L(t) \ \to \ H\neq H(t)}},\ H$ es una constante del movimiento.
+
+
+
+
+\vspace{5mm}
+\section{?`Es el hamiltoniano lo mismo que la energía?}
+
+$\text{Energía } = T+V \ \quad \text{ ?` } H \ = \ E \text{ ? } \ \to \ \text{ ?` } H \ = \ T+V \text{ ? } \quad$ No siempre, solo en algunos casos.
+
+\underline{Ejemplo:} $\quad L\ = \ \dfrac m 2 \ \dot x^2 \ + \ b \ \dot x \ - \ c \ x^2 \ \qquad \ \begin{cases}
+ 	\ T\ = \ \dfrac m 2 \ \dot x^2 \ + \ b \ \dot x \\ \ V \ = \ c\ x^2
+ \end{cases} \, ; \quad L=T-V$ 
+ 
+ Calculemos $\ H=\displaystyle \dot x \ \pdv{L}{\dot x} - L = \dot x \ (m\dot x+b) - \left( \dfrac m 2 \dot x +b\dot x-cx^2 \right) = \dfrac m 2 \dot x + c x^2$
+
+$\text{ ?` } H \ = \ E \text{ ? } \quad \dfrac m 2 \dot x + c x^2 =T+V \neq \dfrac m 2 \dot x^2  + \boldsymbol{b\dot x} + cx^2 \ \longrightarrow  \ $ No lo es!
+
+
+\vspace{5mm} \textbf{?`Se conserva H?}
+
+Sí, porque $\ L \neq L(t) \ \quad$ \textcolor{gris}{$\left( L = \dfrac m 2 \dot x^2 + b\dot x-cx^2 \right)$}
+
+$H$ es una constante del movimiento, pero no es la energía.
+
+Tenemos que, en este ejemplo, la energía depende de la velocidad:
+
+$\ E(t)=\boldsymbol{\dfrac m 2 \dot x^2 + cx^2} \ + \ b\dot x = H \textcolor{gris}{(cte)} + b \dot x = A+b\dot x\, , \quad A=cte$
+
+\begin{multicols}{2}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=.35\textwidth]{imagenes/img12-03.png}
+\end{figure}
+
+
+?`Cómo puede ser esto si la energía se conserva?
+
+Se trata de un sistema en que desde otro se le proporciona energía, $b \dot x$. 
+
+En conjunto, ambos sistemas sí conservan la energía.
+
+\end{multicols}
+
+En este ejemplo sabíamos, de antemano, que $\ T=\dfrac m 2 \dot x^2+b \dot x \ $ no es homogénea de grado 2: 
+
+ $ T(\lambda \dot x) \neq \lambda^2 T(\dot x)$, no podemos afirmar que $H=E$.
+
+Hay repercusiones de ello en el hamiltoniano, $\ H=\displaystyle v \pdv{L}{v}-L \ $
+
+\vspace{5mm}
+
+\begin{myblock}{En qué condiciones en $\boldsymbol{H=E}$}
+	
+\vspace{3mm} Si $T$ homogénea grado 2 y $\displaystyle V=V(x) \ \ \textcolor{gris}{\left(  \pdv{V}{\dot x}=0 \right)} \quad \Rightarrow $
+
+\vspace{3mm} $H= v \pdv{L}{v}-L = H=\displaystyle v \pdv{T}{v}-L =\textcolor{gris}{[\text{Th. Euler}]}= 2T-L=2T-(T-V)=T+V=E$
+
+\vspace{5mm} En estas condiciones, $T$ homogénea de grado 2 y $V=V(x)$, podemos asegurar que $H=E$
+\end{myblock}

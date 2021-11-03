@@ -1,0 +1,697 @@
+\chapter{Ejemplo \emph{Euler-Lagrange}. Modos Normales}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+	Veremos como aparecen los modos normales de oscilación al desacoplar el lagrangiano diagonalizando el problema.
+\end{ejemplo}
+\end{adjustwidth}
+
+
+\section{Ejemplo \emph{Euler-Lagrange} Modos Normales}
+
+\vspace{5mm}
+\begin{example}
+.	Tres partículas de masas $m$	 unidas por dos muelles de constantes elásticas $k$, situadas en una superficie horizontal sin rozamiento (no tenemos en cuenta la fuerza de la gravedad, para mayor claridad didáctica).
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{imagenes/img06-01.png}
+	\end{figure}
+\end{example}
+\vspace{5mm}
+
+Si$a$ es la longitud natural del muelle, cuando se estira hasta que su longitud aumenta a $L$, la energía potencial es $V=\dfrac k 2 (L-a)^2$, en nuestro caso: 
+
+$V_{muelle 1}=\dfrac k 2 (2_2-x_1-a)^2\, ; \quad 
+V_{muelle 2}=\dfrac k 2 (x_3-x_2-a)^2 \quad \to $ 
+
+\hspace{2cm} $\to \quad V\ = \ \dfrac k 2 \  \left[ \ (2_2-x_1-a)^2 \ + \ (x_3-x_2-a)^2  \  \right]$
+
+Vamos a establecer un \emph{cambio de variable} para evitar esta molesta $\ a$:
+
+\begin{equation}
+\label{T6VC1}
+\begin{cases}
+\ \ x_1  \ = \  y_1	\\
+\ \ x_2  \ = \ a\ + \ y_2 \\
+\ \ x_3 \ = \ 2a\ + \ y_3
+\end{cases} \quad \to \quad \qquad \textcolor{gris}{
+\begin{cases}
+\ \ \dot x_1  \ = \   \dot y_1	\\
+\ \ \dot x_2  \ = \   \dot y_2 \\
+\ \ \dot x_3  \ = \   \dot y_3
+\end{cases} }
+\end{equation}
+
+
+$V=\dfrac k 2 \ \left[ \ 
+(a+y_2-(y_1)-a)^2 \ + \ (2a+y3-(a+y_2)-a)^2)
+\ \right] =
+\dfrac k 2 [\ (y_2-y_1)^2 \ + \ (y_3-y_2)^2 \ ]$
+
+Vamos con la energía cinética:
+
+$T=\dfrac 1 2 m \ \dot x_1^2 + \dfrac 1 2 m \ \dot x_2^2 + \dfrac 1 2 m \ \dot x_3^2 \ = \ \dfrac m 2 \ [\ \dot x_1^2  + \dot x_2^2 + \dot x_3^2\ ]  = \ \dfrac m 2 \ [\ \dot y_1^2  + \dot y_2^2 + \dot y_3^2\ ]  $
+
+Luego, 
+
+\begin{equation}
+\subrayado{
+\boldsymbol{
+L \ = \ 
+\dfrac m 2 \ [\ \dot y_1^2  + \dot y_2^2 + \dot y_3^2\ ]
+\ - \ 	
+\dfrac k 2 [\ (y_2-y_1)^2 \ + \ (y_3-y_2)^2 \ ] 
+} }
+\end{equation}
+
+Si a este lagrangiano le aplicamos las ecuaciones de Euler-Laplace (ec. \ref{T2EEL1C}), obtendríamos unas EDOs lineales, homogéneas pero \emph{acopladas}. Para solucionarlo vamos a hacer un \emph{truco: DIAGONALIZACION}\footnote{Recordamos la diagonalización de una matriz al final del tema (Nota - 1) } 
+
+Desarrollamos la parte del potencial:
+
+$(y_2-y_1)^2  +  (y_3-y_2)^2 = y_2^2+y_1^2-2y_1y_2 + y_3^2+y_2^2-2y_2y_3 =
+\textcolor{red}{\underline{1}} \ y_1^2 + \textcolor{red}{\underline{2}} \ y_2^2 +\textcolor{red}{\underline{1}} \ y_3^2-\textcolor{blue}{\underline{2}} \ y_1y_2-\textcolor{teal}{\underline{2}} \ y_2y_3 \overrightarrow{=} $
+
+Matricialmente, $\quad \overrightarrow{= } \ 
+\mqty(y_1&y_2&y_3)\ \mqty ( \textcolor{red}{1}&\textcolor{blue}{-1}&0\\\textcolor{blue}{-1}&\textcolor{red}{2}&\textcolor{teal}{-1}\\0&\textcolor{teal}{-1}&\textcolor{red}{1})\ \mqty(y_1\\y_2\\y_3)$  
+
+Al diagonalizar esta matriz, obtenemos como valores propios y vectores propios \emph{normalizados}:
+
+
+$$\vec c_1=\dfrac 1 {\sqrt{3}} \mqty(1\\1\\1) \,; \ \ \lambda_1=0\,; \qquad
+\vec c_2=\dfrac 1 {\sqrt{2}} \mqty(-1\\0\\1) \,; \ \ \lambda_2=1\,; \qquad
+\vec c_3=\dfrac 1 {\sqrt{6}} \mqty(1\\-2\\1) \,; \ \ \lambda_3=3$$
+
+La matriz de cambio de base es:
+
+\begin{equation}
+\label{T6matrizcambiobase.ortogonal}	
+M\ = \ \mqty(1/\sqrt{3} & -1/\sqrt{2} & 1/\sqrt{6} \\ 1/\sqrt{3} & 0 & -2/\sqrt{6} \\ 1/\sqrt{3} & 1/\sqrt{2} & 1/\sqrt{6})
+\end{equation} 
+
+Con la cual establecemos un segundo cambio de variable:
+
+\begin{equation}
+\label{T6VC2}
+\mqty(y_1\\y_2\\y_3) \ = \ M\ \mqty(z_1\\z_2\\z_3) \quad \to \qquad
+\begin{cases}
+\ \ y_1=z_1/\sqrt{3} - z_2/\sqrt{2}+z_3/\sqrt{6}\\
+\ \ y_2=z_1\sqrt{3}\quad \quad - \quad \quad 2z_2/\sqrt{6}\\
+\ \ y_3=z_1/\sqrt{3}+z_2/\sqrt{2}+z_3/\sqrt{6}	
+\end{cases}	
+\end{equation}
+
+
+Sustituyendo estos valores en la expresión anterior que provenía de la parte potencial, tenemos:
+
+$\begin{small} (y_2-y_1)^2  +  (y_3-y_2)^2 =
+\textcolor{red}{\underline{1}} \ y_1^2 + \textcolor{red}{\underline{2}} \ y_2^2 +\textcolor{red}{\underline{1}} \ y_3^2-\textcolor{blue}{\underline{2}} \ y_1y_2-\textcolor{teal}{\underline{2}} \ y_2y_3 \end{small} =
+\ \boldsymbol{0}\ z_1^2 \ + \ \boldsymbol{1} \ z_2^2 \ + \ \boldsymbol{3} \ z_3^2$
+
+\textcolor{gris}{($\boldsymbol{0,1,3}$ son los valores propios de la matriz.)}
+
+Esto facilita mucho la obtención de las ecuaciones de movimiento al aplicar Euler-Lagrange, pues se obtienen EDOs \emph{desacopladas}. Esto es \emph{diagonalizar} el problema o obtener los \emph{modos normales} (lo que en teoría cuántica de campos se convertirán en partículas).
+
+En cuanto a la parte cinética del lagrangiano, este cambio de base (diagonalización queda \emph{invariable}).\footnote{Justificación al final del capítulo. (Nota - 2)}
+
+\begin{equation}
+\label{T6inavraible}
+\dot y_1^2 \ + \dot y_2^2 \ + \dot y_3^2 \ = \dot z_1^2 \ + \dot z_2^2 \ + \dot z_3^2  
+\end{equation}
+
+Con esta diagonalización, el lagrangiano adopta la siguiente forma:
+
+
+\begin{equation}
+\subrayado{
+	\boldsymbol{
+		L\ =\ \dfrac 1 2 \ m \ [ \ \dot z_1^2 \ + \dot z_2^2 \ + \dot z_3^2 \ ]\ + \ \dfrac k 2 \ [\ z_2^2  + \ z_3^2 \ ]
+	}	}
+\end{equation}
+
+Y, ahora sí, vamos a aplicar las ecuaciones de Euler-Lagrange:
+
+
+
+
+
+
+\begin{myblock}{Ecuaciones Euler-Lagrange}
+\begin{equation}
+\boxed{ \ 
+\dv{t} \left( \pdv{L}{\dot q_i} \right) \ - \ \pdv{L}{q_i} \ = \ 0	
+\ }
+\textcolor{gris}{\qquad \qquad q_i=z_1,\ z_2,\ z_3 \text{ en este caso}}
+\tag{\ref{EELconservativas}}
+\end{equation}
+\end{myblock}
+
+$\boxed{ \ \boldsymbol{z_1} \ } \quad \Rightarrow \ \ \ $
+$\displaystyle \dv{t} \left( \pdv{L}{\dot z_1} \right) \ - \ \cancelto{0}{\pdv{L}{z_1}} \ = \ 0 \quad \to \quad \dv{t} \left( \pdv{L}{\dot {z_1}} \right)=0 \quad \to \qquad \pdv{L}{\dot{z_1}}= \ \ \boxed{\ \boldsymbol{ m\dot{z_1}\ = \ cte } \ }$ 
+
+$\boxed{ \ \boldsymbol{z_2} \ } \quad \Rightarrow \ \ \ $
+$\displaystyle \dv{t} \left( \pdv{L}{\dot z_2} \right) \ - \ \cancelto{0}{\pdv{L}{z_2}} \ = \ 0 \quad \to \quad \dv{t}(m\dot{z_2})+\dfrac k 2 z_2=0 \quad \to \qquad  \boxed
+{ \bold{\ m\ddot{z}_2 \ -k_2\ z_2\ = 0\ }}$
+
+$\boxed{ \ \boldsymbol{z_2} \ } \quad \Rightarrow \ \ \ $
+Análogamente, $\qquad  \boxed{ \bold{\ m\ddot{z}_3 \ -k_2\ z_3\ = 0\ }}$
+
+
+\vspace{0.5cm}
+Las ecuaciones diferenciales desacopladas de movimiento son:
+\begin{equation}
+\begin{cases}
+\ \ \ \boldsymbol{ m\ \dot{z_1}\ = \ cte }
+\\
+\ \ \bold{\ m\ \ddot{z}_2 \ -k_2\ z_2\ = 0\ }
+\\
+\ \ \bold{\ m\ \ddot{z}_3 \ -k_2\ z_3\ = 0\ }	
+\end{cases}
+\end{equation}
+%\vspace{0.5cm}
+
+$E-L \ : \ \  z_1 \quad \Rightarrow \quad \boldsymbol{  z_1 \ = A t \ + \ B }$
+
+$E-L \ : \ \ z_2 \quad \Rightarrow \quad $ EDO segundo orden lineal homogénea:
+
+\begin{adjustwidth}{10mm}{5mm}
+$m f''(t)=-kf(t) \to f''(f)=-\dfrac k m f(t) \to \lambda^2-\dfrac k m =0 \to RRS:\ \lambda=\pm \sqrt{\dfrac k m}$
+
+$f(t)=a\ e^{i\lambda_1 t}\ + \ b \ e^{i\lambda_2 t}\ $
+Llamando $\ \omega_0=\sqrt{\dfrac k m }\, ,\  $ frecuencia de oscilación del muelle,
+
+$f(t)=a(cos \omega_0 t+i\sin \omega_0 t)+b(\cos \omega_0 t-i\sin \omega_0 t)= c_1 \cos \omega_0 t + i c_2 \sin \omega_0 t\, , \ $ 
+
+con $ \ c_1=(a+b) \text{ y } c_2=(a-b) \in \mathbb R $
+
+Por trigonometría, todo seno se puede escribir como un coseno (y viceversa), por lo que 
+
+$\ f(t)=D \cos (\omega_0 t + F)\, \ $ con lo que $ \qquad \boldsymbol{z_2 \ = \ C\ (\cos \omega_0 t \ + \  D)}$
+\end{adjustwidth}
+
+
+
+
+$E-L \ : \ \ z_3 \quad \Rightarrow \quad $ Como $\ddot {z_3}=-3\dfrac k m z_3=(\sqrt{3} \omega_0)^2 \ z_3 \quad \to \quad \boldsymbol{z_3 \ = \ F\ \ (\cos \sqrt{3} \omega_0 t \ + \ G)}$
+
+\vspace{5mm}
+Hemos obtenido como soluciones a las ecuaciones diferenciales de movimiento:
+
+\begin{equation}
+\begin{cases}
+\ \ \boldsymbol{  z_1 \ = A t \ + \ B } \\ 
+\ \ \boldsymbol{z_2 \ = \ C\ (\cos \omega_0 t \ + \  D)} \\
+\ \ \boldsymbol{z_3 \ = \ F\ \ (\cos \sqrt{3} \omega_0 t \ + \ G)}	
+\end{cases}
+\end{equation}
+
+
+\vspace{5mm}
+Solo falta deshacer los dos cambios de variable que hemos realizado, ecuaciones \ref{T6VC2} y \ref{T6VC1}:
+
+$\begin{cases}
+\ \ y_1=\dfrac B {\sqrt{3}} \ + \ \dfrac A{\sqrt{3}} - \dfrac C {\sqrt{2}} \ \cos (\omega_0t+D) + \dfrac F{\sqrt{6}} \ \cos(\sqrt{3} \omega_0 t + G)	 \\
+\ \ y_2=\dfrac B {\sqrt{3}} \ + \ \dfrac A{\sqrt{3}}  
+\qquad \qquad \qquad \qquad \ \ - \sqrt{\dfrac 2 3 } \ F  \ \cos(\sqrt{3} \omega_0 t + G)	  \\
+\ \ y_3=\dfrac B {\sqrt{3}} \ + \ \dfrac A{\sqrt{3}} + \dfrac C {\sqrt{2}} \ \cos (\omega_0t+D) + \dfrac F{\sqrt{6}} \ \cos(\sqrt{3} \omega_0 t + G)	
+\end{cases}$
+
+\vspace{5mm}
+Finalmente,
+
+$\begin{cases}
+\ \ x_1=\dfrac B {\sqrt{3}} \ + \ \dfrac A{\sqrt{3}} - \dfrac C {\sqrt{2}} \ \cos (\omega_0t+D) + \dfrac F{\sqrt{6}} \ \cos(\sqrt{3} \omega_0 t + G)	 \\
+\ \ x_2=\dfrac B {\sqrt{3}} \ + \ \dfrac A{\sqrt{3}}  
+\qquad \qquad \qquad \qquad \ \ - \sqrt{\dfrac 2 3 } \ F  \ \cos(\sqrt{3} \omega_0 t + G)	\boldsymbol{ \ + \ a}  \\
+\ \ x_3=\dfrac B {\sqrt{3}} \ + \ \dfrac A{\sqrt{3}} + \dfrac C {\sqrt{2}} \ \cos (\omega_0t+D) + \dfrac F{\sqrt{6}} \ \cos(\sqrt{3} \omega_0 t + G)	\boldsymbol{\ \  \ + \ 2a}
+\end{cases}$
+
+\vspace{5mm}
+Ecuaciones de movimiento que podemos escribir \emph{vectorialmente} como:
+
+\begin{equation}
+\label{T6sol}
+\subrayado{
+\mqty(x_1\\x_2\\x_3)=
+\mqty(0\\a\\2a) +
+(B+At)\ \mqty(\dfrac 1{\sqrt{3}}\\ \dfrac 1{\sqrt{3}} \\ \dfrac 1{\sqrt{3}} )+
+C\ \cos(\omega_0t+D)\ \mqty(- \dfrac 1 {\sqrt{2}} \\0\\ \dfrac 1 {\sqrt{2}})+
+F\ \cos(\sqrt{3}\omega_0t+G)\ \mqty(\dfrac 1{\sqrt{6}}\\-\sqrt{\dfrac 2 3 }\\ \dfrac 1{\sqrt{2}})	
+}
+\end{equation}
+
+Han aparecido los vectores propios $\vec c_1, \ \vec c_2, \ \vec c_3$ y los valores propios $\sqrt{\lambda_1},\ \sqrt{\lambda_2},\ \sqrt{\lambda_3}$con los $\omega_0$ de la diagonalización del problema.
+
+Las soluciones numéricas de estas ecuaciones muestran:
+
+Ponemos D=G=0, no hay desfase inicial.
+
+Haciendo F=0, C=1, A=0, obtenemos la figura 1, las partículas de los extremos oscilan en sentidos contrarios y la del centro está fija.
+
+Desactivamos un nodo y activamos el otro: C=0, F=1. Obtenemos la figura 2, el sistema total oscila y la partícula central los hace del mismo modo.
+
+Activando los dos modos C=F=1, obtenemos un movimiento más complicado.
+
+\vspace{5mm}
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\textwidth]{imagenes/img06-02.png}
+	\end{figure}
+
+Los cuatro términos de las soluciones obtenidas, ec \ref{T6sol}, son:
+
+\begin{adjustwidth}{20pt}{20pt}
+\begin{itemize}
+\item Vector desplazamiento, que tiene en cuenta la colocación de las masas.
+\vspace{-3mm} \item MRU del CM.
+\vspace{-3mm} \item un modo normal de oscilación.
+\vspace{-3mm} \item otro modo normal de oscilación.	
+\end{itemize}
+\end{adjustwidth}
+
+Las partes responsables del lagrangiano son, la \textcolor{red}{energía cinética} responde del MRU del CM y la \textcolor{blue}{energía potencial} de los osciladores armónicos.
+
+	$$\boldsymbol{
+		L\ =\ \textcolor{red}{\dfrac 1 2 \ m \ [ \ \dot z_1^2 \ + \dot z_2^2 \ + \dot z_3^2 \ ]} \ + \ \textcolor{blue}{\dfrac k 2 \ [\ z_2^2  + \ z_3^2 \ ]}
+	}$$	
+
+
+\vspace{1cm}
+
+\begin{ejemplo}
+	\subsection{Nota 1: Diagonalización de una matriz}
+\end{ejemplo}
+	
+	\begin{myexampleblock}{Diagomalización de una matriz}
+		
+		\vspace{2mm} \emph{Diagonalizar}\footnote{$\ $ --- Capítulo 8 'Diagonalización de matrices`,  \emph{``Álgebra lineal y geometría (avanzadas) para bachillerato''}, \textcolor{blue}{Ignacio Vallés, http://igvaori.github.io} $\quad$  --- Apéndice \ref{ApendiceDiagonalizacion} `Diagonalización de matrices'} una matriz cuadrada $A$, $n\times x$ ,cosiste en encontrar unos número reales $\lambda_i$ llamados \emph{valores propios} y unos vectores $\vec c_i$, $n\times 1$, llamados \emph{vectores propios}, tales que se cumpla:
+		
+		$$\boldsymbol{ A \ \vec c \ = \ \lambda \ \vec c }$$
+		
+	Para ello, encontraremos las soluciones de la ecuación $\ |A-\lambda I|=0$, los valores propio $\lambda_i$. Para cada un de ellos buscaremos los vectores que cumplan $\ (A-\lambda_i I)\  \vec c_i \ = \ 0$, los vectores propios.
+		
+	\vspace{2mm} \textcolor{gris} {$A\vec c=\lambda \vec c \to A\vec c - \lambda I \vec c=0 \to (A-\lambda I)\vec c=0\, ,\ $ conduce a un sistema de ecuaciones lineales \emph{homogéneo} que para que tenga solución distinta de la trivial es necesario que $|A-\lambda I|=0$. }
+		
+	\vspace{2mm} Encontrados los vectores propios podemos construir la matriz $M$ formada por los vectores columna $\vec c_i$ y se cumple:
+		
+		$$A \ = \ M \ D \ M^{-1} \ \to \ D \ = \ M^{-1} \ A \ M \ = \ diag(\lambda_i)=\mqty(\lambda_1 & 0 & \cdots &0\\
+		0&\lambda2&\cdots &0\\ \vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\lambda_n)$$
+		
+	\vspace{2mm}\textcolor{gris}{La elección e los vectores $\vec c_i$ se hará exigiendo que estén \emph{normalizados}, $\boldsymbol{|\vec c_i|=1}$, y de modo que $\boldsymbol{|M|>0}$.}
+	
+	\vspace{3mm}Teoremas:
+	\begin{itemize}
+	\item $A=A^T \text{ (simétrica) } \to A diagonalizable$
+	\item $\vec c_i \cdot \vec c_j = c_i^T c_j = 0\in \mathbb R$, los nuevos vectores 	son \emph{ortogonales}. La matiz $M$ es \emph{ortogonal} (asociada a una \emph{rotación}).
+	\item $ M \text{ ortogonal } \to M^T=M^{-1}$
+	\item Por ello, $\ MM^T=M^TM=I$
+	\item $A \text{ simetrica } \ \longrightarrow \ A \text{ ortogonalmente diagonalizable}$
+	\end{itemize}
+	
+	
+\begin{center}\rule{200pt}{0.1pt}\end{center}
+		
+\vspace{7mm}  \textbf{Diagonalizar la matriz} $ \boldsymbol{ A=\mqty(1&-1&0\\-1&2&-1\\0&-1&1)}$ 
+		
+\vspace{2mm}  $ |A-\lambda I|=0 \to \left| \mqty(1-\lambda&-1&0\\-1&2-\lambda&-1\\0&-1&1-\lambda) \right| = -\lambda^3+4\lambda^2-3\lambda=0 \to \begin{cases}
+ \ \lambda_1=0 \\ \ \lambda_2=1 \\ \ \lambda_3=3	
+ \end{cases}$		
+		
+\vspace{2mm} $\boldsymbol{\lambda_1=0 \to } \quad (A)\vec c_1=\vec 0 \to \mqty(1&-1&0\\-1&2&-1\\0&-1&1)\mqty(x\\y\\z)=\mqty(0\\0\\0) \to \begin{cases}
+ 	x-y&=0\\-x+2y-z&=0\\z-y&=0
+ \end{cases}$
+ 
+\vspace{2mm}Sistema de ecuaciones lineales compatible indeterminado, solución: $\ x=y=z=1$. 
+ 
+\vspace{2mm}Tomando $z=1$ y racionalizando:  $\ \boldsymbol {\vec c_1=\dfrac 1 {\sqrt{3}} (1,1,1)^T}$
+
+\vspace{2mm} $\boldsymbol{\lambda_2=1 \to } \quad \quad (A-I)\vec c_2=\vec 0 \to \mqty(0&-1&0\\-1&1&-1\\0&-1&-1)\mqty(x\\y\\z)=\mqty(0\\0\\0) \to \begin{cases}
+ 	-y&=0\\-x+y-z&=0\\-y&=0
+ \end{cases}$
+ 
+\vspace{2mm}Sistema de ecuaciones lineales compatible indeterminado, solución: $\ y=0;\ x=-z$. 
+ 
+\vspace{2mm}Tomando $z=-1$ y racionalizando:  $\ \boldsymbol {\vec c_2=\dfrac 1 {\sqrt{2}} (1,0,-1)^T}$
+
+\vspace{2mm} $\boldsymbol{\lambda_3=3 \to } \quad \quad (A-3I)\vec c_3=\vec 0 \to \mqty(-2&-1&0\\-1&-1&-1\\0&-1&-2)\mqty(x\\y\\z)=\mqty(0\\0\\0) \to \begin{cases}
+ 	-2x-y&=0\\-x-y-z&=0\\-y-2z&=0
+ \end{cases}$
+ 
+\vspace{2mm}Sistema de ecuaciones lineales compatible indeterminado, solución: $\ x=z=; \ y=-2z$. 
+ 
+\vspace{2mm}Tomando $z=1$ y racionalizando:  $\ \boldsymbol {\vec c_3=\dfrac 1 {\sqrt{6}} (1,-2,1)^T}$
+
+\vspace{2mm}Con ello, la matriz de cambio de base es $\boldsymbol{ M=\ \mqty(1/\sqrt{3} & -1/\sqrt{2} & 1/\sqrt{6} \\ 1/\sqrt{3} & 0 & -2/\sqrt{6} \\ 1/\sqrt{3} & 1/\sqrt{2} & 1/\sqrt{6})\ }$ y la matriz diagonalizada $\boldsymbol{ D=\mqty(0&0&0\\0&1&0\\0&0&3) }$
+
+
+\vspace{4mm}Si en la base $A$ las coordenadas $y_1,y_2,y_3$ tienen la relación con variables \underline{acopladas}:
+
+\vspace{2mm}$(\vec y)^T \ A \ \vec y = \mqty(y_1&y_2&y_3)\ \mqty(1&-1&0\\-1&2&-1\\0&-1&1) \ \mqty(y_1\\y_2\\y_3)=y_1^2+2y_2^2+y_3^2-2y_1y_2-2y_2y_3$, relación con variables \underline{acopladas}.
+
+\vspace{2mm}Al diagonalizar y cambiar de base $y_i \ \to z_i$, $\mqty(y_1\\y_2\\y_3)=M \mqty(z_1\\z_1\\z_3)$ y sustituir en la relación acoplada, las nuevas coordenadas aparecen \underline{desacopladas}: $0z_1^2+1z_2^2+3z_3^2$, como vemos en
+
+\vspace{2mm} $(\vec z)^T \ D \ \vec z= 
+ \mqty(z_1&z_2&z_3)\ \mqty(0&0&0\\0&1&0\\0&0&3) \ \mqty(z_1\\z_2\\z_3)=0\ z_1^2 + 1\ z_2^2 + 3\ z_3^2$
+ 
+\vspace{2mm} \begin{center} \rule{200pt}{0.1pt} \end{center}
+
+Forma acoplada: $\boldsymbol{(\vec y)^T A \vec y}$; 
+
+Cambio de variable: $\vec y=M \vec z  \ \to \ (\vec y)^T=(M \vec z)^T=(\vec z)^T M^T=(\vec z)^T M^{-1}$, 
+
+por ello,  $(\vec y)^T A \vec y = ((\vec z)^T  M^{-1} ) \ A  \ (M  \vec z ) = (\vec z)^T \ (M^{-1} \ A \ M ) \ \vec z= \boldsymbol{(\vec z)^T D \vec z}$, forma no acoplada.
+
+$\,$
+
+\end{myexampleblock}
+
+\vspace{10mm}
+
+\begin{ejemplo}
+\subsection{Nota 2: Uso de la Geometría Diferencial (tensores, métrica,...)}
+Vamos a ver que el cambio de base efectuado, de $\ y_i \ \to \ z_i\, ,\  $ como la matriz del cambio es \emph{ortogonal}, deja invariante la \emph{métrica} (ecuación \ref{T6inavraible}).
+$\ \ y_i \ \to \ z_i \ : \qquad  \dot y_1^2 \ + \dot y_2^2 \ + \dot y_3^2 \ = \dot z_1^2 \ + \dot z_2^2 \ + \dot z_3^2 $
+
+Como la matriz cambio de base, ec. \ref{T6matrizcambiobase.ortogonal}
+$\ M\ = \ \mqty(1/\sqrt{3} & -1/\sqrt{2} & 1/\sqrt{6} \\ 1/\sqrt{3} & 0 & -2/\sqrt{6} \\ 1/\sqrt{3} & 1/\sqrt{2} & 1/\sqrt{6})\ $ es ortogonal y de $\ |M|=1\, , \ $ se trata de una \emph{rotación} y veremos que conserva la métrica. Si antes del cambio la métrica era la \emph{identidad}, tras la rotación seguirá siéndolo.
+
+Coordenadas de $y^\alpha:\quad \overrightarrow A\cdot \overrightarrow A = A_\alpha A^\alpha =g_{\alpha \beta}A^\alpha A^\beta = 	\delta_{\alpha \beta} A^\alpha A^\beta =(A^1)^2+(A^2)^2+(A^3)^2$
+
+\textcolor{gris}{$	\delta_{\alpha \beta}$ es el delta de Kronecker, la identidad.}
+
+Coordenadas de $z_\alpha:\quad \overrightarrow A\cdot \overrightarrow A = g_{{\alpha'} {\beta'}} A^{\alpha'} A^{\beta'}=  \delta_{{\alpha'} {\beta'}} A^{\alpha'} A^{\beta'} =(A^{1'})^2+(A^{2'})^2+(A^{3'})^2$
+
+En nuestro caso no tenemos un vector $\overrightarrow A$ sino su derivada, $\ \displaystyle \dv{\vec y}{t}=\dot{\vec y}$
+
+$\displaystyle \displaystyle \dv{\vec y}{t} \cdot \displaystyle \dv{\vec y}{t} = \dot {y_1}^2+ \dot {y_2}^2+ \dot {y_3}^2=
+\textcolor{gris}{\ CV(g'=I=g)\ }= \dot {z_1}^2+ \dot {z_2}^2+ \dot {z_3}^2$
+
+Esto es consecuencia de que \emph{la métrica queda invariante ante una transformación ortogonal (rotación)}.
+
+En el próximo capítulo obtendremos $\ {\vec v}^2=g_{\alpha \beta} v^\alpha v^\beta$:
+
+\begin{adjustwidth}{20pt}{20pt}
+--- $\qquad g_{\alpha \beta} (\text{cartesianas}) = \delta_{\alpha \beta}$
+
+--- $\qquad g_{\alpha \beta} (\text{esféricas})= \ 1 \ (v^r)^2 \  + \ r^2\ (v^\theta)^2  \ + \ r^2 \sin^2 \theta  \ (v^\phi)^2\, ,\ $ con  $1,\ r^2,\ r^2 \sin^2 \theta \, \ $ las componentes de la \emph{métrica en esféricas}, $\quad g=\mqty(1&0&0\\0&r^2&0\\0&0&r^2\sin^2 \theta)$
+\end{adjustwidth}
+En cuanto al término de potencial en el lagrangiano, $\ (y_2-y_1)^2+(y_3-y_2)^2=z_2^2+3z_3^2\, ,\ $ tenemos:
+
+$\overrightarrow y^T  \cdot A \cdot \overrightarrow y =\overrightarrow y \cdot (A \overrightarrow y) =
+y^\alpha \ {A_\beta}^\alpha  y_\beta \, , \ $ que es una \emph{contracción} tensor-1 tensor-2 tensor-1 con resultado un escalar (tensor-0), el mismo resultado en cualquier sistema de coordenadas ($y_i \text{ ó } z_i$).
+
+El cambio $\ \{y^\alpha \} \ \to \ \{ z^\alpha \} \, \ $ se hace para que el tensor $\ {A^\alpha}_\beta \ $ sea diagonal. Si además la transformación es ortogonal, ocurre que la métrica queda invariante (lo que hemos dicho con la energía cinética en este caso).
+\begin{center}\emph{!`La geometría diferencial es muy útil!}\end{center}
+\end{ejemplo}
+
+\vspace{0.5cm}
+\section{Ejercicio propuesto}
+\vspace{0.5cm}
+
+\begin{ejercicio}
+\begin{adjustwidth}{20pt}{20pt}
+\begin{multicols}{2}
+$\,$
+	
+Del sistema que aparece en la figura.
+\begin{enumerate}[a) ]
+\item Calcular el lagrangiano.
+\item Encontrar el cambio de coordenadas que lo diagonaliza.
+\item Resolver las ecuaciones de Euler-Lagrange.	
+\end{enumerate}
+
+$\,$
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.15\textwidth]{imagenes/img06-04.png}
+	\end{figure}
+\end{multicols}
+\end{adjustwidth}	
+\end{ejercicio}
+
+\vspace{5mm}
+
+\color{MidnightBlue}
+
+No hay fuerzas externas aplicadas y el movimiento se produce un una dirección. Las variables que definen las posiciones de las masas son $x_1 \text{ y } x_2$.	
+
+$T=\dfrac m 2 \ (\dot x_1^2+\dot x_2^2)\ ;\qquad V=\dfrac k 2 \ [\ (x_1-a)^2+(x_2-x_1-a)^2 \ ] \  - \ \ mg\ (x_1+x_2)$
+
+Lagrangiano: 
+$\subrayado{ \quad \boldsymbol{L= \dfrac m 2 \ (\dot x_1^2+\dot x_2^2) - \dfrac k 2 \ [\ (x_1-a)^2+(x_2-x_1-a)^2 \ ] \  + \ \ mg\ (x_1+x_2)} }$
+
+
+\vspace{5mm}
+--- Primer cambio de variable \begin{small}(eliminamos la molesta `$a$' de la parte elástica del potencial)\end{small}:
+
+$\begin{cases}
+\ x_1 = a+y_1 & \quad \to \quad \dot x_1=\dot y_1 \\
+\ x_2 = 2a+y_2 & \quad \to \quad \dot x_2=\dot y_2	
+\end{cases}$
+
+
+Lagrangiano: $\subrayado{ \quad \boldsymbol {L=\dfrac m 2 \ (\dot y_1^2 + \dot y_2^2) \ - \ \dfrac k 2 \ [\ y_1^2 + (y_2-y_1)^2 \ ] \ + \ mg\ (y_1+y_2+3a)} }$
+
+Desarrollando la parte elástica del potencial,
+
+$\quad L=\dfrac K 2 \ (\dot y_1^2 + \dot y_2^2) \ - \ \dfrac k 2 \ [\ 2y_1^2 + y_2^2 -2\ \boldsymbol{y_1\, y_2} \ ] \ - \ mg \ (y_1+y_2+3a)$
+
+
+Hemos obtenido un lagrangiano acoplado (con las variables $y_1 \text{ e } y_2$ acopladas, término $-2\ y_1\, y_2$). Para desacoplar el problema vamos a \emph{\textbf{diagonalizar}} el problema: aparecerá el segundo cambio de variable.
+
+\vspace{5mm}
+
+
+$(*)\ \  2y_1^2 + y_2^2 -2 y_1 y_2 = \mqty(y_1&y_2) \ \mqty(2&-1\\-1&1) \ \mqty(y_1\\y_2)=(\vec y)^T \ A \ \vec y \qquad $ \textbf{Diagonalización} de A:
+
+$A\vec v = \lambda \vec v  \ \to \ |A-\lambda I|=\left| \begin{matrix} 2-\lambda & -1 \\ -1 & 1-\lambda \end{matrix} \right| =\lambda^2-3\lambda+1=0 \ \to \ \lambda=\dfrac {3\pm \sqrt{5}}{2}$
+
+\textbf{Valores propios:} $\quad \boldsymbol{\lambda_1=\dfrac {3 + \sqrt{5}}{2}\, M; \quad \lambda_2=\dfrac {3 - \sqrt{5}}{2}}$
+
+Vamos a buscar los \emph{vectores propios} correspondientes:
+
+$\boxed{\ \lambda_1=\dfrac {3 + \sqrt{5}}{2}  \  }\quad$ 
+
+$\mqty[2-\dfrac {3 + \sqrt{5}}{2}&-1\\-1&1-\dfrac {3 + \sqrt{5}}{2}]\ \mqty(x\\y) \ = \ \mqty(0\\0)  \ \to \
+\begin{cases} 
+\ \dfrac{1-\sqrt{5}}{2}	x-y &=0 \\ \ -x-\dfrac{1+\sqrt{5}}{2}y&=0
+\end{cases} 
+\to \begin{cases} \ x=1 \\ \  y=\dfrac{1-\sqrt{5}}{2} \end{cases}$
+
+Normalizando: $\ \ |\vec c_1|=\sqrt{1^2+\left( \dfrac{-1+\sqrt{5}}{2} \right)^2 } =\sqrt{\dfrac{5-\sqrt{5}}{2}} \ \ \to \quad 
+\boxed{\ \vec c \ = \ \sqrt{\dfrac{2}{5-\sqrt{5}}} \ \mqty(1 \\ \dfrac{1-\sqrt{5}}{2}) \ }$
+
+\rule{200pt}{0.1pt}
+
+$\boxed{\ \lambda_1=\dfrac {3 - \sqrt{5}}{2}  \  }\quad$ 
+
+$\mqty[2-\dfrac {3 - \sqrt{5}}{2}&-1\\-1&1-\dfrac {3 - \sqrt{5}}{2}]\ \mqty(x\\y) \ = \ \mqty(0\\0)  \ \to \
+\begin{cases} 
+\ \dfrac{1+\sqrt{5}}{2}	x-y &=0 \\ \ -x+\dfrac{-1+\sqrt{5}}{2}y&=0
+\end{cases} 
+\to \begin{cases} \ x=1 \\ \  y=\dfrac{1+\sqrt{5}}{2} \end{cases}$
+
+Normalizando: $\ \ |\vec c_1|=\sqrt{1^2+\left( \dfrac{1+\sqrt{5}}{2} \right)^2 } =\sqrt{\dfrac{5+\sqrt{5}}{2}} \ \ \to \quad 
+\boxed{\ \vec c \ = \ \sqrt{\dfrac{2}{5+\sqrt{5}}} \ \mqty(1 \\ \dfrac{1+\sqrt{5}}{2}) \ }$
+
+\vspace{5mm}
+
+--- Segundo cambio de base (variable):  la matriz $ \ M=\mqty(\vec c_1 & \vec c_2) \ $ del cambio de base $\ \{ y_i \}\ †o \ \{ z_i\} \ $ es (racionalizando\footnote{ Ver al final}):
+
+\hspace{2cm} $M \ = \ \mqty( \sqrt{\dfrac{5+\sqrt{5}}{10}}  &  \sqrt{\dfrac{5-\sqrt{5}}{10}} \\ -\sqrt{\dfrac{5-\sqrt{5}}{10}}  &  \sqrt{\dfrac{5+\sqrt{5}}{10}} )$
+
+y la matriz diagonalizada (matiz de vectores propios) es:
+
+\hspace{2cm} $D\ = \ \mqty(\dfrac{3+\sqrt{5}}{2}&0\\0&\dfrac{3-\sqrt{5}}{2})$
+
+El segundo cambio de variable da lugar a $\ \vec y = M \  \vec z$: 
+
+$\subrayado{
+\boxed{ \ \boldsymbol{ \mqty(y_1\\y_2)=\mqty( \sqrt{\dfrac{5+\sqrt{5}}{10}}  &  \sqrt{\dfrac{5-\sqrt{5}}{10}} \\ -\sqrt{\dfrac{5-\sqrt{5}}{10}}  &  \sqrt{\dfrac{5+\sqrt{5}}{10}} ) \mqty(z_1 \\ z_2)
+\ \to \ 
+\begin{cases}
+\ y_1 = \sqrt{\dfrac{5+\sqrt{5}}{10}} z_1 + \sqrt{\dfrac{5-\sqrt{5}}{10}} z_2 \\ \ y_2=-\sqrt{\dfrac{5-\sqrt{5}}{10}}z_1+\sqrt{\dfrac{5+\sqrt{5}}{10}}z_2
+\end{cases} } \ } }$
+
+Si sustituimos el la parte variable del potencial elástico (*), obtendríamos:
+
+$ 2y_1^2 + y_2^2 -2 y_1 y_2 = \dfrac {3 + \sqrt{5}}{2} z_1^2 + \dfrac {3 - \sqrt{5}}{2} z_2^2\, , \  $ \begin{small} con lo que las nuevas variables $z_1 \text{ y } z_2$ ya aparecen \emph{desacopladas}\end{small}. 
+
+El lagrangiano es, finalmente:
+
+
+\begin{equation*} 
+\subrayado{
+\boxed{\ 
+\begin{split}
+\boldsymbol{
+L } & \boldsymbol{ = \ \dfrac m 2 \ [\  \dot z_1^2 + \dot z_2^2 \ ] \ - \ 
+\dfrac k 2 \ \left[ \ \dfrac {3 + \sqrt{5}}{2} z_1^2 + \dfrac {3 - \sqrt{5}}{2} z_2^2 \ 
+\right] \ + \ }
+ \\
+ &  \boldsymbol{+\ mg\ \left[ \ \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} -  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right) \ z_1 \ + \ \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} \ + \  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right) \ z_2  \ + \ 3a \ \right] } 
+\end{split}
+\ }
+}
+\end{equation*}
+
+\vspace{5mm}
+
+Vamos a obtener las ecuaciones del movimiento, aplicamos \textbf{Euler-Lagrange} para $z_1 \text{ y } z_2$:
+
+$\boxed{\ z_1 \ } \qquad \displaystyle \dv{t}\left[ \pdv{L}{\dot z_1} \right] \ - \ \pdv{L}{z_1} \ = \ 0$
+
+\begin{small}$\displaystyle \dv{t} (m\dot z_1) - k \dfrac{3+\sqrt{5}}{2} z_1 +mg \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} -  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)=
+m\ddot z_1 - k \dfrac{3+\sqrt{5}}{2} z_1 +mg \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} -  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)=0$\end{small}
+
+
+$\boxed{\ z_2 \ } \qquad \displaystyle \dv{t}\left[ \pdv{L}{\dot z_2} \right] \ - \ \pdv{L}{z_2} \ = \ 0$
+
+\begin{small}$\displaystyle \dv{t} (m\dot z_2) - k \dfrac{3-\sqrt{5}}{2} z_2 +mg \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} +  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)=
+m\ddot z_2 - k \dfrac{3-\sqrt{5}}{2} z_1 +mg \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} +  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)=0$\end{small}
+
+Las \textbf{ecuaciones del movimiento} son: 
+
+
+\begin{equation*} 
+\subrayado{
+\boxed{\ 
+\begin{split}
+\boldsymbol{m\ddot z_1 - k \dfrac{3+\sqrt{5}}{2} z_1 +mg \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} -  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)=0}
+\\
+\boldsymbol{m\ddot z_2 - k \dfrac{3-\sqrt{5}}{2} z_1 +mg \left(  \sqrt{\dfrac{5+\sqrt{5}}{10}} +  \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)=0}
+\end{split}
+\ } }
+\end{equation*}
+
+\vspace{5mm} \textbf{Resolución del sistema} de EDOs segundo orden lineales generales, no homogéneas. Para resolverlas, vamos a escribirlas de modo más sencillo:
+
+$\begin{cases}
+\ \subrayado{\boldsymbol{\ddot z_1 - \omega_1^2 z_1 = - K_1}} \, ; \qquad \text{con} \quad \omega_1=\sqrt{\dfrac k m \dfrac{3+\sqrt{5}}{2}} \, ; \qquad  K_1=g\left( \sqrt{\dfrac{5+\sqrt{5}}{10}} - \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)
+\\
+\ \subrayado{\boldsymbol{\ddot z_2 - \omega_2^2 z_2 = - K_2}} \, ; \qquad \text{con}  \quad \omega_2=\sqrt{\dfrac k m \dfrac{3-\sqrt{5}}{2}} \, ; \qquad  K_2=g\left( \sqrt{\dfrac{5+\sqrt{5}}{10}} + \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)
+\end{cases}$
+
+Resolvamos la EDO general para $\boxed{ \ \boldsymbol {z_1} \ }$
+
+\underline{EDO homogénea}: $\ddot z_1-\omega_1^2z_1=0 \to \ \lambda^2-\omega_1^2=0 \to \lambda=\pm \omega_1$
+
+$z_1=ae^{i\omega_1 t}+be^{-i\omega_1 t}=a(cos \omega_1 t + i \sin \omega_1 t)+ b((\cos \omega_1t-i\sin \omega_1 t)=A\cos \omega_1 t + i B \sin \omega_1 t $, escribiendo senos en función de cosenos y dejando las constantes como una fase inicial $D$, podemos decir que la solución general es:$\ {z_1}_g= C \cos(\omega_1 + D)$ \textcolor{gris}{ $\quad (A=a+b, \ B=a-b)$}
+
+\underline{EDO general}:  Como el término independiente de la EDO es una constante, $-K_1$, proponemos como solución \emph{particular} $\ {z_1}_p=T_1=cte$, con lo que ${\dot z_1}_p={\ddot z_1}_p=0$ y, al sustituir en la EDO general: 
+
+$\ 0-\omega_1^2T_1=-K_1 \to T_1=\dfrac{K_1}{\omega_1^2}=\dfrac{g \left( \sqrt{\dfrac{5+\sqrt{5}}{10}} - \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)}{\dfrac k m \dfrac{3+\sqrt{5}}{2}}$
+
+\underline{Solución para $z_1$}:  $\quad \subrayado{\boldsymbol{ z_1=C \cos (\omega_1t+D) + T_1 }}$
+
+Analogamente, \underline{Solución para $z_2$}:  $\quad \subrayado{\boldsymbol{ z_2=E \cos (\omega_1t+F) + T_2 }}$
+
+con $ T_2=\dfrac{K_2}{\omega_2^2}=\dfrac{g \left( \sqrt{\dfrac{5+\sqrt{5}}{10}} + \sqrt{\dfrac{5-\sqrt{5}}{10}} \right)}{\dfrac k m \dfrac{3-\sqrt{5}}{2}}$
+
+\vspace{5mm} Vamos a deshacer los cambios de variable que hemos efectuado  \textcolor{gris}{($M$ es la matriz de cambio de base)}:
+
+$\mqty(x_1\\x_2)=\mqty(y_1\\y_2)+\mqty(a\\2a) = M \mqty(z_1\\z_2)+\mqty(a\\2a)= \mqty( \sqrt{\dfrac{5+\sqrt{5}}{10}}  &  \sqrt{\dfrac{5-\sqrt{5}}{10}} \\ -\sqrt{\dfrac{5-\sqrt{5}}{10}}  &  \sqrt{\dfrac{5+\sqrt{5}}{10}} ) \mqty(z_1\\z_2)+\mqty(a\\2a)$ 
+
+\begin{equation*}
+\begin{split}
+\boldsymbol{x_1=\ \ \sqrt{\dfrac{\sqrt{5}+1}{2\sqrt{5}}} \ z_1 \ + \ \sqrt{\dfrac{\sqrt{5}-1}{2\sqrt{5}}} \ z_2 = \ \ Mz_1+Nz_2 + \ a } 
+\\
+\boldsymbol{x_2=-\sqrt{\dfrac{\sqrt{5}-1}{2\sqrt{5}}}\ z_1 \ + \ \sqrt{\dfrac{\sqrt{5}+1}{2\sqrt{5}}} z_2 = -Nz_1+Mz_2 + 2a } 
+\end{split}
+\qquad  \qquad \text{con} \quad 
+\begin{split}
+M=\dfrac{\sqrt{5}+1}{2\sqrt{5}}
+\\
+N=\dfrac{\sqrt{5}-1}{2\sqrt{5}}
+\end{split}
+\end{equation*}
+
+Sustituyendo las soluciones encontradas para las variables $z_i$, 
+
+\begin{equation*}
+	\begin{split}
+		x_1= \ M(C \cos (\omega_1t+D) + T_1)+ \ N(E \cos (\omega_2t+F) + T_2)+ \ a
+		\\
+		x_2=-N(C \cos (\omega_1t+D) + T_1)+M(E \cos (\omega_2t+F) + T_2)+2a
+	\end{split}
+\end{equation*}
+
+
+Reagrupando constantes, 
+
+
+\textcolor{gris}{$\ (MC=P_1, \ NE=Q_1, \ MA_1+NA_2=R_1; \ \ -NC=P_2, \ ME=Q_2, \ -NA_1+MA_2=R_2)$}
+
+
+\begin{equation*}
+	\boxed{ \ \subrayado {
+	\begin{split}
+	\boldsymbol{ \subrayado { \ x_1 \ = \ P_1 \cos(\omega_1t+D) \ + \ Q_1 \cos (\omega_2t+F) \ + \ R_1+ \ a  \ }}
+	\\	
+	\boldsymbol{ \subrayado { \  x_2 \ = \ P_2 \cos(\omega_1t+D) \ + \ Q_2 \cos (\omega_2t+F) \ + \ R_2+2a \ }}
+	\end{split}
+	} \ } 
+\end{equation*}
+
+Aparecen en dos términos de cada ecuación los dos modos normales de oscilación más un tercer término de desplazamiento que tiene en cuenta la colocación de las masas.
+
+
+\vspace{5mm}
+Vamos a estudiar un poco estas ecuaciones\footnote{Problema resuelto por Roger Balsach, 22 de julio de 2019}, comparando con los resultados obtenidos para el caso anterior sin gravedad.  Hay, ahora,  dos diferencias con el ejemplo anterior. La primera es evidentemente la gravedad, y la segunda que estamos forzando que el extremo de uno de los muelles esté siempre quieto. Esta segunda tiene una consecuencia inmediata, y es que hemos perdido el término lineal en $t$. Para simplificar el estudio fijamos las fases $D = F = 0$.
+
+Primero de todo vamos a estudiar el caso $P_i = Q_i = 0$. Entonces las masas están quietas (la posición no depende del tiempo) y la solución es $x_1(t) = a + R_1;\ \  x_2(t) = 2a + R_2$. Esto es exactamente lo que obtendríamos si resolviéramos el problema de estática igualando las fuerzas a $0$. Por otra parte, si ``apagamos'' la gravedad, es decir ponemos $g = 0$ obtenemos el mismo resultado anterior, $x_1=a;\ x_2=2a$.
+
+Cuando conectamos solo un modo de vibración, $\omega_1$, lo que podemos ver es que las dos masas suben y bajan juntas, además, como es de esperar, la masa inferior oscila con mayor amplitud que la superior. La gravedad no juega ningún papel importante aquí, pero el hecho de mantener fijo uno de los extremos es lo que provoca no solo la diferencia de amplitudes sino también que la frecuencia de oscilación es más pequeña que en el caso que se deja oscilar libremente (en ese caso recordemos la frecuencia era $\omega_0$).
+
+
+En caso de conectar solo el segundo modo de vibración, $\omega_2$, las dos masas suben y bajan en contraposición, cuando una sube la otra baja y viceversa. Además la masa inferior tiene ahora una amplitud más pequeña. De nuevo la gravedad no juega ningún papel, y todos los cambios se deben al hecho de haber fijado un extremo, también en este caso la frecuencia es inferior a la que tendríamos con el extremo libre (en ese caso la frecuencia era $\sqrt{3} \omega_0$
+	
+
+
+
+
+%\vspace{10mm}
+
+
+\color{RoyalBlue}
+\begin{center}\rule{250pt}{0.2pt}\end{center}
+
+%\vspace{10mm}
+\begin{small}
+\underline{Nota 3}: Vamos con la racionalización de denominadores para la obtención de la matriz $M$:
+
+$\dfrac 1{\sqrt{ \dfrac{5 \mp \sqrt{5}}{2}}} = \sqrt{\dfrac{2}{5\mp \sqrt{5}}}= \sqrt{\dfrac{2}{5\mp\sqrt{5}} \ \dfrac{5\pm \sqrt{5}}{5\pm \sqrt{5}}} = \sqrt{\dfrac{\cancel{2} \ (5 \pm \sqrt{5})}{\cancel{2} \cdot 10}} = \sqrt{\dfrac{5 \pm \sqrt{5}}{10}}$
+
+%\vspace{3mm} 
+$\dfrac 1{\sqrt{ \dfrac{5 - \sqrt{5}}{2}}} \cdot \dfrac {1-\sqrt{5}}{2} = 
+\dfrac{\cancel{\sqrt{2}} (1-\sqrt{5} ) }{\sqrt{5-\sqrt{
+5}} \sqrt{2} \cancel{\sqrt{2}}}=\dfrac { 1-\sqrt{5} } {\sqrt 2 \sqrt{5-\sqrt{5}} } \dfrac {\sqrt{5-\sqrt{5}}}{ \sqrt{5-\sqrt{5}}} =\dfrac{-(\sqrt{5}-1) \sqrt{5-\sqrt{5}}}{\sqrt{2} (5-\sqrt{5})}=$
+
+$=\text{\begin{small}(factor común denominador)\end{small}}=\dfrac{- \cancel{(\sqrt{5}-1)} \sqrt{5-\sqrt{5}}}{\sqrt{2} \sqrt{5}\ \cancel{(\sqrt{5}-1)}} = -\sqrt{\dfrac{5-\sqrt{5}}{10}}$
+
+
+%\vspace{3mm} 
+Analogamente, $\ \dfrac 1{\sqrt{ \dfrac{5 + \sqrt{5}}{2}}} \cdot \dfrac {1+\sqrt{5}}{2} = \cdots \ \sqrt{\dfrac{5+\sqrt{5}}{10}}$.
+%\vspace{3mm} 
+$\qquad$Por lo que  $\boldsymbol{ \ \ M \ = \ \mqty( \sqrt{\dfrac{5+\sqrt{5}}{10}}  &  \sqrt{\dfrac{5-\sqrt{5}}{10}} \\ -\sqrt{\dfrac{5-\sqrt{5}}{10}}  &  \sqrt{\dfrac{5+\sqrt{5}}{10}} ) }$
+
+$\,$
+\end{small}
+
+\vspace{-10mm}
+\color{RoyalBlue}
+\begin{center}\rule{350pt}{0.2pt}\end{center}
+
+\color{black}
+
+
+%\newpage
+%\includepdf[pages=-]{imagenes/ejercicio-tema06.pdf}
+
+

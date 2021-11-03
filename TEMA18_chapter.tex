@@ -1,0 +1,182 @@
+\chapter{?`Qué es una transformación canónica?}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+Las transformaciones canónicas básicamente son un cambio de variable para pasar de las hamiltonianas $\ \displaystyle \dot q=\pdv{H}{p} \ \text{ y } \ \dot p=-\pdv{H}{q} \ $ a unas nuevas variables $\ Q \ \text { y } \ P \, . \ $ Pero  no se puede hacer un cambio de variables cualesquiera, hay que seguir unas normas y esto es lo que veremos en este capítulo.
+
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+\section{Transformaciones canónicas}
+\vspace{5mm}
+Supongamos que tenemos un hamiltoniano $\ H=\dfrac 1 2 p^2+\dfrac 1 2 q^2 \, , \ $ donde $q$ y $q$ son las variables conjugadas $\left( p=\displaystyle \pdv{L}{\dot q} \right)$. Las ecuaciones de Hamilton, en este caso, son $\ \begin{cases} \ \displaystyle \dot q=\ \, \pdv{H}{p} \, = \, \ \ p\\ \ \displaystyle \dot q=-\pdv{H}{q}=-q \end{cases}\ $. 
+
+
+Imaginemos que realizamos una transformación $\quad  (q,p) \ \to \ (Q,P)\, , \ $ de modo que, por ejemplo,  
+
+$Q=q^2 \ \to \ q=\sqrt{Q}\ $ y $\ P=\dfrac 1 2 \dfrac p q \ \to \ p=2Pq=2P\sqrt{Q}\, . \ $ Si sustituimos en nuestro hamiltoniano:
+
+$\displaystyle H(q,p)=H(q(Q,P),p(Q,P))=\dfrac 1 2 p^2+\dfrac 1 2 q^2 = \dfrac 1 2 (2P\sqrt{Q})^2+\dfrac 1 2 (\sqrt{Q})^2=2P^2Q+\dfrac 1 2 Q=K(Q,P)$
+
+Nos preguntamos si el hamiltoniano expresado en estas nuevas variables, $K(Q,P)$, cumple las ecuaciones de Hamilton \textcolor{gris}{$\left( \dot Q=\pdv{K}{P}\, \; \ \ \dot P=-\pdv{K}{Q} \right) \, . \ $} La respuesta es NO, solo se cumplirán en determinados casos. En los casos en que las transformaciones efectuadas sobre las variables determinen una nueva expresión del hamiltoniano que cumpla las ecuaciones de Hamilton, se les llamará \textbf{transformaciones canónicas}.
+
+
+La pregunta que ahora nos surge es: \emph{dada una transformación a efectuar, ?`cómo saber si va a ser o no una transformación canónica?} Esto es lo que vamos a ver en este tema.
+
+\begin{definition}
+.	Requisitos para que una \textbf{transformación} de coordenadas, $H(q,p)\to K(Q,P)$, sea \textbf{canónica}:	
+
+\begin{adjustwidth}{20pt}{20pt}
+a) \hspace{5mm} $H=K$
+
+b) \hspace{5mm} las ecuaciones de Hamilton han de tener la misma forma en las nuevas variables.	
+\end{adjustwidth}
+\end{definition}
+
+Veremos un ejemplo para un caso sencillo, de 1 dimensión. La generalización a más dimensiones es inmediata.
+
+Transformación en 1-d: $\quad \begin{cases} \ Q=Q(q,p) \\ \ P=P(q,p) \end{cases}$. $\quad$ Derivando respecto del tiempo,
+
+$\displaystyle \dot Q = \pdv{Q}{q} \dv{q}{t} + \pdv{Q}{p}\dv{p}{t}=\pdv{Q}{q} \dot q + \pdv{Q}{p}\dot p\, ; \qquad 
+\dot P = \pdv{P}{q} \dv{q}{t} + \pdv{P}{p}\dv{p}{t}=\pdv{P}{q} \dot q + \pdv{P}{p}\dot p$
+
+
+Matricialmente, $\  \ \mqty(\dot Q \\ \dot P) \ = \ \mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} ) \ \mqty(\dot q\\ \dot p)\, ; \quad \text{llamamos } \ M=\mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} )$, \textbf{matriz jacobiana}.
+
+\underline{Notación SIMPLÉCTICA}: \textcolor{gris}{$\qquad (z,\ \mathbb Z,\ J,\ M)$}
+
+$ \text{vector } \ z=\mqty(q\\ p) \ \to \ \dot z=\mqty(\dot q\\ \dot p)\ ; \quad \mathbb{Z}=\mqty(Q\\P) \ \to \ \dot {\mathbb{Z}}= \mqty(\dot Q\\ \dot P) \ \quad \Rightarrow \quad \dot{ \mathbb{Z}} \ = \ M\ \dot z$
+
+Vamos a imponer ahora las dos restricciones de la definición de transformaciones canónicas a la transformación que deseamos efectuar:  $(q,p) \ \to \ (Q,P)$
+
+\vspace{5mm}
+------  a) $\ \quad \boxed{ \ H(z) \ } \ = H(z(\mathbb{Z}))=\ \boxed{\ K(\mathbb Z)\ } \quad $ Nuevo hamiltoniano.
+
+Como en las ecuaciones de Hamilton aparecen derivadas temporales, impondremos como requisito que $\displaystyle \dv{t} (H(z))=\dv{t} (K(\mathbb Z)) \ \to \ \pdv{H}{z} \dot z = \pdv{K}{\mathbb Z} \dot {\mathbb Z}\, , \ $ pero $\ \dot{\mathbb Z}=M \dot z \ \to \ \displaystyle \boldsymbol{\pdv{H}{z} \dot z = \pdv{K}{\mathbb Z} M \dot z}$
+
+\vspace{5mm}
+------  b) Se conserva la forma de las ecuaciones de Hamilton para las nuevas variables.
+
+$\displaystyle \dot q =\pdv{H}{p};\ \dot p=-\pdv{H}{q} \ \text{ matricialmente } \ \to \ \mqty(\dot q \\ \dot p )=\mqty(\displaystyle \pdv{H}{p} \\ \displaystyle -\pdv{H}{q} )$ 
+
+Para que la expresión tenga más simetría, podemos escribir:
+
+$\mqty(\dot q \\ \dot p )\ = \ \mqty(0&1\\-1&0)\  \mqty(\displaystyle \pdv{H}{p} \\  \displaystyle  \pdv{H}{q} ) \qquad \qquad \text{llamamos } \quad J=\mqty(0&1\\-1&0)$
+
+
+ $ \boldsymbol{ \dot z} =\mqty(\dot q \\ \dot p )=J\ \mqty(\displaystyle \pdv{H}{q} \\ \displaystyle \pdv{H}{p} ) =\displaystyle \boldsymbol{J \ \pdv{H}{z}} \qquad  \textcolor{gris}{\left( \pdv{H}{z} \text{ es un vector} \right)} \quad $ 
+ 
+ Para $\ \  \dot{\mathbb Z}=J\ \mqty(\displaystyle \pdv{K}{Q} \\ \displaystyle \pdv{K}{P} )= J \ \displaystyle \pdv{K}{\mathbb Z} \qquad \textcolor{gris}{\left( \pdv{K}{\mathbb Z} \text{ es un vector} \right)}$
+ 
+ Como el producto escalar de dos vectores se puede escribir matricialmente usando la traspuesta de una matriz, $\ \vec a \cdot \vec b=\mqty(a_1&a_2) \cdot \mqty(b_1\\b_2)=a^T \ b\, , \ $ analizando las dimensiones de las matrices, podemos reescribir matricialmente la condición del requisito a) como:
+ 
+ 
+$\displaystyle \pdv{H}{z} \dot z = \pdv{K}{\mathbb Z} M \dot z \quad \to \quad \left( \pdv{H}{z} \right)^T \cdot \dot z \ = \ \left( \pdv{K}{\mathbb Z} \right)^T \cdot  M \ \dot{z}$
+
+\vspace{5mm} Recopilemos las condiciones de los requisitos para que la transformación $(q,p) \to (Q,P)$ sea canónica:
+
+\vspace{5mm}
+\begin{tarongeta}
+$$a)\quad 	\left( \pdv{H}{z} \right)^T \cdot \dot z \ = \ \left( \pdv{K}{\mathbb Z} \right)^T \cdot  M \ \dot{z} \, ; \qquad \qquad
+b) \quad \dot z \ = \ J\ \pdv{H}{z} \, ; \quad  \dot{\mathbb Z} \ = \ J\ \pdv{K}{\mathbb Z}$$
+\end{tarongeta}
+\vspace{5mm}
+
+Nuestro interés está en despejar de aquí las expresiones $\ \displaystyle \pdv{H}{z} \  \text { y }  \ \pdv{K}{\mathbb Z}\, . \  $  Despejando en b) y sustituyendo en a):
+$\quad \displaystyle \dot z=J \pdv{H}{z} \ \to \ J^{-1} \dot z = \cancelto{I}{J^{-1} J}\  \pdv{H}{z}=\pdv{H}{z}\, ; \ \textbf{análogamente, } \ J^{-1} \dot{\mathbb Z}=\pdv{K}{\mathbb Z}$
+
+Al llevarlo a a) y teniendo en cuenta que $(AB)^T=B^TA^T$ y que $\dot{\mathbb Z}=M\dot z$,
+
+$\displaystyle (J^{-1} \dot z)^T \dot z = (J^{-1} \dot{\mathbb Z} )^T M\dot z =   (J^{-1} M \dot z )^T M\dot z \, , \ $ ecuación que debe cumplir la matriz $M$ para que la transformación sea canónica.
+
+Como $\ JJ^T=\mqty(0&1\\-1&0)\mqty(0&-1\\1&0)=\mqty(1&0\\0&1)=I \ \to \ J^T=J^{-1}\, , \ $ 
+
+llevando este resultado a la expresión anterior:
+
+\begin{adjustwidth}{30pt}{10pt}
+$\displaystyle (J^{-1} \dot z)^T \dot z = \dot z (J^{-1})^T \dot z =\dot z (J^T)^T \dot z =\boldsymbol{\dot z J \dot z}
+\\
+\displaystyle (J^{-1} M \dot z )^T M\dot z = (J^T M \dot z)^T M \dot z = \dot z^T M^T (J^T)^T M \dot z = \boldsymbol{ \dot z M^T J M \dot z}$
+\end{adjustwidth}
+
+
+Luego: $\quad \textcolor{red}{	\dot z^t} \ \textcolor{blue}{J} \ \textcolor{red}{z} \ = \  \textcolor{red}{z^t}\  \textcolor{blue}{M^TJM} \ \textcolor{red}{z} \, , \ $ por lo que
+
+\begin{equation}
+\boxed{ \ \boldsymbol{ J \ = \  M^T \ J \ M } \ }
+\label{T19condtranscanon}
+\end{equation}
+
+\vspace{-2mm}
+\textbf{Condición que deben cumplir las transformación $\boldsymbol{(q,p) \to (Q,P)}$ para que sea canónica} [requisitos a) y b)]
+
+\newpage
+\vspace{5mm}
+De esto deduciremos un \textbf{TEST} para discernir sobre si una transformación dada es o no canónica.  Como $|J|=1$, el determinante de una matriz coincide con el de su traspuesta y el determinante del producto de matrices (cuadradas) es el producto de los determinantes, tendremos,
+
+$1=|J|=|M^TJM|=|M^T||J||M|=|M^T||M|=|M|^2 \ \to \ |M|=\pm 1\, . \ $ Tomaremos $|M|=1$ para que además se conserva el área en el espacio de fases (veremos esto más adelante).
+
+\begin{equation}
+	 \subrayado{\ \boldsymbol{(q,p) \to (Q,P) \quad \textbf{ es transf. canónica si } \ \quad |M| \ = \ \mqty| \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\  \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} | \ = \ 1} \ }
+\end{equation}
+
+\rule{200pt}{0.1pt}
+
+Veamos si nuestra transformación inicial, $\begin{cases} \ Q=q^2 \\ \ P=\frac 1 2 p/q \end{cases} \quad \to \quad \begin{cases} \ q=\sqrt{Q} \\ \ p=2P\sqrt{Q} \end{cases}\, , \ \ $ es o no canónica.
+
+
+$ M=\mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} )=\mqty(2q&0\\\dfrac {-p}{2q^2}&\dfrac 1{2q}) \quad \to \quad |M|=1-0=1 \quad \to \quad $ sí es una transf. canónica.
+
+Para comprobarlo vamos a tomar un hamiltoniano cualquiera (lo visto para llegar a la condición anterior es válido para cualquier hamiltoniano, no se ha impuesto ninguna restricción sobre el hamiltoniano). 
+
+Sea $\ \boldsymbol{H=\dfrac 1 2 p^2 + \dfrac 1 2 q^2}\ $ (hamiltoniano del oscilador armónico).
+
+Las ecuaciones de Hamilton en las coordenadas $(q,p)$ son:
+
+\begin{equation}
+\label{T18EM1}
+\dot q \ = \ p \qquad \text{ y } \qquad \dot p \ = \ -q	
+\end{equation}
+
+con lo que ya tendríamos nuestra teoría, nuestras ecuaciones del movimiento.
+
+Hacemos la transformación 
+$\begin{cases} \ Q=q^2 \\ \ P=\dfrac 1 2 \dfrac p q \end{cases}  \to \ \begin{cases} \ q=\sqrt{Q} \\ \ p=2P\sqrt{Q} \end{cases}\, , \ \ $ 
+
+con lo que el nuevo hamiltoniano toma la expresión $\ \boldsymbol{K=2P^2Q+\dfrac 1 2 Q} \ $.
+
+Las ecuaciones de movimiento de este nuevo hamiltoniano deben ser totalmente equivalentes a las anteriores.
+
+\begin{equation}
+\label{T18EM2}
+	 \displaystyle \dot Q \ = \pdv{K}{P} \ = 4PQ \qquad \text{ y } \quad \dot P \ = \ -\pdv{K}{Q} \ = \ -2p^2+\dfrac 1 2
+\end{equation}
+
+?`Son realmente equivalentes las ecuaciones \ref{T18EM1} y \ref{T18EM2}?
+
+De nuestra transformación tenemos que $\quad \begin{cases} \ Q=q^2 \\ \ P=\dfrac 1 2 \dfrac p q \end{cases}  \to \ \begin{cases} \ \dot Q \ = \ 2q\dot q \\ \ \dot P \ = \ \dfrac 1 2 \dfrac{\dot p q - p \dot q}{q^2}  \end{cases}\, , \ $ sustituyendo
+
+$\begin{cases}
+\ 2q\dot q = 4 \dfrac 1 2 \dfrac p q q^2 =2pq \to \boldsymbol{\dot q = p}	
+\\ \\
+\ \dfrac 1 2 \dfrac{\dot p q - p \dot q}{q^2} = -2 \dfrac 1 2 \left(\dfrac p q \right)^2 + \dfrac 1 2  \to \dot p q-p \dot q = -p^2-q^2 \to \dot p q=q^2 \to  \boldsymbol{\dot p =-q} \qquad \qquad  \qquad  \Box
+\end{cases}$
+
+Luego sí son equivalentes ambas ecuaciones de movimiento, la transformación efectuada es canónica, como ya sabíamos al ser $|M|=1$.
+
+\vspace{1cm}
+\begin{ejemplo}
+Para el caso de más variables este procedimiento es muy costoso y, en los próximos capítulos, veremos otra forma mejor de hacerlo.	
+\end{ejemplo}
+
+\vspace{5mm}
+
+

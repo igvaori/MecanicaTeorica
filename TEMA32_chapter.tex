@@ -1,0 +1,231 @@
+\chapter{Notación relativista}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+En este capítulo veremos que se entiende por \emph{base dual} (subir y bajar índices) y que significan cosas como $\Lambda^{\mu'}_{\ \ \nu}\ $ o $\ \Lambda_{\mu'}^{\ \ \ \nu}$ y veremos un  rápido repaso a los \emph{tensores}, todo ello para volver, en próximos capítulos, a la teoría clásica de campos.
+
+El contenido de este capítulo es base para los que van a continuar.
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+
+\section{Vector dual y producto escalar}
+
+Es espacio tiempo de Minkowski lleva asociado un espacio vectorial métrico de Minkowski.
+
+La métrica de Minkowski, $g=\mqty(1\\&-1\\&&-1\\&&&-1)$ es, en general $\ g=\mqty(g_{00}&g_{11}&g_{12}&g_{13}\\\cdots & g_{11} & \cdots & \cdots \\ \cdots & \cdots  & g_{23} & \cdots \\ \cdots &\cdots &\cdots & g_{33})$
+
+Su inversa la denotaremos por $\ g^{-1}=\mqty(g^{00}&g^{11}&g^{12}&g^{13}\\\cdots & g^{11} & \cdots & \cdots \\ \cdots & \cdots  & g^{23} & \cdots \\ \cdots &\cdots &\cdots & g^{33}).\ $ En Minkowski, $\ g^{-1}=g$
+
+\vspace{5mm} \textbf{Producto escalar} $\quad \boldsymbol{ u \cdot v = u^T \ g \ v}$
+
+
+$u=\mqty(u^0\\u^1\\u^2\\u^3);\ v=\mqty(v^0\\v^1\\v^2\\v^3) \quad \to \quad
+u\cdot v=\mqty(u^0&u^1&u^1&u^3) \mqty(g_{00}&g_{11}&g_{12}&g_{13}\\\cdots & g_{11} & \cdots & \cdots \\ \cdots & \cdots  & g_{23} & \cdots \\ \cdots &\cdots &\cdots & g_{33})  \mqty(v^0\\v^1\\v^2\\v^3)$
+
+\vspace{10mm}
+
+Llamamos \textbf{vector dual} de $\ u \, , \  $	que representaremos como $\ \underline u \, , \ $ a la primera parte del producto escalar, es decir, 
+
+$\underline u = u^T\ g =
+\mqty(u^0&u^1&u^1&u^3) \mqty(g_{00}&g_{11}&g_{12}&g_{13}\\\cdots & g_{11} & \cdots & \cdots \\ \cdots & \cdots  & g_{23} & \cdots \\ \cdots &\cdots &\cdots & g_{33})=$
+
+$=\left( \ u^0g_{0\textcolor{blue}{0}}+u^1g_{1\textcolor{blue}{0}}+u^2g_{2\textcolor{blue}{0}}+u^3g_{3\textcolor{blue}{0}} \ , \ u^0g_{0\textcolor{red}{1}}+u^1g_{1\textcolor{red}{1}}+u^2g_{2\textcolor{red}{1}} + \cdots \ , \ \cdots \cdots  \ , \cdots \cdots  \ \right) =$
+
+$=\left( u^\alpha g_{\alpha \textcolor{blue}{0}} , u^\alpha g_{\alpha \textcolor{red}{1}} , u^\alpha g_{\alpha 2}, u^\alpha g_{\alpha 3} \right)\qquad$
+(Criterio de suma de Einstein: índices repetidos se suman)
+
+\begin{definition}
+
+$\underline u = 
+\mqty(u^0\\u^1\\u^2\\u^3) \qquad \textbf{ vector dual: } \quad 
+\boldsymbol{
+ \bar u = u^T \ g 
+ }
+ \, ; 
+\quad \bar u = \mqty(u_0&u_1&u_2&u_3)\ \text{ siendo } \
+\boldsymbol{u_\alpha = u^\beta g_{\alpha \beta} 
+ }$ 
+
+\vspace{3mm}Como la métrica es un tensor simétrico, $\quad u_\alpha=g_{\alpha \beta} u^\beta$
+\end{definition}
+
+\vspace{5mm} Con esto, podemos considerar el producto escalar como el producto del dual de uno de ellos por el otro: 
+
+$u\cdot v \ = \ u^T \ g \ v = \bar u \ v = \mqty(u_0&u_1&u_2&u_3) \ \mqty(v^0\\v^1\\v^2\\v^3)=u_ov^0+u_1v^1+u_2v^2+u_3v^3\ = \ u_\alpha \ v^\alpha$
+
+Aún más, $\qquad \boldsymbol{ u_\alpha \ v^\alpha \ =} \ g_{\alpha \beta} \ u^\beta \ v^\alpha \ \boldsymbol{ = \ u^\beta \ v_\beta }$
+
+\vspace{5mm} Veamos quien es son los vectores duales de los vectores básicos, con la métrica de Minkowski:
+
+$e_0=\mqty(1\\0\\0\\0) \quad \to \quad e^0 = \bar {e^0} = (e_0)T \ g = \mqty(1&0&0&0)\mqty(1\\&-1\\&&-1\\&&&-1)=\mqty(1&0&0&0)$
+
+$e_1=\mqty(0\\1\\0\\0) \quad \to \quad e^1 = \bar {e^1} = (e_1)T \ g = \mqty(0&-&0&0)\mqty(1\\&-1\\&&-1\\&&&-1)=\mqty(0&-1&0&0)$
+
+Análogamente, $e_2=\mqty(0&0&-1&0)\, ; \quad e_3=\mqty(0&0&0&-1)$
+
+Así que los vectores duales de la base son:
+
+\begin{destacado}
+$$\begin{cases}
+\quad e^0=\mqty(1&0&0&0)\ \  = \ \ (e_0)^T	 \qquad & e^1=\mqty(0&-1&0&0) =-(e_1)^T
+\\
+\quad e_3=\mqty(0&0&-1&0)= -(e_3)^T \qquad &  e_4=\mqty(0&0&0&-1)=-(e_3)^T
+\end{cases}$$
+\end{destacado}
+
+Base normal (covariante): $\ \{e_0,e_1,e_2,e_3\}\, ; \ \ $ base dual: $\ \{e^0,e^1,e^2,e^3\}$
+
+\begin{equation}
+\label{T32PEvectresbaseydual}
+\textbf{ Propiedad importante: } \qquad \qquad \qquad \qquad \boldsymbol{
+\subrayado{\ \boxed{ \ 
+e_\alpha \ e^\beta \ = \ \delta_\alpha^{\ \beta}
+\ } \ }
+} \quad \qquad (Kronecker) \qquad \qquad \qquad 	
+\end{equation}
+
+\textcolor{gris}{\underline{Comprobación}: $\ e_0\ e^1=(e_0)^T \ g \ e_1=
+\mqty(1&0&0&0) \mqty(1\\ &-1 \\ &&-1 \\ &&&-1)\mqty(0\\1\\0\\0)= \cdots = 0$}
+
+\vspace{1cm}
+\section{Transformaciones de Lorentz, $\boldsymbol \Lambda$}
+
+Notación para la matriz $\Lambda$:
+
+$\mqty(v^{0'}\\v^{1'}\\v^{1'}\\v^{3'}) \ = \ 
+\mqty( \Lambda^{0'}_{\ \ 0} &\Lambda^{0'}_{\ \ 1} &\Lambda^{0'}_{\ \ 2} &\Lambda^{0'}_{\ \ 3}  \\
+\Lambda^{1'}_{\ \ 0} &\Lambda^{1'}_{\ \ 1} &\Lambda^{1'}_{\ \ 2} &\Lambda^{1'}_{\ \ 3}  \\
+\Lambda^{2'}_{\ \ 0} &\Lambda^{2'}_{\ \ 1} &\Lambda^{2'}_{\ \ 2} &\Lambda^{2'}_{\ \ 3}  \\
+\Lambda^{3'}_{\ \ 0} &\Lambda^{3'}_{\ \ 1} &\Lambda^{3'}_{\ \ 2} &\Lambda^{3'}_{\ \ 3}  ) \ 
+\mqty(v^0\\v^1\\v^2\\v^3) \, , \ \ $ multiplicando por filas,
+
+$v^{0'}=\Lambda^{0'}_{\ \ 0} v^0 + \Lambda^{0'}_{\ \ 1} v^1 + \Lambda^{0'}_{\ \ 2} v^2+ \Lambda^{0'}_{\ \ 3} v^3; \quad 
+v^{1'}=\Lambda^{1'}_{\ \ 0} v^0 + \Lambda^{1'}_{\ \ 1} v^1 + \Lambda^{1'}_{\ \ 2} v^2+ \Lambda^{1'}_{\ \ 3} v^3; \quad \cdots ; \quad \cdots $
+
+Usando el convenio de Einstein y generalizando, $\quad \boldsymbol{v^{\beta'} \ = \ \Lambda^{\beta'}_{\ \ \alpha} \ v^\alpha}$
+
+Para la transformación inversa, $\quad \underline v=\Lambda  \underline v' \qquad \to \qquad \boldsymbol{v^\beta\ = \ \Lambda^{\beta}_{\ \ \alpha'} \ v^{\alpha'}}\quad $ \textcolor{gris}{(intercambiando índices)}
+
+\vspace{5mm} En principio conocemos $\Lambda ^{\beta'}_{\ \ \alpha}$, para pasar de $\underline v$ a $\underline v'$, pero aún no sabemos como será el paso inverso, como serán las $\Lambda^{\beta}_{\ \ \alpha'}$:
+
+$v'=\Lambda v \ \to \ v=\Lambda^{-1} v' \quad \text{ luego } \quad \boldsymbol{(\Lambda^\beta_{\ \ \alpha'}) \ = \ \Lambda^{-1}}$
+
+Para el cálculo de $\Lambda^{-1}$ vamos a usar la astucia: en el capítulo anterior vimos la relación $\ \Lambda^T \ g \ \Lambda \ = \ g \, , \  $ despejando y teniendo en cuenta que la métrica de Minkowski cumple que $\ g^2=gg=I$, tendremos:
+
+
+$\Lambda^T  g  \Lambda  =  g \ \to \ \Lambda^T  g  \Lambda \Lambda^{-1} = \ g \Lambda^{-1} \ \to \ \Lambda^T g=g\Lambda^{-1} \ \ \ \to \ \ \ \textcolor{red}{g} g \Lambda ^T g = \textcolor{red}{g} g \Lambda^{-1}=I\Lambda^{-1}=\Lambda^{-1}$
+
+Luego la transformación inversa es: $\quad \boldsymbol{\Lambda^{-1} \ = \ g \ \Lambda^T \ g} \, \ \ $ es decir, $\quad \boldsymbol{ {(\Lambda^\beta_{\ \ \alpha'})}^{-1} \ = \ g\ \Lambda^T \ g }$
+
+
+\vspace{5mm} Para vectores contravariantes (índice arriba) tenemos el cambio $\ u'=\Lambda u$. Buscamos ahora la transformación de Lorentz para vectores covariantes (duales, índices abajo).
+
+El vector dual del transformado es $\ \bar{(u')}=(u')^T g = (\Lambda u)^T g = u^T \Lambda^T g$
+
+Al ser $\ \bar u = u^T g \ \to \ \bar u g=u^T g g =u^T I=u^T\, , \ $ por lo que $\ \boldsymbol{\bar{u'} \ = \ \bar u \ g \ \Lambda^T \ g}\, , \ $ 
+
+pero como $\ g\ \Lambda^T g=\Lambda^{-1} \ \Rightarrow \ \boldsymbol{ \bar{u'} \ = \ \bar u\  \Lambda^{-1}}$
+
+\vspace{5mm}
+
+\begin{myblock}{Transformaciones de Lorentz para vectores contravariantes y covariantes}
+$$\boldsymbol{
+\subrayado{ \ u' \ = \ \Lambda \ u \quad \leftrightarrow \quad u^{\beta'} \ = \ \Lambda^{\beta'}_{\ \ \alpha} \ u^\alpha \ }
+\qquad \qquad \qquad
+\subrayado{ \ \bar{u'} \ = \ \bar u \ \Lambda^{-1} \quad \leftrightarrow \quad u_{\beta'} \ = \ u_{\alpha} \ \Lambda^{\alpha}_{\ \ \beta'} \ }
+}$$
+\vspace{2mm}
+\end{myblock}
+
+\vspace{5mm} Vamos con las transformaciones inversas:
+
+$\bar{u'}=u\Lambda^{-1} \ \to \ \bar{u'} \Lambda =u\Lambda^{-1}\Lambda=u\ , \ $ en componentes, $\ u_\alpha \ = \ u_{\beta'} \ \Lambda^{\beta'}_{\ \ \alpha}$
+
+
+\vspace{5mm}
+ \underline{Ojo}: $ \qquad \qquad \qquad \subrayado{ \ \boxed{ \ \boldsymbol{ \Lambda^{\mu'}_{\ \ \nu} \ \  \leftrightarrow \ \ \Lambda  } \ } \ } \qquad \qquad \qquad \qquad \subrayado{ \ \boxed{ \ \boldsymbol{  \Lambda^{\mu}_{\ \ \nu'} \ \  \leftrightarrow \ \ \Lambda^{-1}  } \ } \ }$	
+
+
+
+\vspace{10mm} En muchos textos aparece lo que hemos visto $\ \Lambda^{\alpha}_{\ \ \beta} \, , \ $ pero en otros también aparece $\ \Lambda_{\mu}^{\ \ \nu}\, , \ $ los índices cambiados de lugar. Veamos cuál es el significado.
+
+En el capítulo anterior vimos: $\qquad \mqty(e_{0'}\\e_{1'}\\e_{2'}\\e_{3'})=(\Lambda^{-1})^T \mqty(e_0\\e_1\\e_2\\e_3)\ ; \ \ \ \qquad \mqty(A^{0'}\\A^{1'}\\A^{2'}\\A^{3'}) = \Lambda \mqty(A^0\\A^1\\A^2\\A^3)$
+
+${(\Lambda^{-1})}^T=(\Lambda^\beta_{\ \ \alpha'})^T= \Lambda_{\alpha'}^{\ \ \beta}\, , \ $ intercambiando filas por columnas. Podemos pues escribir: $\ e_{\alpha'} = \Lambda_{\alpha'}^{\ \ \beta} e_\beta$
+
+Esta es la explicación del intercambio de índices que aparece en muchos textos: $\quad \boldsymbol{ \boxed{ \ \subrayado{ \  {(\ \Lambda^\mu_{\ \ \nu} \ )}^T \ = \ \Lambda_{\nu}^{\ \ \mu} \ } \ } }$
+
+
+Como $\ \Lambda_{\alpha'}^{\ \ \beta} = (\Lambda^{-1})^T \ $ y $\ (\Lambda^{-1})^T=(g\ \Lambda^T g)^T=g^T \Lambda g^T =\  \textcolor{gris}{(g^T=g)}\ = g\ \Lambda \ g$
+
+$$\boxed{ \boldsymbol{ \Lambda_{\alpha'}^{\ \ \beta} \quad \leftrightarrow \quad (\Lambda^{-1})^T \ = \ g \ \Lambda \ g } \ }$$
+
+\vspace{5mm}Vamos a ver que obtenemos una interesantísimas propiedad al imponer que un mismo vector, en dos bases distintas, se escribe como: $A^\mu e_\mu=A^{\mu'}e_{\mu'}$:
+
+$\textcolor{red}{A^{\mu'}}\ \textcolor{blue}{e_{\mu'}} \ = \ 
+\textcolor{red}{\Lambda^\mu_\alpha A^\alpha} \ \textcolor{blue}{ \Lambda_{\mu'}^{\ \ \nu} e_\nu} \ = \ A^\gamma e_\gamma \ \ \to \ \ $ ha de ocurrir que:
+
+$$\boldsymbol{ \  \subrayado{ \ \boxed{ \ \Lambda^{\mu'}_{\ \ \alpha} \ \Lambda_{\mu'}^{\ \ \sigma} \ = \ \delta^{\sigma}_{\ \alpha} \ } \  } \ } \qquad \text{Kronecker} \qquad \text{(matrices inversas)}$$
+
+\vspace{5mm} Transformación inversa de vectores básicos: $\ e_{\alpha'}=\Lambda_{\alpha'}^{\ \ \beta} e_\beta \ \ \to \ \ e_\alpha=\Lambda_\alpha^{\ \ \beta'} e_{\beta'} \, , \  $ es decir  $\ e_\alpha=\Lambda^T e_{\beta'}$
+
+Multiplicando por $A^\alpha$, $\quad A^\alpha (e_\alpha)=A^\alpha (\Lambda_\alpha^{\ \ \beta'} e_{\beta'})=A^{\beta'}e_{\beta'}$, en la otra base, por lo que deducimos que $\ \boldsymbol{A^{\beta'}=A^\alpha \Lambda_{\alpha}^{\ \ \beta'} }\, . \ $ Para las componentes de un vector $\underline u\, , \  \ \subrayado{\boldsymbol{u^{\beta'}=u^\alpha \Lambda_{\alpha}^{\ \ \beta'}}}\, . \ $ Anteriormente obtuvimos $\ \subrayado{ \boldsymbol{v^{\beta'}=\Lambda^{\beta'}_{\ \ \alpha} v^\alpha}}\, . \ \ $ Ya tenemos dos formas para cambio de sistema de referencia de vectores contravariantes.
+
+Las transformaciones inversas son: $\ v^{\alpha'} (e_{\alpha'}) = v^{\alpha'} (\Lambda_{\alpha'}^{\ \ \beta} e_\beta) = v^\beta e_\beta \ \to \ \ \subrayado{\boxed{\ \boldsymbol{ v^\beta = v^{\alpha'} \Lambda_{\alpha'}^{\ \ \beta} } \ }}$ 
+
+\vspace{5mm} Aunque esta notación parezca muy complicada, con un poco de práctica se vuelve muy intuitiva.
+
+\vspace{1cm}
+
+
+\begin{myexampleblock}{Resumen de fórmulas}
+
+\textbf{Métrica}:
+
+\vspace{2mm}$g=(g_{\mu \nu}) \qquad g^{-1}=(g^{\mu \nu}) \qquad \qquad \text{Minkowski: } \ g=\text{diag}(1,-1,-1,-1) \quad g^2=I \quad g=g^T$
+
+\vspace{5mm}\textbf{Producto escalar}:
+
+\vspace{2mm} $u\cdot v = u^Tg\ v=\bar u \bar v \ = \ u_\alpha v^\alpha = u^\beta v_\beta \qquad \qquad \text{vector dual: } \ \ \bar u = u^T g \ \to \ u_\alpha=\textcolor{gris}{u^\beta g_{\alpha \beta}}=g_{\alpha \beta} u^\beta$
+
+\vspace{5mm} \textbf{Transformaciones de Lorentz}:
+
+\vspace{2mm} $\Lambda^{\alpha'}_{\ \ \beta} \leftrightarrow \Lambda \quad  \quad \Lambda^\alpha_{\ \ \beta'} \leftrightarrow \Lambda^{-1} \qquad \qquad \qquad \qquad \Lambda^T g \ \Lambda = g \ \ \leftrightarrow \ \ g\ \Lambda^T g = \Lambda^{-1}$
+
+\vspace{2mm} $(\Lambda^{-1})^T =(\Lambda^\alpha_{\ \ \beta'})^T=\Lambda_{\beta'}^{\ \ \alpha}\quad \text{ (intercambio f por c) } \qquad \qquad\qquad \Lambda^{\alpha'}_{\ \ \beta} \Lambda_{\alpha'}^{\ \ \gamma} = \delta_\beta^\gamma$
+
+\vspace{2mm} Vectores contravariantes$ \quad \begin{cases}
+\ \ v'=\Lambda \ v &\leftrightarrow \ \ v^{\beta'}=\Lambda^{\beta'}_{\ \ \alpha}v^\alpha = v^\alpha \Lambda_\alpha^{\ \ \beta'} \\
+\ \ v=\Lambda^{-1} v' & \leftrightarrow \ \ v^\beta=\Lambda^\beta_{\ \ \alpha'} v^{\alpha'} = v^{\alpha'} \Lambda_{\alpha'}^{\ \ \beta}	
+\end{cases}$
+
+
+\vspace{2mm} Vectores covariantes $ \quad \quad \ \ \begin{cases}
+\ \ \bar{v'}=\bar v \Lambda^{-1} &\leftrightarrow \ \ v_{\beta'}=v_\alpha \Lambda^{\alpha}_{\ \ \beta'}=\Lambda_{\beta'}^{\ \ \alpha}v_\alpha \\
+\ \ \bar v = \bar{v'} \ \Lambda &\leftrightarrow \ \ v_\beta=v_{\alpha'} \Lambda^{\alpha'}_{\ \ \beta}=\Lambda_{\beta'}^{\ \ \alpha'}v_{alpha'}
+\end{cases}$
+
+
+\vspace{2mm} Vectores básicos: $\quad \begin{cases}
+ 	\ \ e'_\alpha = (\Lambda^{-1})^T e_\beta &\leftrightarrow \ \ e_{\alpha'}=\Lambda_{\alpha'}^{\ \ \beta} e_\beta \\ 
+ 	\ \ e_\alpha=\Lambda^T\ e'_{\beta}  &\leftrightarrow \ \ e_\alpha=\Lambda_\alpha^{\ \ \beta'} e_{\beta'}
+  \end{cases}$
+
+
+\vspace{2mm} Base dual: $\quad e^\alpha=(e_\alpha)^T g \qquad \qquad e^0=e_0^T\, ; \ \ eî=-e_i^T \qquad \qquad e_\alpha e^\beta = \delta_\alpha^{\ \beta}$ 
+
+\vspace{2mm} 
+
+\end{myexampleblock}
+
+
+

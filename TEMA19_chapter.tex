@@ -1,0 +1,458 @@
+\chapter{Funciones Generadoras de Transformaciones Canónicas}
+\label{T19FG}
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+
+En el capítulo anterior vimos que para que una transformación de coordenadas $(q,p)\to (Q,P)$ sea canónica le imponíamos tres restricciones: a) que $H=K$, b) que las ecuaciones de Hamilton sean equivalentes y c) que el determinante de la matriz $M$ sea positivo. $\boldsymbol{\Rightarrow}$ Esto implicaba que $J=M^TJM$ y que $|M|=1$.
+
+En este capítulo, nuestro objetivo va a ser determinar la forma de todas las matrices $M$ que hacen que se dé la implicación anterior en sentido inverso, $\boldsymbol{\Leftarrow}$, pero esto solo es posible si introducimos la dependencia con el tiempo para las nuevas variables $Q(q,p,t) \text{ y } P(q,p,t)$ y si, además, abandonamos la idea de que $H=K$.
+
+\end{ejemplo}
+\end{adjustwidth}
+\vspace{5mm}
+\section{Funciones Generadoras de Transformaciones Canónicas}
+\vspace{5mm}
+
+\begin{destacado}
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+ &  &  \\
+\begin{tabular}[c]{@{}l@{}}Q=Q(q,p,t)\\ P=P(q,p,t)\\ \\ a) \textst{ H=K } \\ b) mismas ec. Hamilton\\ c) det(M)\textgreater{}0\end{tabular} & $\quad \Leftrightarrow \quad$ & \begin{tabular}[c]{@{}l@{}}$J=M^TJM$\\ \\ $|M|=1$\end{tabular}
+\end{tabular}
+\end{table}
+\vspace{-10mm}
+\end{destacado}
+
+
+Veamos un ejemplo, consideremos el hamiltoniano de la partícula libre, $\ \boldsymbol{ H=\dfrac 1 {2m} p^2} \ $ y la transformación $\begin{cases} \ Q=\dfrac {t^2} 2 p \\ \\ \ P=\dfrac 2 {t^2} q \end{cases} \quad  \to \quad \displaystyle M=\mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \\\displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} )=\mqty(\dfrac {t^2} 2 & 0 \\ \\ 0 & \dfrac 2 {t^2}) \quad \to \quad |M|=1\, , \ $ 
+
+se trata de una transformación canónica. Nos preguntamos ahora: ?`es lo mismo H que K?
+
+$K$  ha de ser tal que cumpla las ecuaciones de Hamilton $\ \dot Q =\displaystyle \pdv{K}{P} \text{ y } \dot P=-\pdv{K}{Q}$
+
+Veamos primero cuales son las ecuaciones de movimiento para el hamiltoniano y las variables iniciales:
+
+$H=\dfrac 1{2m} p^2 \ \to \ \begin{cases} \ \dot p=\displaystyle \pdv{H}{q}=0 \\ \\ \ \displaystyle \dot q=\pdv{H}{p}=\dfrac p m \end{cases}\, . \ $ Ecuaciones que nos serviram de guía para encontrar $K$
+
+Para las nuevas variables, $\ \begin{cases} \ Q=\dfrac {t^2} 2 p \\ \\ \ P=\dfrac 2 {t^2} q \end{cases} \quad  \to \quad \begin{cases} \ \dot Q=\dfrac 1 2 [2tq+t^2 \dot q] \\ \\ \ \dot P=2\left[ -\dfrac 2 {t^3} `+ \dfrac 2 {t^2} \dot p \right] \end{cases}$
+
+Usando nuestras ecuaciones guía, $\ \begin{cases} \ \dot Q = \dfrac 1 2 \left[ 2tq+t^2 \dfrac p m \right] \\ \\ \ \dot P = 2 \left[ -\dfrac 2 {t^3} p + 0 \right]=-\dfrac 4 {t^3} p \end{cases}$
+
+Como $\ \begin{cases} \ Q=\dfrac {t^2} 2 p \\ \\ \ P=\dfrac 2 {t^2} q \end{cases} \quad  \to \quad \begin{cases} \ q=\dfrac 2{t^2} Q \\ \\ \ p=\dfrac {t^2}2 p \end{cases}\, , \ $ sustituyendo en la expresión anterior,
+
+$\begin{cases} \ \dot Q=t^2 \dfrac{2Q}{t^2} + \dfrac 1 2 t^2 \dfrac 1 m \dfrac{Pt^2}{2}= \dfrac{2Q}{t}+\dfrac{t^4}{4m}P \\ \\ \dot P=-\dfrac 4 {t^3} \dfrac{Pt^2}{2} =-\dfrac{2}{t}P \end{cases}$
+
+\vspace{5mm}Las ecuaciones de movimiento expresadas en las nuevas variables son:
+
+
+$$\boldsymbol{\dot Q = \dfrac{2Q}{t}+\dfrac{t^4}{4m} P } \qquad \qquad  \qquad  \boldsymbol{\dot P = -\dfrac 2 t P} $$
+
+\vspace{5mm}?`Cuál es el hamiltoniano $K$ que reproduce estas ecuaciones de movimiento?
+
+Usando las ecuaciones de Hamilton, 
+
+$\begin{cases} \ \dfrac{2Q}{t}+\dfrac{t^2}{4m}P=\displaystyle \pdv{K}{P} \quad & \quad \to \quad K=\displaystyle \int \left( \dfrac{2Q}{t}+\dfrac{t^2}{4m}P \right) \dd P = \dfrac{2Q}{t}P + \dfrac{t^2}{4m}\dfrac{P^2}{2} \\ \\ \ -\dfrac 2 t P = \displaystyle - \pdv{K}{Q} \quad & \quad \to \quad K=\displaystyle \int \dfrac {2P}{t} \dd Q=\dfrac{2P}{t}Q \end{cases}$
+ 
+ Hemos obtenido un resultado contradictorio, por una parte $k=\dfrac{2Q}{t}P + \dfrac{t^2}{4m}\dfrac{P^2}{2}$ y por otra $K=\dfrac{2P}{t}Q$
+ 
+\vspace{5mm} Inciso 1: $\quad$  \rule{200pt}{0.1pt} 
+
+Al integrar ecuaciones en derivadas parciales con dos variables hay que admitir que en una de ellas aparece una constante de integración que puede depender de la otra variable (y del tiempo)
+
+\begin{flushright}\rule{200pt}{0.1pt}\end{flushright}
+
+Haciendo lo indicado en el inciso 1 para la primera de las ecuaciones integradas,
+
+$K=\dfrac{2Q}{t}P + \dfrac{t^2}{4m}\dfrac{P^2}{2}+ A(Q,t) \qquad $ y, de la otra ecuación, $\qquad K=\dfrac{2P}{t}Q$
+
+Para determinar $A$ al hacer que coincidan ambas expresiones lo hacemos derivando ambas expresiones respecto de $Q$
+
+$\displaystyle \pdv{K}{Q} = \dfrac {2P}{t}+\pdv{A}{Q} \qquad $  y $\qquad \displaystyle \pdv{K}{Q}= \dfrac{2P}{t}  \qquad \to \qquad \dfrac {2P}{t}+\pdv{A}{Q} = \dfrac {2P}{t} \quad \to \quad A=cte=0$
+
+Tomamos $0$ como valor de la constante ya que, en este contexto, no se ve afectado el resultado, tanto $H$ como $H+A$ con $A=cte$ dan lugar a las mismas ecuaciones del movimiento.
+
+El nuevo hamiltoniano (con las nuevas variables) es:
+
+\begin{equation}
+\label{T19K}
+	\boldsymbol {K \ = \ \dfrac{2QP}t \ + \  \dfrac{t^2}{4m} \ \dfrac{p^2}2 }	
+\end{equation}
+
+
+\vspace{5mm}  Comprobemos si obtenemos el mismo hamiltoniano si en $H(q,p)$ cambiamos a las nuevas variables $(Q,P)$:
+ $\qquad H=\dfrac{1}{2m} p^2=\dfrac 1{2m} \left( \dfrac{Pt^2}{2} \right)^2 = \dfrac{t^2}{8m}P^2 \neq K\, , \ $  NO coinciden.
+ 
+ 
+ \vspace{5mm} \underline{CONCLUSIÓN}:  La transformación canónica  $\ Q=\dfrac {t^2} 2 q ;\ \ P=\dfrac 2 {t^2} p \ $ cumple el requisito b) que las ecuaciones de Hamilton la misma forma que en las variables originales, cumple c) que det(M)=1, pero no cumple a) que H=K. Pero esto no constituye ningún problema, basta con tomar K en la ecuación \ref{T19K}.
+ 
+ El problema es que en la mayoría de ocasiones no nos dan la transformación canónica para simplificar el problema, la hemos de encontrar nosotros. Para ello vamos a ver las siguientes herramientas que será un \textbf{truco para obtener las transformaciones canónicas fácilmente}.
+ 
+% \section{Funciones generadoras de transformaciones canónicas}
+ 
+ \vspace{5mm}
+ \begin{multicols}{2}
+Según el principio de Hamilton, todo sistema físico dado por un hamiltoniano H con variable q y p evolucionará en el tiempo de modo que la variación de la acción sea cero:
+
+$s=\displaystyle \int_{t_1}^{t_2} L(q,\dot q,t) \dd t \qquad \to \qquad \boldsymbol{ \var s=0 }$
+
+
+Si el sistema es observado por otro ser con otro hamiltoniano K y otras variables Q y P, con todo derecho este observador pensará que su sistema va a evolucionar de modo que $\var s=0$ con $s=\displaystyle \int_{t_1}^{t_2} L(Q,\dot Q,t) \dd t $
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{imagenes/img19-01.png}
+\end{figure}
+\end{multicols}
+
+
+Vamos a expresar la acción en forma hamiltoniana: $\ H=p\dot q - L \ \to  \ L=p\dot q - H$
+
+$\displaystyle s_{_p,_q,_H}=\int_{t_1}^{t_2} (p\dot q-H(q,p,t)) \ \dd t \, ; \qquad s_{_P,_Q,_K}=\int_{t_1}^{t_2} (P\dot Q-K(Q,P,t)) \ \dd t$
+
+Ha de ocurrir que $\ \boldsymbol{ \var s_{_p,_q,_H} = \var s_{_P,_Q,_K}   = 0 } \quad \to \quad \var \left( s_{_p,_q,_H}- s_{_P,_Q,_K} \right)=0 \quad \to $
+
+$\to \quad 0\ =\  \displaystyle \var \left\{  \int_{t_1}^{t_2} \left[ (p\dot q-H) \ - \ (P\dot Q-K)\right] \ \dd t
+\right\} = 
+\var \left\{  \int_{t_1}^{t_2} \left[ [p\dot q - P\dot Q +K-H] \right] \ \dd t
+\right\} =  $
+
+$\displaystyle =
+\var \left\{  \int_{t_1}^{t_2} \left[ p\dv{q}{t} - P\dv{Q}{t} + K - H \right] \ \dd t
+\right\} = 
+\var \left\{  \int_{t_1}^{t_2} \left[ p\dd q - P\dd Q + (K-H)\ \dd t \right] \ 
+\right\} =0 
+$
+ 
+\vspace{5mm} Inciso 2: $\quad$  \rule{200pt}{0.1pt} 
+
+Para $f=x^2y^3 \ \to \ \dd f=2xy^2 \dd x + 3x^2y^2 \dd y$
+
+$\displaystyle \int_A^B \dd f=\int_A^B (2xy^2 \dd x + 3x^2y^2 \dd y) = \cdots = \text{número}$
+
+Por otro lado, $\ \displaystyle \int_A^B 1 \ \dd f =\eval{f}_A^B =f(B)-f(A)=x_B^2y_B^3-x_A^2y_A^3$
+
+Es decir, $\ \displaystyle \int_A^B \dd f = \int_A^B 1\ \dd f$
+
+\begin{flushright}\rule{200pt}{0.1pt}\end{flushright}
+
+Podemos convertir nuestro integrando en la diferencial de una función, si fuese
+
+$ \displaystyle \var \left[ \int_{t_1}^{t^2} [ \ 
+\underbrace{p\dd q - P\dd Q +(K-H)}_{\dd f}
+\ ] \right]   \ = \ \var \left[ \int_{t_1}^{t_2} \ \dd f \right] \ = 
+\ \var \left( \ f(t_2)-f(t_1) \  \right)   \ 
+= \ \var \ (\text{número}) \ = \ 0$
+
+$t_1$ y $t_2$ son números fijos por el principio de Hamilton. Según el inciso anterior, se trataría de la variación de un número, de una constante, y daría cero.
+
+Necesitamos, pues, que $ \quad\displaystyle \subrayado{\boxed{ \ \boldsymbol{ p\dd q - P\dd Q +(K-H) \ = \ \dd f } \ }} \ $ y esto es básicamente el \textbf{truco} que andábamos buscando.
+
+Si $\ \displaystyle \dd f=\pdv{f}{x} \dd x + \pdv{f}{y}\dd y \ \to \ f=f(x,y) \, , \  $ en nuestro caso será $\ \boldsymbol{f=f(q,Q,t)}\, , \ $ además, tendremos que:
+
+$$\displaystyle \subrayado{\boxed{ \ \boldsymbol{
+\pdv{f}{q} \ = \ p \, ; \qquad
+\pdv{f}{Q} \ = \ - P \, ; \qquad
+\pdv{f}{t} \ = \ K-H
+} \ }}$$ 
+
+Esta son las ecuaciones que nos facilitarán el trabajo como veremos más tarde en un ejemplo.
+
+\vspace{5mm}
+Supongamos que estamos interesados en cambiar la dependencia de $f$ para que en vez de depender de $Q$ lo haga de $P$, por ejemplo, esto es posible con la 	\textbf{transformada de Legendre}:
+
+$$\boldsymbol{ f(x) \quad \longrightarrow 	\quad \displaystyle x\ \pdv{f}{x} \ - \ f \ = \ g(y)\ , \qquad \textbf{ con } \ \ y=\pdv{f}{x} \ \ \textbf{ y despejando } \ \ x=x(y) }$$
+
+Atención, \underline{cambio de nomenclatura} para coincidir con lo que se puede ver en los textos. Lo habitual es llamar $F_1$ a la función y $F_2,\ F_3,	 \dots $ a sus transformadas de Legendre, de este modo:
+
+
+\vspace{5mm}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|}
+\hline \\
+\begin{tabular}[c]{@{}l@{}}$\boldsymbol{ \quad \dd F_1(q,Q,t) \ \ =  \ \  p\dd q \ - \ P\dd Q \ + \ (K-H)  \ \dd  t \quad }$\\ \\ $\quad \displaystyle  \pdv{F_1}{q} \ = \ p \ ; \qquad \pdv{F_1}{Q}\ = \ -P \ ; \qquad \pdv{F_1}{t} \ = \ K-H \quad $ \end{tabular} \\  \\ \hline 
+\end{tabular}
+\end{table}
+\vspace{5mm}
+
+Apliquemos la transformada de Legendre para el cambio $\ Q \to P \ $ \textcolor{gris}{(este ejemplo es muy válido para ver la utilidad de la transformada de Legendre)}
+
+$F_2=\displaystyle Q\pdv{F_1}{Q}-F_1$, con $\displaystyle \pdv{F_1}{Q}=-P$, así, $F_2(q,P,t)=Q(-P)-F_1=-QP-F_1$. Vamos a por $\dd F_2$
+
+$\dd F_2(q,P,t)=\displaystyle -\dd(QP) - \dd F_1=-Q\dd P - P \dd Q- \dd F_1=-\cancel{P\dd Q} -Q\dd P -\left( p\dd q - \cancel{P\dd Q}+(K-H) \dd t \right)$ 
+
+$$\boldsymbol{\dd F_2(q,P,t) \ = \ \displaystyle -p\dd q \ - \ Q\dd P \ - \ (K-H) \ \dd t}$$
+
+
+Como la variación de una constante es cero independientemente de que en la integral del inciso 2 hayamos puestos un $1$ o cualquier otro número,  $\displaystyle \var  \left( \int_{t_1}^{t_2} (-1) \dd f\right) =0$, para evitar este incómodo factor $(-1)$ de los $\dd F_i$ tomamos $(-1)$ como constante, de este modo, 
+
+$$\boldsymbol{
+F_2(q,P,t) \ = \ QP \ + \ F_1 \qquad \qquad \qquad \dd F_2(q,P,t) \ = \ \displaystyle p\dd q \ + \ Q\dd P \ + \ (K-H) \ \dd t
+}$$
+
+
+Podemos trabajar con distintas variables, llamaremos $\quad F_1(q,p,t);\quad F_2(q,P,t);\quad F_3(p,Q,t);\quad F_4(p,P,t)$. Se puede demostrar que:
+\vspace{5mm}
+
+
+\begin{comment}
+\begin{myblock}{Funciones generadoras}
+	\begin{table}[H]
+\color{NavyBlue}
+\centering
+\footnotesize
+\begin{tabular}{|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}$\,$\\ $\ \boldsymbol{F_1(q,Q,t) } \ $\\ $\ \boldsymbol{\dd F_1(q,Q,t) \ = \ p\dd q \ - \ P\dd Q \ + \ (K-H) \  \dd t} \ $\\ $\ \displaystyle \boldsymbol{\pdv{F_1}{q} \ = \ p; \  \  \pdv{F_1}{Q}\ = \ -P;\  \  \pdv{F_1}{t} \ = \ K-H} \ $\\  $\,$\end{tabular} & \begin{tabular}[c]{@{}l@{}}$\,$\\ $\ \boldsymbol{F_2(q,P,t) \ = QP+F_1} \ $\\ $\ \boldsymbol{\dd F_2(p,Q,t) \ = \ p\dd q \ + \ Q\dd P \ + \ (K-H) \  \dd t} \ $\\ $\ \displaystyle \boldsymbol{\pdv{F_2}{q} \ = \ p; \  \  \pdv{F_2}{P}\ = \ Q;\  \  \pdv{F_2}{t} \ = \ K-H} \ $ \\ $\,$\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}$\,$\\ $\ \boldsymbol{F_3(p,Q,t)\ = \ -pq+F_1} \ $\\ $\ \boldsymbol{\dd F_3(p,Q,t) \ = \ -q\dd p \ + \ P\dd Q \ + \ (K-H) \  \dd t} \ $\\ $\ \displaystyle \boldsymbol{\pdv{F_3}{p} \ = \ -q; \  \  \pdv{F_3}{Q}\ = \ -P;\  \  \pdv{F_3}{t} \ = \ K-H} \ $ \\ $\,$\end{tabular} & \begin{tabular}[c]{@{}l@{}}$\,$\\ $\  \boldsymbol{F_4(p,P,t)\ = \ PQ-pq+F_1} \ $\\ $\  \boldsymbol{\dd F_4(p,P,t) \ = \ -q\dd p \ + \ Q\dd P \ + \ (K-H) \  \dd t} \ $\\ $\  \displaystyle \boldsymbol{\pdv{F_4}{p} \ = \ -q; \  \  \pdv{F_4}{P}\ = \ Q;\  \  \pdv{F_4}{t} \ = \ K-H} º $\\ $\,$\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+\end{myblock}
+\end{comment}
+
+\begin{myblock}{Funciones generadoras}
+\begin{table}[H]
+\centering
+\large
+\color{NavyBlue}
+\begin{tabular}{|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}$\,$\\ $\ \boldsymbol{F_1(q,Q,t) } \ $ \\ $\,$ \\$\ \boldsymbol{\dd F_1(q,Q,t) \ = \ p\dd q \ - \ P\dd Q \ + \ (K-H) \  \dd t} \ $\\ $\ \displaystyle \boldsymbol{\pdv{F_1}{q} \ = \ p; \  \  \pdv{F_1}{Q}\ = \ -P;\  \  \pdv{F_1}{t} \ = \ K-H} \ $\\ $\,$\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}$\,$\\ $\ \boldsymbol{F_2(q,P,t) \ = QP+F_1} \ $\\  $\,$ \\ $\ \boldsymbol{\dd F_2(p,Q,t) \ = \ p\dd q \ + \ Q\dd P \ + \ (K-H) \  \dd t} \ $\\  $\ \displaystyle \boldsymbol{\pdv{F_2}{q} \ = \ p; \  \  \pdv{F_2}{P}\ = \ Q;\  \  \pdv{F_2}{t} \ = \ K-H} \ $\\ $\,$\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}$\,$\\ $\ \boldsymbol{F_3(p,Q,t)\ = \ -pq+F_1} \ $\\ $\,$ \\   $\ \boldsymbol{\dd F_3(p,Q,t) \ = \ -q\dd p \ + \ P\dd Q \ + \ (K-H) \  \dd t} \ $\\  $\ \displaystyle \boldsymbol{\pdv{F_3}{p} \ = \ -q; \  \  \pdv{F_3}{Q}\ = \ -P;\  \  \pdv{F_3}{t} \ = \ K-H} \ $\\ $\,$\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}$\,$\\ $\  \boldsymbol{F_4(p,P,t)\ = \ PQ-pq+F_1} \ $ \\ $\,$ \\ $\  \boldsymbol{\dd F_4(p,P,t) \ = \ -q\dd p \ + \ Q\dd P \ + \ (K-H) \  \dd t} \ $\\  $\  \displaystyle \boldsymbol{\pdv{F_4}{p} \ = \ -q; \  \  \pdv{F_4}{P}\ = \ Q;\  \  \pdv{F_4}{t} \ = \ K-H} \ $\\ $\,$\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+\end{myblock}
+
+
+
+\color{black}
+
+\vspace{5mm}
+\subsection{Ejemplo de generación de transformación canónica}
+\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (3.5,.01);
+	\fill [left color=teal!50, right color=blue!50] (3.5,0) rectangle (7.5,.01);
+	\end{tikzpicture}
+\vspace{5mm}
+
+
+\begin{example}
+
+Buscamos una $P$ para que junto con $Q=\dfrac 1{q^2}$ formen una transformación canónica.
+?`Cuál de las cuatro funciones generadoras será la más adecuada?
+\end{example}
+
+Truco para seleccionar la función generadora, nuestras variables $\textcolor{red}{\circledast}$ y $\textcolor{red}{\circledcirc }$  deben estar relacionadas por una ecuación que las relacione y que se cumpla:
+
+\begin{large}
+$$ 	\subrayado{ \ \boldsymbol{
+\displaystyle \pdv{F}{\Box} \ = \ \textcolor{red}{\circledast} \qquad \text{ y } \qquad \pdv{F}{\textcolor{red}{\circledcirc }} \ = \ \triangleright  
+} \ }$$
+\end{large}
+
+En nuestro caso, $\quad \displaystyle \boldsymbol{ \pdv{F}{\Box} \ = \ \textcolor{red}{Q} \quad \text{ y } \quad \pdv{F}{\textcolor{red}{q}}\ = \ \triangleright } \ $ y la relación es $\ \textcolor{red}{Q\ = \ \dfrac 1{q^2}}$. Hay dos funciones generadoras que cumplen estas condiciones, \textcolor{blue}{$F_2$} y \textcolor{blue}{$F_2$}. Lo haremos con ambas, se trata de encontrar $P$:
+
+$\textcolor{blue}{F_2} \ \to \ \displaystyle \pdv{F_2}{P}=\textcolor{red}{Q} \; \ \pdv{F_2}{\textcolor{red}{q}}= p
+\qquad \qquad 
+\textcolor{blue}{F_3} \ \to \ \displaystyle \pdv{F_2}{p}=-\textcolor{red}{q} \; \ \pdv{F_3}{\textcolor{red}{Q}}= -P$ 
+
+
+\vspace{5mm} $\boxed{ \ \textcolor{blue}{F_2}  \ } \qquad  \
+ \ \displaystyle \pdv{F_2}{P}=\textcolor{red}{Q} \; \
+\quad  \pdv{F_2}{\textcolor{red}{q}}= p \qquad \Rightarrow 
+\qquad $
+$ \displaystyle \pdv{F_2}{P}=Q \ \to \ F_2=\int Q \ \dd P = \int \dfrac 1 {q^2} \ \dd P$
+
+Como $\ F_2=F_2(q,P) \ \to \ q \ \text{ y }  \ P \ $ son variables independientes.
+
+Derivando respecto de la otra variable relacionada (en rojo): $ \ \displaystyle \pdv{F_2}{q}=\pdv \int \dfrac 1{q^2} \ \dd P = \int \pdv{q} \dfrac 1{q^2} \ \dd P $, por tratarse de derivadas parciales.
+
+$\displaystyle \pdv{F_2}{q} = \int -\dfrac 2 {q^3} \ \dd P = -\dfrac 2 {q^3} + \cancelto{0}{A(q)}\, , \ $ constante que se suele tomar cero.
+
+Pero la función generadora es tal que $\ \displaystyle \pdv{F_2}{q}=p\, , \ $ por lo que tenemos que:
+
+$p=-\dfrac 2{q^3} P \ \to \ P=-\dfrac{pq^3}{2} \ $ y la transformación buscada sería:
+
+$$\boldsymbol{ Q\ = \ \dfrac 1 {q^2} \qquad \qquad \qquad P \ = \ -\dfrac{pq^3}{2} }$$ 
+
+\vspace{5mm} Comprobemos que efectivamente se trata de una transformación canónica, calculemos la matriz jacobiana $M$ para ver si tiene determinante 1.
+
+$M=\mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} ) \ = \ \mqty(-\dfrac{2} {q^3} & 0 \\ -\dfrac 3 2 pq^2 & -\dfrac{q^3}{2}) \quad \to \quad |M|\ = 1-0 = \ 1\, , \  $  
+
+sí se trata de una transformación canónica.
+
+
+
+\vspace{5mm} $\boxed{ \ \textcolor{blue}{F_3}  \ } \qquad  \
+ \ \displaystyle \pdv{F_3}{p}=\textcolor{red}{-q} \; \
+\quad  \pdv{F_3}{\textcolor{red}{Q}}= -P \qquad \Rightarrow 
+\qquad $
+$ \displaystyle \pdv{F_3}{p}=-q \ \to \ F_3=-\int q \ \dd p = -\int \dfrac 1 {	\sqrt
+{Q}} \ \dd p$
+
+Como $\ F_3=F_3(p,Q) \ \to \ p \ \text{ y }  \ Q \ $ son variables independientes.
+
+Derivando respecto de la otra variable relacionada (en rojo):
+ 
+ $\displaystyle \pdv{F_3}{Q}=-\int \pdv{Q} (Q^{-1/2})\ \dd p =- \int \dfrac 1 2 \ (Q^{-3/2}) \ \dd p = -\dfrac 1 2 \ Q^{-3/2} \ P +\cancel{B(p)}$
+ 
+ Como $F_3$ es tal que $\ \displaystyle \pdv{F_3}{A} \ = \ - P \, , \ $ tenemos
+ 
+ $-\dfrac 1 2 Q^{-3/2} p = - P \ \to \ P=-\dfrac 1 2 p (Q^{-3/2})=-\dfrac 1 2 p \left( \dfrac 1{q^2} \right) ^{-3/2} =-\dfrac 1 2 pq^3$
+ 
+ Y la transformación es: 
+ 
+ $$\boldsymbol{ Q\ = \ \dfrac 1 {q^2} \qquad \qquad \qquad P \ = \ -\dfrac{pq^3}{2} }$$ 
+ 
+ Coincide con la anterior y es una transformación canónica.
+ 
+ \section{Ejercicio propuesto}
+ \vspace{0.5cm}
+
+\begin{ejercicio}
+\begin{adjustwidth}{10pt}{10pt}
+$\,$ 
+
+$\boldsymbol{ H\ = \ \dfrac {p^2}2 \ + \ \dfrac{q^2} 2} \ $ Queremos efectuar una transformación canónica de modo que  $\ \boldsymbol{H\ = \ K} \, . \ $ 
+
+?`Cuál es la $ \ \boldsymbol{Q} \ $ que debemos elegir?
+
+$\,$ 
+\end{adjustwidth} 	
+\end{ejercicio}
+
+\vspace{5pt}
+
+\color{NavyBlue}
+
+
+$$H(q,p) \ = \ \dfrac {q^2}2 \ + \ \dfrac {p^2}2 \quad \to \qquad K(Q,P)\ :\qquad K\ =\ P \ ; \quad \text{?` } Q \text{ ?} $$  
+
+
+\vspace{5mm} Como $H\neq H(t) \ \text { y } \ K\neq K(t) \quad \to \quad \displaystyle \pdv{F}{t}=0 \quad \to \quad \boldsymbol{H=K} \quad \to \quad \boxed{ \ \boldsymbol{ \dfrac {q^2}2 \ + \ \dfrac {p^2}2 \ = \ P }\ }$ 
+
+Recuadrado aparece la relación entre $\ P \text{ y } p \ \text{ o } \ P \text{ y } q \, . \ $ Podemos acudir a cualquiera de las dos funciones generadoras $F_2(q,P) \text{ o } F_4(p,P)$, en ambos casos se trata de averiguar quien será $\ \boldsymbol Q \, . $ Aunque no es necesario hacerlo de ambos modos, lo haremos para que sirva de comprobación que ambos son buenos.
+
+\vspace{5mm} $\boxed{ \ \textcolor{blue}{F_2}  \ }  \quad  \  \displaystyle
+\pdv{F_2}{q}=\textcolor{red}{p} \ ; \quad \pdv{F_2}{\textcolor{red}{P}}=Q \ ; \qquad \dfrac {q^2}2 \ + \ \dfrac {p^2}2 \ = \ P  \ \to \ p=\sqrt{2P-q} \ ;
+\quad F_2(q,P)\ \ q \text{ y } P \text{\ vbles. indeptes.}$
+
+$\displaystyle \pdv{F_2}{q} = p = \sqrt{2P-q^2}  \ \to \ F_2=\int p \ \dd q=\int  \sqrt{2P-q} \ \dd q$
+
+$\displaystyle \boldsymbol{Q}= \pdv{F_2}{P}=\pdv{P} \int  \sqrt{2P-q} \ \dd q= \int \pdv{P} \sqrt{2P-q} \ \dd q = \int \dfrac {2 \ P}{2 \ \sqrt{2P-q}} \ \dd q = \int \dfrac {\dd q} { \sqrt{2P-q} } =$
+
+$=\displaystyle \left[ \begin{matrix} \text{CV: } \ q=\sqrt{2P} \sin \theta \\ \dd q  =  \sqrt{2P}  \cos \theta  \ \dd \theta \end{matrix} \right] = \int \dfrac 1{\sqrt{2P-2P\sin^2 \theta}} \ \sqrt{2P} \ \cos \theta \ \dd \theta=
+\int \dfrac{\cos \theta}{\sqrt{1-\sin^2\theta}} \ \dd \theta = \int \dfrac{\cos \theta}{\cos \theta} \dd \theta =$
+
+$\displaystyle = \int \dd \theta = \theta = \arcsin \left( \dfrac q {\sqrt{2\left( \dfrac {q^2}{2} + \dfrac {p^2}{2} \right) } } \right) = \ \boxed{ \ \boldsymbol{ \arcsin \dfrac{q}{\sqrt{q^2+p^2}}} \ = \ Q \ }$
+
+\vspace{5mm} Comprobemos que efectivamente se trata de una transformación canónica, calcularemos la matriz jacobina $M$ y comprobaremos si su determinante es 1.
+
+\vspace{5mm} $(q,p) \quad \to \quad \left( \ Q=\arcsin \dfrac{q}{\sqrt{q^2+p^2}}\ , \ P =\dfrac{q^2}2 + \dfrac{p^2}2 \ \right) \qquad \qquad  \qquad \qquad M=\mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} ) $
+
+$\displaystyle \pdv{Q}{q}= $
+\begin{footnotesize} $\dfrac 
+{ 1 }  
+{ \sqrt{1-\dfrac{q^2}{q^2+p^2}} } \ 
+\dfrac 
+{1\cdot \sqrt{q^2+p^2} - q\dfrac{2q}{2\sqrt{q^2+p^2}}}
+{q^2+p^2} = 
+\dfrac{\sqrt{q^2+p^2}}{\sqrt{q^2+p^2-q^2}} \dfrac{q^2+p^2-q^2}{(q^2+p^2)\ \sqrt{q^2+p^2} } = \dfrac{p^2}{p(q^2+p^2)}= $\end{footnotesize}
+$ \dfrac{p}{p^2+q^2}$
+
+
+
+$\displaystyle \pdv{Q}{p}=
+\dfrac 
+{ 1 }  
+{ \sqrt{1-\dfrac{q^2}{q^2+p^2}} } \ 
+\dfrac 
+{0 - q\dfrac{2p}{2\sqrt{q^2+p^2}}}
+{q^2+p^2} =   
+\dfrac{\sqrt{q^2+p^2}}{\sqrt{q^2+p^2-q^2}} 
+\dfrac{-qp}{(q^2+p^2)\ \sqrt{q^2+p^2}} = \dfrac{-qp}{p(q^2+p^2)}=\dfrac{-q}{p^2+q^2}$
+
+$\displaystyle \pdv{P}{q}=q \ ;  \qquad \pdv{P}{p}=p$
+$ \qquad \qquad M=\mqty( \dfrac{p}{p^2+q^2} & \dfrac{-q}{p^2+q^2} \\ q & p )   \quad   \to \quad | M|= \dfrac {p}{q^2+p^2} - \dfrac{-q^2}{p^2+q^2} = 1 \qquad \Box$
+
+ Efectivamente se trata de una transformación canónica.
+
+\begin{center}
+\rule{250pt}{0.1pt}	
+\end{center}
+
+
+
+
+\vspace{5mm} $\boxed{ \ \textcolor{blue}{F_4}  \ }  \quad  \  \displaystyle
+\pdv{F_4}{p}=\textcolor{red}{-q} \ ; \quad \pdv{F_4}{\textcolor{red}{P}}=Q \ ; \qquad \dfrac {q^2}2 \ + \ \dfrac {p^2}2 \ = \ P  \ \to \ q=\sqrt{2P-p} \ ;
+\quad F_4(p,P)\ \ p \text{ y } P \text{\ vbles. indeptes.}$
+
+$\displaystyle \pdv{F_4}{p} = -q = - \sqrt{2P-q^2}  \ \to \ F_4=-\int q \ \dd p=-\int  \sqrt{2P-p} \ \dd p$
+
+$\displaystyle \boldsymbol{Q}= \pdv{F_4}{P}=\pdv{P}\left( -  \int  \sqrt{2P-p} \ \dd p \right) = -\int \pdv{P} \sqrt{2P-p} \ \dd p = -\int \dfrac {2 \ P}{2 \ \sqrt{2P-p}} \ \dd p = -\int \dfrac {\dd p} { \sqrt{2P-p} } =$
+
+$=\displaystyle \left[ \begin{matrix} \text{CV: } \ p=\sqrt{2P} \sin \theta \\ \dd p  =  \sqrt{2P}  \cos \theta  \ \dd \theta \end{matrix} \right] = -\int \dfrac 1{\sqrt{2P-2P\sin^2 \theta}} \ \sqrt{2P} \ \cos \theta \ \dd \theta=
+-\int \dfrac{\cos \theta}{\sqrt{1-\sin^2\theta}} \ \dd \theta = -\int \dfrac{\cos \theta}{\cos \theta} \dd \theta =$
+
+$\displaystyle = -\int \dd \theta = -\theta = -\arcsin \left( \dfrac p {\sqrt{2\left( \dfrac {q^2}{2} + \dfrac {p^2}{2} \right) } } \right) \ \to \  \ \boxed{ \ \boldsymbol{- \arcsin \dfrac{p}{\sqrt{q^2+p^2}}} \ = \ Q \ }$
+
+\vspace{5mm} Comprobemos que efectivamente se trata de una transformación canónica, calcularemos la matriz jacobina $M$ y comprobaremos si su determinante es 1.
+
+\vspace{5mm} $(q,p) \quad \to \quad \left( \ Q=-\arcsin \dfrac{p}{\sqrt{q^2+p^2}}\ , \ P =\dfrac{q^2}2 + \dfrac{p^2}2 \ \right) \qquad \qquad  \qquad \qquad M=\mqty( \displaystyle \pdv{Q}{q} & \displaystyle \pdv{Q}{p} \\ \\ \displaystyle \pdv{P}{q} & \displaystyle \pdv{P}{p} ) $
+
+
+
+
+$\displaystyle \pdv{Q}{q}=
+-\dfrac 
+{ 1 }  
+{ \sqrt{1-\dfrac{p^2}{q^2+p^2}} } \ 
+\dfrac 
+{0 - p\dfrac{2q}{2\sqrt{q^2+p^2}}}
+{q^2+p^2} = -  
+\dfrac{\sqrt{q^2+p^2}}{\sqrt{q^2+p^2-p^2}} 
+\dfrac{-pq}{(q^2+p^2)\ \sqrt{q^2+p^2}} = \dfrac{+pq}{q(q^2+p^2)}=\dfrac{q}{p^2+q^2}$
+
+
+
+$\displaystyle \pdv{Q}{p}= $
+\begin{footnotesize} $-\dfrac 
+{ 1 }  
+{ \sqrt{1-\dfrac{p^2}{q^2+p^2}} } \ 
+\dfrac 
+{1\cdot \sqrt{q^2+p^2} - p\dfrac{2p}{2\sqrt{q^2+p^2}}}
+{q^2+p^2} = 
+-\dfrac{\sqrt{q^2+p^2}}{\sqrt{q^2+p^2-p^2}} \dfrac{q^2+p^2-p^2}{(q^2+p^2)\ \sqrt{q^2+p^2} } = -\dfrac{q^2}{q(q^2+p^2)}= $\end{footnotesize}
+$ -\dfrac{q}{p^2+q^2}$
+
+
+
+
+$\displaystyle \pdv{P}{q}=q \ ;  \qquad \pdv{P}{p}=p$
+$ \qquad \qquad M=\mqty( \dfrac{p}{p^2+q^2} & \dfrac{-q}{p^2+q^2} \\ q & p )   \quad   \to \quad | M|= \dfrac {p}{q^2+p^2} - \dfrac{-q^2}{p^2+q^2} = 1 \qquad \Box$
+
+
+
+ Efectivamente se trata de una transformación canónica.
+
+
+
+
+
+
+
+
+
+\color{Black}
+
+

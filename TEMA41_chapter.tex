@@ -1,0 +1,219 @@
+\chapter{Cálculo del corchete de \emph{Poisson} $\boldsymbol{\{a,a^* \}} $}
+
+	\begin{tikzpicture}
+	\fill [left color=red!50, right color=teal!50] (0,0) rectangle (6.5,.1);
+	\fill [left color=teal!50, right color=blue!50] (6.5,0) rectangle (11.5,.1);
+	\end{tikzpicture}
+
+\vspace{10mm}
+
+\begin{equation}
+\tag{\ref{T40FTcampo}}
+\boldsymbol{ \boxed{ \ \subrayado{
+\phi(t,x) \ = \ \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)} \  \ \right]
+} \ } }	\qquad \quad \ \ 
+\end{equation}
+
+\begin{equation}
+\tag{\ref{T40FTmomento}}
+\boldsymbol{ \boxed{ \ \subrayado{
+ \pi(t,x)\ = \
+\dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega} \ \ (-i\omega) \ \left[ \ 
+\  a(k)\ e^{-i(\omega t-kx)} \ - \ a^*(k)\ e^{i(\omega t-kx)} \ 
+\ \right]
+} \ } }		
+\end{equation}
+
+\vspace{5mm}
+\begin{adjustwidth}{50pt}{50pt}
+\begin{ejemplo}
+\vspace{2mm}
+Vamos a calcular el corchete de Poisson de las funciones $\ \{a,a^* \}$.
+\vspace{2mm}
+\end{ejemplo}
+\end{adjustwidth}
+
+\vspace{5mm}
+
+\section{Corchete de Poisson}
+
+$\displaystyle \{A,B\} \ = \ \int_{-\infty}^{+\infty} \dd x \, \left(\,  \pdv{A}{\phi} \, \pdv{B}{\pi} \ - \ \pdv{A}{\pi}\, \pdv{B}{\phi} \, \right) \, . \  $ Para usar esta expresión necesitamos despejar $a(\phi,\pi$ y $a^*(\phi.\pi)$ para el cálculo de las derivadas parciales que intervienen en el corchete.
+
+Veamos una analogía con los vectores de $\mathbb R^n$:
+
+$\displaystyle \vec v=\dfrac 1 2 \left( \sum_i \alpha_i e_i + \sum_i \alpha_i^* e_i^* \right) \in \mathbb R^n$
+
+Nos aparecerán, en nuestro caso, productos del tipo:
+
+$e_k\cdot e_q= e^{-i(\omega t-kx)} \cdot e^{i(\Omega t-qx)}=\displaystyle \int_{-\infty}^{+\infty} \dd x \, e^{-i(\omega t-kx)} \, e^{i(\Omega t-qx)} =  e^{i(\Omega-\omega)t} \int_{-\infty}^{+\infty} \dd x \, e^{-i(k-q)x}$
+
+$e_k \cdot e_q= 2\pi \, e^{i(\omega-\Omega)t} \, \delta(k-q)\quad $ y también $\quad e^*_k\cdot e_q=2\pi\, e^{-i(\omega+\omega)t} \, \delta(K+q)$
+
+Continuemos con nuestra analogía de vectores $\mathbb R^n$,
+
+$\vec v \cdot e_j = \displaystyle \dfrac 1 2 \left( \sum_i \alpha_i e_i + \sum_i \alpha_i^* e_i^* \right) \cdot e_j= \dfrac 1 2 \left( \sum_i \alpha_i e_i \cdot e_j + \sum_i \alpha_i^* e_i^*\cdot e_j \right)= \ $ 
+
+$\displaystyle =\textcolor{gris}{\mqty(\delta(k-q) \to \delta_{i,j} \\ \delta(k+q) \to \delta_{i,-j})} \ =
+\dfrac 1 2 \, \left( \alpha_j +\alpha_{-j}^* \, f(t) \right) $
+
+$\displaystyle \dv{t} [\vec v \cdot e_j]=\dot{\vec v} e_j + \vec v \dot e_j=\dfrac 1 2 \alpha_{-j}^* \, f(t)$
+
+Conjugando, $\ [\, \vec v \sim \phi\, ; \ \ \dot{\vec v} \sim \dot \phi = \pi  \, ]\ $ y multiplicando por $2$:
+
+$2 \dot{\vec v} \cdot {e_j^*} + \vec v \cdot e_{-j}^* = \dfrac 1 2 \alpha_{-j} \, \dot {f^*(t)} \quad (\, i \leftrightarrow -j \, ) \quad 2 \dot{\vec v} \cdot {e^*_{-j}} + \vec v \cdot \dot {e^*_j} = \dfrac 1 2 \alpha_j \dot {f^*(t)}$
+
+Despejando: $\quad \displaystyle  \alpha_j = \dfrac{2}{\dot f^*} (\, \dot{\vec v} \cdot {e_{-j}^*} + \vec v\cdot \dot{e_{-j}^*} \, ) = \dfrac{2}{\dot f^*} \, \dv{t} \, (\, \vec v \cdot e^*_{-j} \, )$ 
+
+En nuestra analogía, el proceso ha sido partir de $\vec v $ y $\quad 1) \ \cdot e_j\, ; \quad 2)\ \dv{t} \, ; \quad 3) \ \text{despejar } \alpha$
+
+
+\vspace{5mm} Vamos con nuestro caso de campos:
+
+\vspace{5mm} $\triangleright \ \ 1) \quad $ `Producto escalar':
+
+$\displaystyle \int_{-\infty}^{+\infty} \dd x \, \phi(t,x) \cdot e^{i(\Omega t-qx)} =  \int_{-\infty}^{+\infty} \dd x  \dfrac 1 2   \int_{-\infty}^{+\infty} 
+\dfrac{\dd k}{2\pi \omega}  \left[  
+ a(k)\ e^{-i(\omega t-kx)} \ + \ a^*(k)\ e^{i(\omega t-kx)}  \right] \, e^{i(\Omega t-qx)}  =$
+
+$=\displaystyle \int_{-\infty}^{+\infty}  \dfrac{\dd k}{2\pi \omega} \,
+\left[ \,  
+\int_{-\infty}^{+\infty} \dd x\, a(k)\ e^{-i(\omega t-kx)} \, e^{i(\Omega t-qx)}
+\ + \   
+\int_{-\infty}^{+\infty} \dd x\, a^*(k)\ e^{i(\omega t-kx)}  \, e^{i(\Omega t-qx)}
+\, \right]=$
+
+$\displaystyle = \int_{-\infty}^{+\infty}  \dfrac{\dd k}{2\pi \omega} \,
+\left[ \, 
+a_k e^{-i(\omega-\Omega)t}\, 2\pi\ \delta(k-q) \ + º a^*_k e^{i(\omega+\Omega)t}\, 2\pi \ \delta(k+q)
+\, \right]= \ $
+
+\begin{tiny} \textcolor{gris}{$\mqty( \omega=\sqrt{k^2+m^2} & \ | \ & \delta(K-q):\ k=q \  \to \ \omega=\Omega \\ \Omega=\sqrt{q^2+m^2} & \ | \ & \delta(K+q):\ k=-q \to \omega=\Omega)$} \end{tiny}
+$\quad =\dfrac 1 2 \dfrac 1 \Omega \, a_q \, + \, \dfrac 1 2 \dfrac 1 \Omega \, a^*_{-q}\, e^{i2\Omega t}$
+
+Luego el `producto escalar' da: $\displaystyle \int_{-\infty}^{+\infty} \dd x \, \phi(t,x) \cdot e^{i(\Omega t-qx)} \ = \  \dfrac 1 2 \dfrac 1 \Omega \, a_q \, + \, \dfrac 1 2 \dfrac 1 \Omega \, a^*_{-q}\, e^{i2\Omega t} $
+
+\begin{footnotesize}\textcolor{gris}{
+Similar al caso vectorial en $\mathbb R^n:\quad \alpha_j+\alpha^*_{-j}e^{i2\omega t}$	}
+\end{footnotesize}
+
+
+\vspace{5mm} $\triangleright \ \ 2) \quad \displaystyle \dv{t} $ Derivar respecto al tiempo $\ (\dot \phi = \pi)$:
+
+$\displaystyle \dv{t} \left( \  \int_{-\infty}^{+\infty} \dd x \, \phi(t,x) \cdot e^{i(\Omega t-qx)} \ = \  \dfrac 1 2 \dfrac 1 \Omega \, a_q \, + \, \dfrac 1 2 \dfrac 1 \Omega \, a^*_{-q}\, e^{i2\Omega t} \ \right )$
+
+\underline{Primer miembro}: $\quad \displaystyle  \int_{-\infty}^{+\infty} \dd x \,  \left(  \pi\, e^{i(\Omega t-qx)} \, + \, \phi\, i\Omega\,  e^{i(\Omega t-qx)} \right) =  \int_{-\infty}^{+\infty} \dd x \, (\pi\, + \, i\, \Omega\, \phi) \,  e^{i(\Omega t-qx)} $
+
+\underline{Segundo miembro}: $\quad \displaystyle \dfrac 1{2\Omega} \, a^*_{-q}\, i \, 2\Omega\, e^{i\, 2\, \Omega \, t} \ = \ i\, a^*_{-q}\, e^{i\, 2\, \Omega \, t}$
+
+Luego, $\quad \displaystyle  \int_{-\infty}^{+\infty} \dd x \, (\pi\, + \, i\, \Omega\, \phi) \,  e^{i(\Omega t-qx)}  \ = \ i\, a^*_{-q}\, e^{i\, 2\, \Omega \, t} $
+
+
+\vspace{5mm} $\triangleright \ \ 3) \quad $ Despejar (multiplicando por el conjugado): $\quad \left(\, \int_{-\infty}^{+\infty} \dd x \, (\pi\, + \, i\, \Omega\, \phi) \,  e^{i(\Omega t-qx)}  \ = \ i\, a^*_{-q}\, e^{i\, 2\, \Omega \, t}  \, \right) \ e^{-i\, 2\, \Omega \, t}$
+
+\begin{small}\textcolor{gris}{(Como $\Omega=\sqrt{q^2+m^2}=\Omega(q)\, , \ $  pero $\Omega \neq \Omega(t)\ $ y puede entrar dentro de la integral)}\end{small}
+
+$\displaystyle \dfrac 1 i \,  \int_{-\infty}^{+\infty} \dd x \, (\pi\, + \, i\, \Omega\, \phi) \,  e^{i(\Omega t-qx)} \, e^{-i\, 2\, \Omega}  \ = \ i\, a^*_{-q}\, e^{i\, 2\, \Omega \, t} \, \ e^{-i\, 2\, \Omega t}$
+
+$\displaystyle \dfrac 1 i \,  \int_{-\infty}^{+\infty} \dd x \, (-i\, \pi\, + \, \Omega\, \phi) \,  e^{-i(\Omega t+qx)}   \ = \  a^*_{-q}$
+
+Finalmente, cambiando $-q\to q$ y conjugando: $\quad \displaystyle a_q\, = \,  \int_{-\infty}^{+\infty} \dd x \, (i\, \pi\, + \, \Omega\, \phi) \,  e^{i(\Omega t-qx)}$
+
+Escribiéndolo con $\ q \to q  \ \Rightarrow \ \Omega \to \omega $ :
+
+\begin{equation}
+\label{T41coefte}
+\boldsymbol{
+a_k\, = \,  \int_{-\infty}^{+\infty} \dd x \ (i\, \pi\, + \, \omega\, \phi) \  e^{i(\omega t-kx)}
+}	
+\end{equation}
+
+
+\vspace{10mm} \textbf{Cálculo del corchete de Poisson } $\boldsymbol{\{a,a^* \}} $:
+
+
+El cálculo se puede hacer acudiendo a la definición que hemos recordado al principio el tema y también aplicando las propiedades del corchete de Poisson
+(sección \ref{T20CPP}). Lo haremos de esta forma:
+
+Tenemos:  
+
+\begin{equation}
+\label{T41a-a*}
+a_k\, = \,  \int_{-\infty}^{+\infty} \dd x \ (i\, \pi\, + \, \omega\, \phi) \  e^{i(\omega t-kx)} \, ; \qquad 
+a^*_q\, = \,  \int_{-\infty}^{+\infty} \dd x \ (-i\, \pi\, + \, \Omega\, \phi) \  e^{-i(\Omega t-qx)} 
+\end{equation}
+
+\vspace{5mm} \begin{small} $\{a_k\, , \, a^*_q\} \ = \ \displaystyle
+\left\{ \ \int_{-\infty}^{+\infty} \dd \boldsymbol x \ (i\, \pi(\boldsymbol x) \, + \, \omega\, \phi (\boldsymbol x) ) \  e^{i(\omega t-k \boldsymbol x)} \ , \  \int_{-\infty}^{+\infty} \dd \boldsymbol y \ (-i\, \pi (\boldsymbol y)\, + \, \omega\, \phi (\boldsymbol y) ) \  e^{-i(\omega t-k \boldsymbol y)} \ \right\} = (\to)$\end{small}
+
+\textcolor{gris}{${\ AB,CD\}= \{A,C\} + \{A,D\} + \{B,C\} + \{B,D\}}\, \quad \left\{ \sum_i A:i\, , \, \sum_jB_j \right\} = \sum_i \sum_j \{A_i,B_j\}\, . \ $ La integral es una suma, por lo que, $\ \{\int \dd x A(x)\, , \ \int \dd y B(y)\}=\int \dd x \int \dd y\, \{A(x),B(y)\}$}
+
+$\displaystyle (\to)=\, \int_{-\infty}^{+\infty} \dd \boldsymbol x\, \int_{-\infty}^{+\infty} \dd \boldsymbol y \, \left\{ \,
+(i\, \pi(\boldsymbol x) \, + \, \omega\, \phi (\boldsymbol x) ) \  e^{i(\omega t-k \boldsymbol x)} \, , \, (-i\, \pi (\boldsymbol y)\, + \, \omega\, \phi (\boldsymbol y) ) \  e^{-i(\omega t-k \boldsymbol y)}
+\, \right\} =(\to)$
+
+\textcolor{gris}{$\{\lambda A, \mu B \}=\lambda \mu \{A,B\}$. Como los corchetes de Poisson son derivadas funcionales respecto de $\phi$ y $\pi$, las exponeciales anteriores no dependen de ellos y las consideramos como `constantes' a efectos de ls corchetes de Poisson.}
+
+$\displaystyle (\to)= 
+ \int_{-\infty}^{+\infty} \dd \boldsymbol x\, \int_{-\infty}^{+\infty} \dd \boldsymbol y \, 
+ \  e^{i(\omega t-k \boldsymbol x)} \,   e^{-i(\omega t-k \boldsymbol y)} 
+ \left\{ \, 
+i\, \pi(\boldsymbol x) \, + \, \omega\, \phi (\boldsymbol x)   \, , \, -i\, \pi (\boldsymbol y)\, + \, \omega\, \phi (\boldsymbol y)  
+\, \right\} = (\to)$
+
+\begin{small}
+\textcolor{gris}{
+$\displaystyle  i\, (-i)\ \cancelto{0}{ \{\pi(x),\pi(y)\} }  \ + \ i\, \Omega \  \cancelto{-\delta(x-y)}{ \{\pi(x),\phi(y)\} } \ -  \ i \, \omega \ \cancelto{\delta(x-y)}{\{\phi(x),\pi(y)\}} \ + \ \omega \, \Omega \cancelto{0}{\{\phi(x),\phi(y) \}} $}\end{small}
+
+\textcolor{gris}{Según vimos en el capítulo \ref{T38}, `Formulación hamiltoniana del campo de Klein-Gordon', en la ecuación \ref{T38CPcampo}}
+
+$(\to)= \displaystyle   \int_{-\infty}^{+\infty} \dd \boldsymbol x\, \int_{-\infty}^{+\infty} \dd \boldsymbol y \, 
+ \  e^{i(\omega t-k \boldsymbol x)} \,   e^{-i(\omega t-k \boldsymbol y)} 
+\left[ -i\Omega \, \delta(x-y)-i\omega \, \delta(x-y)  \right] = $
+
+$\displaystyle =
+\int_{-\infty}^{+\infty} \dd \boldsymbol x\, \int_{-\infty}^{+\infty} \dd \boldsymbol y \,  e^{i(\omega t-k \boldsymbol x)} \, (-i\Omega)\, \delta(x-y)
+\ + \ 
+\int_{-\infty}^{+\infty} \dd \boldsymbol x\, \int_{-\infty}^{+\infty} \dd \boldsymbol y \,  e^{-i(\omega t-k \boldsymbol y)}  \, (-i\omega) \, \delta(x-y)   = (\to)$
+
+\textcolor{gris}{Al integrar respecto de y, $\ \delta(x-y) \ \Rightarrow \ y=x$}
+
+$(\to)= \displaystyle 
+-\int_{-\infty}^{+\infty} \dd x \  e^{-i(\omega t-k x)} \,  e^{-i(\Omega t-q x)} \ (i\Omega) \ - \ \int_{-\infty}^{+\infty} \dd x \  e^{-i(\omega t-k x)} \,  e^{-i(\Omega t-q x)} \ (i\omega) = (\to)$
+
+
+\textcolor{gris}{$\left( \ e^{-i(\omega t-k x)} \,  e^{-i(\Omega t-q x)} \ = \ e^{i(\omega-\Omega)t}\, e^{-i(K-q)x} \ \right)$}
+
+$\displaystyle = -i\, e^{i(\omega-\Omega)t}\, \left[ \, \int_{-\infty}^{+\infty} \dd x  \, \Omega \, e^{-i(k-q)x} \ + \ \int_{-\infty}^{+\infty} \dd x  \, \omega \, e^{-i(k-q)x} \, \right]=(\to)$ 
+
+ \textcolor{gris}{Al integrar respecto de $x$, las exponenciales salen fuera de la integral, $\Omega$ y $\omega$ no dependen de $x$}
+ 
+$\displaystyle =  -i\, e^{i(\omega-\Omega)t}\, \left[  \, \Omega\; 2\pi\, \delta(k-q) +  \omega\, 2\pi\, \delta(k-q) \, \right] = \ \begin{cases} \ -i\; 2\pi \, 2 \omega & \ \ \ k=q \ (\Omega=\omega) \\
+ \ \ \ \ \ \ 0 & \ \ \ k\neq q	
+ \end{cases}
+$     
+
+Luego, en (1+1)-dim:
+
+\begin{equation}
+\label{T38CP1+1-dim}
+\subrayado{ \ \boldsymbol{ \{a_k,a^*_q\} \ = \ -i\, 2\pi\, 2\omega\, \delta(k-q) } \ }	
+\end{equation}
+
+En (1+3)-dim, $\vec K$ es un trivector que aportará un factor $2\pi$ por cada componente y tendremos:
+
+\begin{large}
+\begin{equation}
+\label{T38CP1+3-dim}
+\subrayado{ \ \boxed{ \ \boldsymbol{\ \{a_{\vec k},a^*_{\vec q}\} \ = \ -i\, (2\pi)^3 \, 2\omega \ \delta^3(\vec k- \vec q) \ }	\ } \ }
+\end{equation}
+\end{large}
+
+
+
+
+
+
+
